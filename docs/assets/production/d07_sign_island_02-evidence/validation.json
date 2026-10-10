@@ -1,0 +1,301 @@
+{
+  "asset": "d07_sign_island.02",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "exporter": "5.2.40",
+  "provisional_dimensions_m": [
+    4.4,
+    2.6,
+    0.8
+  ],
+  "bounds_tolerance_m": 0.001,
+  "godot_bounds_min_m": [
+    -2.200000047683716,
+    0.0,
+    -0.4000000059604645
+  ],
+  "godot_bounds_max_m": [
+    2.200000047683716,
+    2.5999999046325684,
+    0.4000000059604645
+  ],
+  "pivot_m": [
+    0,
+    0,
+    0
+  ],
+  "source_vertices": 328,
+  "source_faces": 332,
+  "triangles": 640,
+  "export_vertices": 380,
+  "mesh_count": 1,
+  "surface_count": 4,
+  "degenerate_faces": 0,
+  "degenerate_triangles": 0,
+  "nonmanifold_edges": 0,
+  "source_normal_max_length_error": 1.5052499979795186e-07,
+  "export_normal_max_length_error": 1.372682070233111e-07,
+  "closed_volume_m3": 6.478212376514244,
+  "materials": [
+    {
+      "name": "sign_island_artwork_face",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.02800000086426735,
+          0.06700000166893005,
+          0.09200000017881393,
+          1
+        ],
+        "metallicFactor": 0.10000000149011612,
+        "roughnessFactor": 0.6000000238418579
+      }
+    },
+    {
+      "name": "island_body_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.23999999463558197,
+          0.3199999928474426,
+          0.36000001430511475,
+          1
+        ],
+        "metallicFactor": 0.05000000074505806,
+        "roughnessFactor": 0.6499999761581421
+      }
+    },
+    {
+      "name": "island_deck_petrol",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.02800000086426735,
+          0.06700000166893005,
+          0.09200000017881393,
+          1
+        ],
+        "metallicFactor": 0.10000000149011612,
+        "roughnessFactor": 0.6000000238418579
+      }
+    },
+    {
+      "name": "island_wayfinding_lime",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.47999998927116394,
+          0.7200000286102295,
+          0.1599999964237213,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5
+      }
+    }
+  ],
+  "glb_bytes": 19936,
+  "glb_sha256": "919350aa89fdb7056f324bc8938f90909c81315df2918c2a3a81f558da69d231",
+  "fresh_export_byte_identical": true,
+  "source_export_status": "passed",
+  "artwork_face": {
+    "slot": 0,
+    "source_quads": 1,
+    "export_triangles": 2,
+    "dimensions_m": [
+      3.84,
+      1.84
+    ],
+    "godot_z_m": -0.29,
+    "source_uv_corners": "viewed from front: bottom-left(0,0), top-right(1,1)",
+    "glb_uv_corners": "viewed from front: bottom-left(0,1), top-right(1,0)",
+    "uv_orientation_checked": true
+  },
+  "base_fit": {
+    "mount_y_m": 0.28,
+    "foot_corner_radius_m": 2.23606797749979,
+    "clear_deck_radius_m": 2.58,
+    "fits": true
+  },
+  "targeted_checks": {
+    "author-final": {
+      "exit": 0,
+      "raw_log_sha256": "b7cc4ad38e52c34ddf5e54c922842f536dd964338850c4c0ab8f2cf99e87fe1f",
+      "errors": [],
+      "warnings": []
+    },
+    "validate": {
+      "exit": 0,
+      "raw_log_sha256": "3bd9fec53e5e0cb76ad11f46238f2ef67fd6f6c70fbbcc0ab0724ded9f585981",
+      "errors": [],
+      "warnings": []
+    },
+    "import-final": {
+      "exit": 0,
+      "raw_log_sha256": "7be187b82fa8afc3f7c9f459db4308673d01a39b676b57d7e95a469d0f52ff71",
+      "errors": [],
+      "warnings": [
+        "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues"
+      ]
+    },
+    "prefab-normalize-final": {
+      "exit": 0,
+      "raw_log_sha256": "a430e75ee01b5f78219e7d2d325246fb5b4657cf6797ac4d20560b2f2e8cb952",
+      "errors": [
+        "ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.",
+        "ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.",
+        "ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.",
+        "ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.",
+        "ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit."
+      ],
+      "warnings": [
+        "WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues",
+        "WARNING: 5 RIDs of type \"Canvas\" were leaked.",
+        "WARNING: 31 RIDs of type \"CanvasItem\" were leaked.",
+        "WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details)."
+      ]
+    },
+    "compile": {
+      "exit": 0,
+      "raw_log_sha256": "34aec1291ba8c90e646a6c00307155fcf87a7f172542ca52e787c389358ca3e1",
+      "errors": [],
+      "warnings": []
+    },
+    "prefab-fresh": {
+      "exit": 0,
+      "raw_log_sha256": "926c6597ac5e2355a400cd50b6b17ccaabcf7a9c3a69f2e50ef1db65db1a3271",
+      "errors": [],
+      "warnings": []
+    },
+    "gdstyle-lint": {
+      "exit": 0,
+      "raw_log_sha256": "b606ad683566c88181a33e8f4e5fd23352ed9fbdf98e24b5429753d300ad34d7",
+      "errors": [],
+      "warnings": []
+    },
+    "gdstyle-format": {
+      "exit": 0,
+      "raw_log_sha256": "990e1e4e20224faf0ae02a391ee415e84c3913a80b2da78c7ddbf96b3a10df13",
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "engine_checks": {
+    "aabb_min": [
+      -2.20000004768372,
+      0.0,
+      -0.400000005960464
+    ],
+    "aabb_size": [
+      4.40000009536743,
+      2.60000991821289,
+      0.800000011920929
+    ],
+    "artwork_slot_zero_uv_verified": true,
+    "capsule_bypass_end_z": 3.0,
+    "capsule_casing_stop_z": -0.650390625,
+    "capsule_ground_stop_z": -0.73095703125,
+    "collision_shape_count": 2,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "front_ray_z_m": [
+      -0.300000011920929,
+      -0.300000011920929,
+      -0.300000011920929
+    ],
+    "linked_model_identity": true,
+    "materials": [
+      "sign_island_artwork_face",
+      "island_body_slate",
+      "island_deck_petrol",
+      "island_wayfinding_lime"
+    ],
+    "mesh_count": 1,
+    "model_uid": "uid://yafqxb7cebgu",
+    "ok": true,
+    "physics_shape_queries": [
+      {
+        "case": "foot_centre",
+        "solid": true
+      },
+      {
+        "case": "foot_front_corner",
+        "solid": true
+      },
+      {
+        "case": "foot_back_corner",
+        "solid": true
+      },
+      {
+        "case": "casing_centre",
+        "solid": true
+      },
+      {
+        "case": "face_edge",
+        "solid": true
+      },
+      {
+        "case": "back_edge",
+        "solid": true
+      },
+      {
+        "case": "above_shoe",
+        "solid": false
+      },
+      {
+        "case": "outside_front",
+        "solid": false
+      },
+      {
+        "case": "outside_side",
+        "solid": false
+      },
+      {
+        "case": "above_cap",
+        "solid": false
+      },
+      {
+        "case": "below_foot",
+        "solid": false
+      }
+    ],
+    "prefab_uid": "uid://c6ixrjw2dg7x1",
+    "save_reload_byte_stable": true,
+    "prefab_sha256": "a1b5fa697444381e3a1ce05faeb3325dca1c6f70cbb109fb291534523318a02f"
+  },
+  "source_sha256": "cffd69ac7244cfaaafef896ef32bd78dcae063e0462219b234bb895d398b917c",
+  "evidence_renders": {
+    "hero": {
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 284935,
+      "sha256": "6fe7374942a4d803dd3b571a16830c75e5046af0934c400d31ef5ee0731d5124",
+      "source": "isolated Blender Cycles CPU, 24 samples, AgX, PNG compression 95"
+    },
+    "side": {
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 251510,
+      "sha256": "4301b6da32cc7c4d4f0fccf06e219c1e436a18761e026390ab0932ad3c965ac6",
+      "source": "isolated Blender Cycles CPU, 24 samples, AgX, PNG compression 95"
+    },
+    "detail": {
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 216810,
+      "sha256": "cbaa993958b838a010ffc979d13df592d1addbe91dbf977adda194712577a4a1",
+      "source": "isolated Blender Cycles CPU, 24 samples, AgX, PNG compression 95"
+    },
+    "overhead_47m_42deg": {
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 151557,
+      "sha256": "c02c28baf8e5bebe49c695664590ade6cde72eb5dc978fd0dfee1657baf9c322",
+      "source": "isolated Blender Cycles CPU, 24 samples, AgX, PNG compression 95"
+    }
+  }
+}

@@ -1,0 +1,260 @@
+extends SceneTree
+
+const PREFAB_PATH: String = "res://scenes/prefabs/environment/d07_sign_island_02.tscn"
+const MODEL_PATH: String = (
+	"res://art/models/environment/d07_sign_island_02/d07_sign_island_02.glb"
+)
+const DEFAULT_OUTPUT: String = "C:/tmp/ft/assets/d07_sign_island_02/prefab-check.json"
+const EXPECTED_BOUNDS: AABB = AABB(Vector3(-2.2, 0, -0.4), Vector3(4.4, 2.6, 0.8))
+const TOLERANCE_M: float = 0.001
+const WORLD_LAYER: int = 1
+const EDITOR_STARTUP_SECONDS: float = 3.0
+const CHECK_DEADLINE_SECONDS: float = 60.0
+
+var _failures: Array[String] = []
+var _result: Dictionary = {}
+
+
+## Defer until the headless scene tree can register physics objects.
+func _initialize() -> void:
+	create_timer(CHECK_DEADLINE_SECONDS).timeout.connect(_deadline)
+	_run.call_deferred()
+
+
+## Fail closed when an asynchronous engine operation does not complete.
+func _deadline() -> void:
+	push_error("Sign-island prefab check did not finish within 60 seconds")
+	quit(1)
+
+
+## Record a failed assertion and return a nonzero final exit rather than silently continuing.
+func _expect(condition: bool, message: String) -> void:
+	if not condition:
+		_failures.append(message)
+		push_error(message)
+
+
+## Normalize only this owned prefab and prove that a second pack/save is byte-stable.
+func _roundtrip() -> void:
+	var original: PackedScene = load(PREFAB_PATH) as PackedScene
+	_expect(original != null, "Prefab must load before normalization")
+	if original == null:
+		return
+
+	var instance: Node = original.instantiate()
+	var packed: PackedScene = PackedScene.new()
+	_expect(packed.pack(instance) == OK, "Prefab pack failed")
+	_expect(ResourceSaver.save(packed, PREFAB_PATH) == OK, "Prefab save failed")
+	instance.free()
+	var first: String = FileAccess.get_sha256(PREFAB_PATH)
+	_expect(FileAccess.get_file_as_string(PREFAB_PATH).contains("uid=\"uid://"), "Saved UID")
+	var reloaded: PackedScene = ResourceLoader.load(
+		PREFAB_PATH, "PackedScene", ResourceLoader.CACHE_MODE_IGNORE
+	) as PackedScene
+	instance = reloaded.instantiate()
+	packed = PackedScene.new()
+	_expect(packed.pack(instance) == OK, "Reloaded prefab pack failed")
+	_expect(ResourceSaver.save(packed, PREFAB_PATH) == OK, "Reloaded prefab save failed")
+	instance.free()
+	_result["save_reload_byte_stable"] = first == FileAccess.get_sha256(PREFAB_PATH)
+	_expect(_result["save_reload_byte_stable"], "Second prefab save changed bytes")
+	_result["prefab_sha256"] = FileAccess.get_sha256(PREFAB_PATH)
+
+
+## Inspect the linked import, its actual bounds/materials, and authored collision shapes.
+func _inspect(instance: Node3D) -> void:
+	var model: Node3D = instance.get_node("Visuals/Model") as Node3D
+	_expect(model.scene_file_path == MODEL_PATH, "Model lost linked GLB ancestry")
+	_expect(model.transform == Transform3D.IDENTITY, "Model transform is not identity")
+	var meshes: Array[Node] = model.find_children("*", "MeshInstance3D", true, false)
+	_expect(meshes.size() == 1, "Expected one imported mesh")
+	var mesh_instance: MeshInstance3D = meshes[0] as MeshInstance3D
+	var bounds: AABB = mesh_instance.global_transform * mesh_instance.get_aabb()
+	_expect(bounds.position.distance_to(EXPECTED_BOUNDS.position) < TOLERANCE_M, "Bounds min")
+	_expect(bounds.size.distance_to(EXPECTED_BOUNDS.size) < TOLERANCE_M, "Bounds size")
+	_expect(mesh_instance.mesh.resource_path.begins_with(MODEL_PATH), "Mesh is not imported")
+	_expect(mesh_instance.mesh.get_surface_count() == 4, "Expected four material surfaces")
+	var materials: Array[String] = []
+	for index: int in range(mesh_instance.mesh.get_surface_count()):
+		var material: BaseMaterial3D = (
+			mesh_instance.mesh.surface_get_material(index) as BaseMaterial3D
+		)
+		_expect(material != null, "Missing imported material")
+		_expect(material.transparency == BaseMaterial3D.TRANSPARENCY_DISABLED, "Opaque material")
+		_expect(material.cull_mode == BaseMaterial3D.CULL_BACK, "Back-culling material")
+		materials.append(material.resource_name)
+
+	_expect(materials == [
+		"sign_island_artwork_face", "island_body_slate",
+		"island_deck_petrol", "island_wayfinding_lime",
+	], "Stable artwork/material surface order")
+	_inspect_artwork(mesh_instance.mesh)
+	var body: StaticBody3D = instance.get_node("Collision/Body") as StaticBody3D
+	_expect(body.collision_layer == WORLD_LAYER and body.collision_mask == 0, "Static world layers")
+	_expect(body.get_child_count() == 2, "Expected foot and casing boxes")
+	_inspect_collision(body)
+
+	_result["aabb_min"] = [bounds.position.x, bounds.position.y, bounds.position.z]
+	_result["aabb_size"] = [bounds.size.x, bounds.size.y, bounds.size.z]
+	_result["materials"] = materials
+	_result["mesh_count"] = meshes.size()
+	_result["collision_shape_count"] = body.get_child_count()
+	_result["linked_model_identity"] = model.transform == Transform3D.IDENTITY
+	var prefab_uid: int = ResourceLoader.get_resource_uid(PREFAB_PATH)
+	var model_uid: int = ResourceLoader.get_resource_uid(MODEL_PATH)
+	_expect(prefab_uid != ResourceUID.INVALID_ID, "Prefab UID must be generated by editor save")
+	_expect(model_uid != ResourceUID.INVALID_ID, "Model UID must resolve from import sidecar")
+	_result["prefab_uid"] = ResourceUID.id_to_text(prefab_uid)
+	_result["model_uid"] = ResourceUID.id_to_text(model_uid)
+
+
+## Prove that slot zero contains only the unmirrored rectangular artwork face.
+func _inspect_artwork(mesh: Mesh) -> void:
+	var arrays: Array = mesh.surface_get_arrays(0)
+	var face_vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+	var face_uvs: PackedVector2Array = arrays[Mesh.ARRAY_TEX_UV]
+	_expect(face_vertices.size() == 4, "Artwork slot is only the four front corners")
+	for index: int in range(face_vertices.size()):
+		var vertex: Vector3 = face_vertices[index]
+		var uv: Vector2 = face_uvs[index]
+		_expect(absf(vertex.z + 0.29) < TOLERANCE_M, "Artwork front plane")
+		_expect(absf(uv.x - (0.0 if vertex.x > 0 else 1.0)) < TOLERANCE_M, "Artwork U")
+		_expect(absf(uv.y - (1.0 if vertex.y < 1 else 0.0)) < TOLERANCE_M, "Artwork V")
+
+	_result["artwork_slot_zero_uv_verified"] = true
+
+
+## Verify the two simple solids with no inflated full-height mounting-foot blocker.
+func _inspect_collision(body: StaticBody3D) -> void:
+	var foot: CollisionShape3D = body.get_node("Foot") as CollisionShape3D
+	var casing: CollisionShape3D = body.get_node("Casing") as CollisionShape3D
+	_expect(foot.shape is BoxShape3D and casing.shape is BoxShape3D, "Two simple box shapes")
+	var foot_box: BoxShape3D = foot.shape as BoxShape3D
+	var casing_box: BoxShape3D = casing.shape as BoxShape3D
+	_expect(foot_box.size.is_equal_approx(Vector3(4.4, 0.24, 0.8)), "Foot envelope")
+	_expect(casing_box.size.is_equal_approx(Vector3(4.2, 2.36, 0.6)), "Casing envelope")
+	_expect(foot.position.is_equal_approx(Vector3(0, 0.12, 0)), "Foot datum")
+	_expect(casing.position.is_equal_approx(Vector3(0, 1.42, 0)), "Casing datum")
+	_expect(not foot.disabled and not casing.disabled, "Colliders enabled")
+
+
+## Probe independently chosen solids, corners, and clear space through production physics APIs.
+func _physics_checks(instance: Node3D) -> void:
+	var space: PhysicsDirectSpaceState3D = instance.get_world_3d().direct_space_state
+	var sphere: SphereShape3D = SphereShape3D.new()
+	sphere.radius = 0.025
+	var cases: Array[Dictionary] = [
+		{ "name": "foot_centre", "point": Vector3(0, 0.12, 0), "solid": true },
+		{ "name": "foot_front_corner", "point": Vector3(2.15, 0.12, -0.35), "solid": true },
+		{ "name": "foot_back_corner", "point": Vector3(-2.15, 0.12, 0.35), "solid": true },
+		{ "name": "casing_centre", "point": Vector3(0, 1.4, 0), "solid": true },
+		{ "name": "face_edge", "point": Vector3(1.8, 1.4, -0.28), "solid": true },
+		{ "name": "back_edge", "point": Vector3(-1.8, 1.4, 0.27), "solid": true },
+		{ "name": "above_shoe", "point": Vector3(2.17, 0.5, 0), "solid": false },
+		{ "name": "outside_front", "point": Vector3(0, 1.4, -0.4), "solid": false },
+		{ "name": "outside_side", "point": Vector3(2.3, 0.12, 0), "solid": false },
+		{ "name": "above_cap", "point": Vector3(0, 2.7, 0), "solid": false },
+		{ "name": "below_foot", "point": Vector3(0, -0.1, 0), "solid": false },
+	]
+	var observations: Array[Dictionary] = []
+	var query: PhysicsShapeQueryParameters3D = PhysicsShapeQueryParameters3D.new()
+	query.shape = sphere
+	query.collision_mask = WORLD_LAYER
+	for test: Dictionary in cases:
+		query.transform.origin = test["point"]
+		var solid: bool = not space.intersect_shape(query).is_empty()
+		_expect(solid == test["solid"], "Shape query failed: " + str(test["name"]))
+		observations.append({ "case": test["name"], "solid": solid })
+
+	_result["physics_shape_queries"] = observations
+	var front_hits: Array[float] = []
+	for x: float in [-2.0, 0.0, 2.0]:
+		var ray: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.create(
+			Vector3(x, 1.4, -1), Vector3(x, 1.4, 1), WORLD_LAYER
+		)
+		var hit: Dictionary = space.intersect_ray(ray)
+		_expect(not hit.is_empty(), "Casing front must block across its width")
+		if not hit.is_empty():
+			var position: Vector3 = hit["position"]
+			_expect(absf(position.z + 0.3) < TOLERANCE_M, "Casing front plane")
+			front_hits.append(position.z)
+
+	_result["front_ray_z_m"] = front_hits
+
+
+## Sweep a real actor-size capsule into the casing and safely past its mounting footprint.
+func _capsule_checks(instance: Node3D) -> void:
+	var capsule: CapsuleShape3D = CapsuleShape3D.new()
+	capsule.radius = 0.35
+	capsule.height = 1.8
+	var probe: CharacterBody3D = CharacterBody3D.new()
+	probe.collision_layer = 0
+	probe.collision_mask = WORLD_LAYER
+	var shape: CollisionShape3D = CollisionShape3D.new()
+	shape.shape = capsule
+	probe.add_child(shape)
+	instance.add_child(probe)
+	probe.position = Vector3(0, 0.9, -3)
+	var hit: KinematicCollision3D = probe.move_and_collide(Vector3(0, 0, 6))
+	_expect(hit != null, "Capsule must hit the freestanding sign")
+	_expect(probe.position.z < -0.72 and probe.position.z > -0.75, "Capsule mounting-shoe stop")
+	_result["capsule_ground_stop_z"] = probe.position.z
+	# Raising the capsule above the foot separates casing coverage from the wider low shoe.
+	probe.position = Vector3(0, 1.2, -3)
+	hit = probe.move_and_collide(Vector3(0, 0, 6))
+	_expect(hit != null, "Raised capsule must hit the casing")
+	_expect(probe.position.z < -0.64 and probe.position.z > -0.67, "Raised capsule casing stop")
+	_result["capsule_casing_stop_z"] = probe.position.z
+	probe.position = Vector3(2.6, 0.9, -3)
+	hit = probe.move_and_collide(Vector3(0, 0, 6))
+	_expect(hit == null, "Capsule must pass outside mounting footprint")
+	_expect(absf(probe.position.z - 3) < TOLERANCE_M, "Bypass ends beyond support")
+	_result["capsule_bypass_end_z"] = probe.position.z
+	probe.queue_free()
+
+
+## Run bounded resource and physics checks without starting the game or touching live editors.
+func _run() -> void:
+	if Engine.is_editor_hint():
+		# Let editor startup and its filesystem thread finish before save or shutdown.
+		await create_timer(EDITOR_STARTUP_SECONDS).timeout
+		while EditorInterface.get_resource_filesystem().is_scanning():
+			await process_frame  # gdstyle:ignore=quality/await-in-loop
+
+	var arguments: PackedStringArray = OS.get_cmdline_user_args()
+	if arguments.has("--normalize"):
+		if not Engine.is_editor_hint():
+			push_error("Normalize requires headless --editor to preserve scene UIDs")
+			quit(1)
+			return
+
+		_roundtrip()
+
+	var packed: PackedScene = ResourceLoader.load(
+		PREFAB_PATH, "PackedScene", ResourceLoader.CACHE_MODE_IGNORE
+	) as PackedScene
+	_expect(packed != null, "Prefab dependencies must resolve")
+	if packed != null:
+		var instance: Node3D = packed.instantiate() as Node3D
+		root.add_child(instance)
+		_inspect(instance)
+		await physics_frame
+		await physics_frame
+		_physics_checks(instance)
+		_capsule_checks(instance)
+		instance.queue_free()
+		await process_frame
+
+	_result["engine"] = Engine.get_version_info()["string"]
+	_result["failures"] = _failures
+	_result["ok"] = _failures.is_empty()
+	var output: String = DEFAULT_OUTPUT
+	var output_index: int = arguments.find("--output")
+	if output_index >= 0 and output_index + 1 < arguments.size():
+		output = arguments[output_index + 1]
+
+	var file: FileAccess = FileAccess.open(output, FileAccess.WRITE)
+	file.store_string(JSON.stringify(_result, "\t") + "\n")
+	file.close()
+	print(JSON.stringify(_result))
+	quit(0 if _failures.is_empty() else 1)

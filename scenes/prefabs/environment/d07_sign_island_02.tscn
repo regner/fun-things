@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c6ixrjw2dg7x1"]
+
+[ext_resource type="PackedScene" uid="uid://yafqxb7cebgu" path="res://art/models/environment/d07_sign_island_02/d07_sign_island_02.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_foot"]
+size = Vector3(4.4, 0.24, 0.8)
+
+[sub_resource type="BoxShape3D" id="Box_casing"]
+size = Vector3(4.2, 2.36, 0.6)
+
+[node name="d07_sign_island_02" type="Node3D" unique_id=1543962757]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1740289570]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=755538876 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1295364127]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=859265054]
+collision_mask = 0
+
+[node name="Foot" type="CollisionShape3D" parent="Collision/Body" unique_id=576113182]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 0)
+shape = SubResource("Box_foot")
+
+[node name="Casing" type="CollisionShape3D" parent="Collision/Body" unique_id=1418675463]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.42, 0)
+shape = SubResource("Box_casing")
