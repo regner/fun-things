@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dvlt8vtr2q40"]
+
+[ext_resource type="PackedScene" path="res://art/models/environment/d04_podiums_02/d04_podiums_02.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_base"]
+size = Vector3(30, 6, 18)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_upper"]
+size = Vector3(22, 4.5, 12)
+
+[node name="D04Podiums02" type="Node3D" unique_id=223313145]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1246023748]
+
+[node name="Model" parent="Visuals" unique_id=683472071 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=354382861]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=1467524174]
+collision_mask = 0
+
+[node name="Base" type="CollisionShape3D" parent="Collision/Body" unique_id=298025611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+shape = SubResource("BoxShape3D_base")
+
+[node name="Upper" type="CollisionShape3D" parent="Collision/Body" unique_id=981299617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.25, 2)
+shape = SubResource("BoxShape3D_upper")
