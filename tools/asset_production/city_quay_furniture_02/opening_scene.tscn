@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c447yqbbixhke"]
+
+[ext_resource type="PackedScene" path="res://tools/asset_production/city_quay_furniture_02/check_scene.tscn" id="1_fixture"]
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_quay_furniture_02_end_quay.tscn" id="2_end"]
+
+[node name="RailAccessOpeningCheck" unique_id=584529060 instance=ExtResource("1_fixture")]
+
+[node name="LeftReturn" parent="." index="2" unique_id=574116427 instance=ExtResource("2_end")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.235, 0, 0)
+
+[node name="RightReturn" parent="." index="3" unique_id=555410014 instance=ExtResource("2_end")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 1.235, 0, 0)

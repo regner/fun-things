@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dqxwojk7xt4a"]
+
+[ext_resource type="PackedScene" path="res://art/models/environment/city_quay_furniture_02/city_quay_furniture_02_straight.glb" id="1_model"]
+[ext_resource type="PackedScene" path="res://art/models/environment/city_quay_furniture_02/city_quay_furniture_02_post_quay.glb" id="2_post"]
+
+[sub_resource type="BoxShape3D" id="Box_0"]
+size = Vector3(3.3, 1.06, 0.3)
+
+[node name="city_quay_furniture_02" type="Node3D" unique_id=1384749202]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1817424736]
+
+[node name="Model" parent="Visuals" unique_id=336161618 instance=ExtResource("1_model")]
+
+[node name="Post0" parent="Visuals" unique_id=124024546 instance=ExtResource("2_post")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+
+[node name="Post1" parent="Visuals" unique_id=2132440454 instance=ExtResource("2_post")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+
+[node name="Collision" type="Node3D" parent="." unique_id=1434688654]
+
+[node name="RailBody" type="StaticBody3D" parent="Collision" unique_id=138565399]
+collision_mask = 0
+
+[node name="Shape0" type="CollisionShape3D" parent="Collision/RailBody" unique_id=30834728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.53, 0)
+shape = SubResource("Box_0")

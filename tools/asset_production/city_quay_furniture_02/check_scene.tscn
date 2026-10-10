@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bup76jwv1e50d"]
+
+[ext_resource type="Script" path="res://scripts/actors/actor_motion.gd" id="1_motion"]
+
+[sub_resource type="BoxShape3D" id="FloorShape"]
+size = Vector3(10, 0.2, 10)
+
+[sub_resource type="CapsuleShape3D" id="ActorShape"]
+radius = 0.35
+height = 1.8
+
+[node name="LowQuayRailCheck" type="Node3D" unique_id=472500854]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=187829023]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Floor" unique_id=903412261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("FloorShape")
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=1348020984]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, -2)
+collision_layer = 2
+script = ExtResource("1_motion")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=396771722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("ActorShape")

@@ -1,0 +1,52 @@
+city_quay_furniture.02 — final bounded production receipt, 10 October 2026
+
+All commands ran from C:/GameDev/git/ft-lanes/a-quay. Raw logs and retries remain
+under C:/tmp/ft/assets/city_quay_furniture_02/; only this concise log is committed.
+Exact reproducible command lines and pin paths are in ../city_quay_furniture_02.md.
+
+PASS Blender author.py: original six-component source, six explicit GLBs, four renders.
+  Blender 5.2.2 LTS d13f752e3b9c; glTF exporter 5.2.40. Exit 0.
+  All Blender calls: timeout <=900 seconds, -noaudio --background --threads 4,
+  --python-exit-code 1, ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy.
+PASS Blender validate.py: six fresh exports byte-identical; all bounds/transforms,
+  actual GLB accessors, unit normals, materials and topology pass. Exit 0.
+  Triangles: straight120, corner696, end604, quay972, deck972, landward1148.
+  Zero degenerate faces/triangles and non-manifold edges in all six components.
+PASS Python prefabs.py: twelve linked wrappers; no existing scene overwritten.
+PASS Python finalize.py --compress-renders: 1280x720 RGB PNG, compression9, 7-bit channels.
+PASS pinned Godot headless import: all six GLBs resolve, sidecar identities retained.
+PASS check.gd -- --normalize: twelve wrappers and two fixtures pack/save/reload twice
+  without byte drift. All imported ancestry/geometry/material/collider checks pass.
+PASS post-normalization import and fresh check.gd: new fixture UID registered;
+  all dependency UIDs resolve, no missing resources, no script errors/warnings.
+  All 12 wrappers: low ray blocked, above-rail ray clear, authority/replay contact
+  and bypass match. Corner interiors stay open; both corner arms block.
+  Production ActorMotion capsule r0.35/h1.8, 48 ticks per case in both modes.
+  Saved 1.4m terminal opening passes at x0; terminal contacts at x-0.9/+0.9 block.
+PASS gdstyle 0.3.0 check and fmt --check: no issues, already formatted.
+PASS production_checks.py: owned script style/format/compilation, 16 Python tests,
+  149 GUT tests / 6768 assertions; intentional-failure negative control exits1 as
+  expected. No pre-existing failure exemption used.
+
+Corrected iteration diagnostics, not hidden or counted as passes:
+- Initial aggregate-bounds helper omitted a grandparent imported transform.
+  Corrected hierarchy traversal; model, wrappers and collision were not changed.
+- Exact contact comparison rejected sub-micrometre float differences. Final test
+  permits 0.00001m numeric tolerance and <=0.03m precontact gap. Production motion
+  and collider dimensions are unchanged.
+- New inherited opening-scene UID was not yet cached in the first fresh process;
+  post-normalization pinned import registered it, then fresh load passed.
+- Initial side render was crowded and cropped the ground in the orthographic near
+  plane. Final side isolates the straight run and raises the camera. Detail now
+  isolates all three mounts. All four final renders were visually inspected.
+- Initial lint reported local-variable and test-loop allocation/await warnings.
+  Helpers were split; intentional bounded test operations have local explanations.
+
+Known non-blocking pin diagnostics:
+- Blender future-6.0 use_nodes deprecation notices on the required 5.2.2 pin.
+- Project import: existing MCP toolkit 4.8-versus-tested-4.7 warning.
+No live Blender/Godot editor, global settings or vendor scripts were touched.
+
+Not tested/accepted: world placements, actual engine visual/camera review, vehicle
+handling, real network transport/admission/prediction, packaged builds, repeated
+population performance, or Deck hardware. Independent review remains pending.
