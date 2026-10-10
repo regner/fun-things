@@ -32,7 +32,8 @@ recommendations and do not block P1.
   `FootCommand` and production `ActorMotion` on the Coral Courier player) is done. A2.2's replication
   core (`scripts/replication/`: identity, the measured 16-byte codec with decision 51's 2 cm island
   range, baseline/journal admission, durable/subset state apply, real-process ENet proof) is done;
-  its Match/Boot wiring follows A2.5. A2.5 (LocalRig 47 m / 42° camera, Coral Courier presentation with
+  its Match/Boot wiring is done (admitted ENet players spawn in Match with host-authoritative foot
+  movement, a bounded 16-byte input codec, runtime admission deadlines and contract channels). A2.5 (LocalRig 47 m / 42° camera, Coral Courier presentation with
   data-driven stride playback, grounded ActorMotion with gravity/floor snap, standalone Boot -> Match
   walking) is done, with Coral Courier run/strafe clips re-authored for a natural 5 m/s stride (~1x). Use decision 19's
   ordered, distance-bounded held-input queue and decision 20's tunable short
