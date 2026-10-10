@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://blih3uh44drmc"]
+
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_sign_supports_02.tscn" id="1_carrier"]
+[ext_resource type="Material" path="res://art/materials/environment/d09_freight_graphics_03/loading_low.tres" id="2_artwork"]
+
+[node name="D09FreightGraphics03Low" unique_id=1532494914 instance=ExtResource("1_carrier")]
+
+[node name="CitySignSupports02_ArtworkCarrier" parent="Visuals/Model/CitySignSupports02" parent_id_path=PackedInt32Array(1744822454, 2099910575) index="0" unique_id=226325143]
+surface_material_override/0 = ExtResource("2_artwork")
+
+[editable path="Visuals/Model"]

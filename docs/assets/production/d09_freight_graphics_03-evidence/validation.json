@@ -1,0 +1,250 @@
+{
+  "asset_id": "d09_freight_graphics.03",
+  "status": "PASS",
+  "new_geometry": false,
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "exporter": "5.2.40",
+  "shared_dependencies_unchanged": true,
+  "dependencies": {
+    "tools/assets/blender/export_settings.json": {
+      "bytes": 646,
+      "sha256": "33ded3c83616fba6573848dda1f0ea3fc7ae7f4c98257fc867dca3bbe35ff9ec"
+    },
+    "tools/asset_production/d09_freight_graphics_01/author.py": {
+      "bytes": 3943,
+      "sha256": "3afaa0ec8f999e1676467af59b2b3c1d8bab496335e0c835b41aff64e485b663"
+    },
+    "tools/asset_production/d09_freight_graphics_02/author.py": {
+      "bytes": 3587,
+      "sha256": "26ce66bcd7dc50e142a0b3643cd5e634f82bf52f55fd1d5d4e95e71d3369d992"
+    },
+    "art/source/models/environment/city_sign_supports_01/city_sign_supports_01.blend": {
+      "bytes": 127713,
+      "sha256": "5f990b38400cb88c695c9b91b1964d166540c153c5d21519b657e94e49e06247"
+    },
+    "art/models/environment/city_sign_supports_01/city_sign_supports_01.glb": {
+      "bytes": 75768,
+      "sha256": "5f54105825e00bb73c038bed252910abec548ad1beb81603b2713c2c69796e0b"
+    },
+    "art/models/environment/city_sign_supports_01/city_sign_supports_01.glb.import": {
+      "bytes": 1275,
+      "sha256": "e77d8967894c943f02e8805fbdfb3260ea8286f8359a0c98a668fae184c6d175"
+    },
+    "scenes/prefabs/environment/city_sign_supports_01.tscn": {
+      "bytes": 434,
+      "sha256": "ab310f5945a0ef0d8b07fcb2920deb9398359c525d37926202e21b43b974edfe"
+    },
+    "tools/asset_production/city_sign_supports_01/export.py": {
+      "bytes": 4253,
+      "sha256": "037f40f2d27512615e51a28e60a300b6840e451927cd854116e9d7eb2f146951"
+    },
+    "art/source/models/environment/city_sign_supports_02/city_sign_supports_02.blend": {
+      "bytes": 140599,
+      "sha256": "d1b9a29d684951ea1ef40f88aedb2180297b9be6c7cee58c31d467be07708e6c"
+    },
+    "art/models/environment/city_sign_supports_02/city_sign_supports_02.glb": {
+      "bytes": 70712,
+      "sha256": "022dd559334d79c482182083be775c692ab4adf2a5277d3fb7ca7ec266ec76b7"
+    },
+    "art/models/environment/city_sign_supports_02/city_sign_supports_02.glb.import": {
+      "bytes": 1275,
+      "sha256": "6c237258815d1ee6a0a8644af1af29d18af74fa84fb40960cba05da96a354fe2"
+    },
+    "scenes/prefabs/environment/city_sign_supports_02.tscn": {
+      "bytes": 898,
+      "sha256": "dd95c4cbf0d0ff3d816290024e1723864817176753628384222f51084a804939"
+    },
+    "tools/asset_production/city_sign_supports_02/export.py": {
+      "bytes": 938,
+      "sha256": "77f022778898442006f67ca397036e523a95095afb337ec03427e78923aebfb1"
+    }
+  },
+  "carriers": {
+    "wall": {
+      "carrier": "city_sign_supports_01",
+      "source_vertices": 1380,
+      "glb_vertices": 1792,
+      "triangles": 2720,
+      "meshes": 12,
+      "surfaces": 13,
+      "degenerate_faces": 0,
+      "degenerate_glb_triangles": 0,
+      "nonmanifold_edges": 0,
+      "max_source_normal_length_error": 1.5701515287958046e-07,
+      "max_glb_normal_length_error": 1.2842246266409063e-07,
+      "outward_winding": true,
+      "aabb_min": [
+        -0.699999988079071,
+        -0.5,
+        -0.10000000149011612
+      ],
+      "aabb_max": [
+        0.699999988079071,
+        0.5,
+        -0.0
+      ],
+      "pivot": "wall-contact centre (0,0,0)",
+      "face_dimensions_m": [
+        1.22,
+        0.82
+      ],
+      "face_triangles": 34,
+      "upright_outside_left_to_right_uv": true,
+      "face_surface": 0,
+      "fresh_reexport_byte_identical": true,
+      "glb": {
+        "bytes": 75768,
+        "sha256": "5f54105825e00bb73c038bed252910abec548ad1beb81603b2713c2c69796e0b"
+      }
+    },
+    "low": {
+      "carrier": "city_sign_supports_02",
+      "source_vertices": 1244,
+      "glb_vertices": 1596,
+      "triangles": 2448,
+      "meshes": 2,
+      "surfaces": 5,
+      "degenerate_faces": 0,
+      "degenerate_glb_triangles": 0,
+      "nonmanifold_edges": 0,
+      "max_source_normal_length_error": 1.6880220243820077e-07,
+      "max_glb_normal_length_error": 1.0989605780942213e-07,
+      "outward_winding": true,
+      "aabb_min": [
+        -0.800000011920929,
+        0.0,
+        -0.20000000298023224
+      ],
+      "aabb_max": [
+        0.800000011920929,
+        1.350000023841858,
+        0.20000000298023224
+      ],
+      "pivot": "ground-centred feet (0,0,0)",
+      "face_dimensions_m": [
+        1.44,
+        0.39
+      ],
+      "face_triangles": 26,
+      "upright_outside_left_to_right_uv": true,
+      "face_surface": 0,
+      "fresh_reexport_byte_identical": true,
+      "glb": {
+        "bytes": 70712,
+        "sha256": "022dd559334d79c482182083be775c692ab4adf2a5277d3fb7ca7ec266ec76b7"
+      }
+    }
+  },
+  "engine": {
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "low": {
+      "face_overrides": 1,
+      "inherited_colliders": 1,
+      "meshes": 2,
+      "res://art/materials/environment/d09_freight_graphics_03/loading_low.tres": "uid://dljgdwuts225q",
+      "res://art/textures/environment/d09_freight_graphics_03/loading_low_albedo.png": "uid://dc2cis5tghcj",
+      "res://scenes/prefabs/environment/city_sign_supports_02.tscn": "uid://bi65yynmg6q4t",
+      "res://scenes/prefabs/environment/d09_freight_graphics_03_low.tscn": "uid://blih3uh44drmc",
+      "surfaces": 5
+    },
+    "status": "PASS",
+    "wall": {
+      "face_overrides": 1,
+      "inherited_colliders": 0,
+      "meshes": 12,
+      "res://art/materials/environment/d09_freight_graphics_03/loading_wall.tres": "uid://beawdbl265nnn",
+      "res://art/textures/environment/d09_freight_graphics_03/loading_wall_albedo.png": "uid://dwh6dn3nbsk56",
+      "res://scenes/prefabs/environment/city_sign_supports_01.tscn": "uid://byqodl735ss1a",
+      "res://scenes/prefabs/environment/d09_freight_graphics_03.tscn": "uid://bk7p6d2yyghbc",
+      "surfaces": 13
+    }
+  },
+  "save_reload": {
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "low": {
+      "face_overrides": 1,
+      "inherited_colliders": 1,
+      "material_sha256": "ebbc59511cfd467bab4b0520df966b545c2af91fc88dda62985b539dc5c6d0ba",
+      "meshes": 2,
+      "res://art/materials/environment/d09_freight_graphics_03/loading_low.tres": "uid://dljgdwuts225q",
+      "res://art/textures/environment/d09_freight_graphics_03/loading_low_albedo.png": "uid://dc2cis5tghcj",
+      "res://scenes/prefabs/environment/city_sign_supports_02.tscn": "uid://bi65yynmg6q4t",
+      "res://scenes/prefabs/environment/d09_freight_graphics_03_low.tscn": "uid://blih3uh44drmc",
+      "scene_sha256": "9424b16d6060fe407ce7edec34f2aca75dd0d757e2563c7ced70e444538a1c4e",
+      "stable_roundtrip_count": 2,
+      "surfaces": 5
+    },
+    "status": "PASS",
+    "wall": {
+      "face_overrides": 1,
+      "inherited_colliders": 0,
+      "material_sha256": "ad7a48ee7cbdbec06fe42c6dac337b5159218c619fc313708add9e458b3a930d",
+      "meshes": 12,
+      "res://art/materials/environment/d09_freight_graphics_03/loading_wall.tres": "uid://beawdbl265nnn",
+      "res://art/textures/environment/d09_freight_graphics_03/loading_wall_albedo.png": "uid://dwh6dn3nbsk56",
+      "res://scenes/prefabs/environment/city_sign_supports_01.tscn": "uid://byqodl735ss1a",
+      "res://scenes/prefabs/environment/d09_freight_graphics_03.tscn": "uid://bk7p6d2yyghbc",
+      "scene_sha256": "c7d4689c79e195ec5ce51b9dcc308b3cfdbef0e8be6d6c0bcf5fee615c04cbe4",
+      "stable_roundtrip_count": 2,
+      "surfaces": 13
+    }
+  },
+  "artwork": {
+    "mode": "RGB",
+    "tests_passed": 4,
+    "filter": "linear_mipmap",
+    "repeat": false,
+    "emission": false,
+    "variants": {
+      "wall": {
+        "copy": "LOADING 04 / FREIGHT",
+        "size_px": [
+          1220,
+          820
+        ],
+        "safe_margin_px": 40,
+        "bytes": 41884,
+        "sha256": "9b75d0e21522ed3a5172e4e7acf9a1eb89599e7bdf5e506bc730f1a4bac4bb96"
+      },
+      "low": {
+        "copy": "FREIGHT / LOAD 04",
+        "size_px": [
+          1440,
+          390
+        ],
+        "safe_margin_px": 30,
+        "bytes": 30772,
+        "sha256": "1e884e67cd5a5105583bb25ad4b64dc01eeaed468a193793543dc210a3da215c"
+      }
+    }
+  },
+  "renders": {
+    "detail.png": {
+      "bytes": 378941,
+      "sha256": "1afab0ff9230e490a19e5d817e3a06fc6a491115f1458bf65761932b72d00b35"
+    },
+    "hero.png": {
+      "bytes": 275742,
+      "sha256": "3d916912ac8c5c9afefebfb7e32c88dbfb11526887f1f8fe7c41808926ab675c"
+    },
+    "overhead_47m_42deg.png": {
+      "bytes": 5114,
+      "sha256": "2e5a7de4b3a725bd3091a7f71e1c69b7955449cfe165ac87926ba1d242a9d7ff"
+    },
+    "side.png": {
+      "bytes": 103967,
+      "sha256": "61d0911e37a8d8250b08efe6dabeda7cbb2587b7c25fbd0728ffbccba4442890"
+    }
+  },
+  "checks": {
+    "pinned_import_no_errors": true,
+    "gdstyle_format": "PASS",
+    "gdstyle_lint": "PASS",
+    "new_collision": false,
+    "independent_review": "pending",
+    "world_gameplay_device": "pending"
+  }
+}

@@ -1,0 +1,18 @@
+d09_freight_graphics.03 final bounded producer checks
+Blender 5.2.2 LTS d13f752e3b9c / exporter 5.2.40 source audit: PASS, exit 0.
+Both existing sign sources and GLBs unchanged; fresh exports byte-identical.
+Wall: 2720 triangles, 12 meshes, 13 surfaces. Low: 2448 triangles, 2 meshes, 5 surfaces.
+Zero degenerates/nonmanifold edges; unit normals, winding and literal bounds pass.
+Artwork uses only sign_face surface 0; actual GLB UVs upright and outside-readable.
+Four Python artwork tests: PASS, exit 0; both PNG byte streams reproduce exactly.
+Four isolated Blender renders: PASS, exit 0; 1280x720; producer inspected each.
+Godot 4.8.dev7.official.c971f93e7 final import: PASS, exit 0; no ERROR/SCRIPT ERROR.
+Import retains installed MCP toolkit warning: Godot 4.8 versus tested 4.7.
+Two save/reload cycles per scene/material plus fresh-process initial-byte check: PASS.
+Fresh prefab/dependency/material/unchanged inherited collision checks: PASS, exit 0.
+Wall visual-only; low sign retains original one-box collider, no geometry duplicated.
+Final normalization and fresh check logs have no errors or warnings.
+gdstyle 0.3.0 format check and zero-warning lint: PASS, exit 0.
+Preview emits Blender use_nodes forward-looking deprecation warnings.
+Initial Pillow deprecated getdata API replaced with get_flattened_data; final tests clean.
+No production_checks, live editor, gameplay, network, device or world placement test run.
