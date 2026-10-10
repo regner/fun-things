@@ -1,0 +1,325 @@
+{
+  "assembly": {
+    "bounds_max_m": [
+      0.535000026226044,
+      1.05999994277954,
+      0.159999996423721
+    ],
+    "bounds_min_m": [
+      -0.159999996423721,
+      0.0,
+      -0.159999996423721
+    ],
+    "export_vertices": 928.0,
+    "ground_post_pivot_m": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "mesh_count": 2.0,
+    "size_m": [
+      0.695000022649765,
+      1.05999994277954,
+      0.319999992847443
+    ],
+    "source_vertices": 896.0,
+    "surface_count": 4.0,
+    "triangles": 1752.0
+  },
+  "asset": "city_barriers.04",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "bounds_tolerance_m": 0.001,
+  "components": {
+    "end": {
+      "degenerate_faces": 0.0,
+      "degenerate_triangles": 0.0,
+      "export_normal_max_length_error": 9.709037374e-08,
+      "export_vertices": 336.0,
+      "fresh_export_byte_identical": true,
+      "glb_bytes": 12876.0,
+      "glb_sha256": "ff19fd285ee2682ab39a6e5ae8eff00452e358a60b58db4e06c6b0609fc97a46",
+      "godot_bounds_max_m": [
+        0.535000026226044,
+        1.0,
+        0.0500000007450581
+      ],
+      "godot_bounds_min_m": [
+        0.0,
+        0.429999977350235,
+        -0.0500000007450581
+      ],
+      "materials": [
+        {
+          "name": "quay_dark_metal",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.025000000372529,
+              0.0750000029802322,
+              0.0900000035762787,
+              1.0
+            ],
+            "metallicFactor": 0.449999988079071,
+            "roughnessFactor": 0.46000000834465
+          }
+        }
+      ],
+      "mesh_count": 1.0,
+      "nonmanifold_edges": 0.0,
+      "pivot_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_faces": 290.0,
+      "source_normal_max_length_error": 8.940696649e-08,
+      "source_vertices": 304.0,
+      "surface_count": 1.0,
+      "triangles": 604.0
+    },
+    "post_landward": {
+      "degenerate_faces": 0.0,
+      "degenerate_triangles": 0.0,
+      "export_normal_max_length_error": 8.921642402e-08,
+      "export_vertices": 592.0,
+      "fresh_export_byte_identical": true,
+      "glb_bytes": 23880.0,
+      "glb_sha256": "a1e5578caa904f7880b3c021f0b4b9f5798ce70e09c6878e652548269814ac09",
+      "godot_bounds_max_m": [
+        0.159999996423721,
+        1.05999994277954,
+        0.159999996423721
+      ],
+      "godot_bounds_min_m": [
+        -0.159999996423721,
+        0.0,
+        -0.159999996423721
+      ],
+      "materials": [
+        {
+          "name": "quay_dark_metal",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.025000000372529,
+              0.0750000029802322,
+              0.0900000035762787,
+              1.0
+            ],
+            "metallicFactor": 0.449999988079071,
+            "roughnessFactor": 0.46000000834465
+          }
+        },
+        {
+          "name": "quay_hardware_slate",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              0.115000002086163,
+              0.165000006556511,
+              0.185000002384186,
+              1.0
+            ],
+            "metallicFactor": 0.550000011920929,
+            "roughnessFactor": 0.400000005960464
+          }
+        },
+        {
+          "name": "quay_working_amber",
+          "pbrMetallicRoughness": {
+            "baseColorFactor": [
+              1.0,
+              0.52700001001358,
+              0.101999998092651,
+              1.0
+            ],
+            "metallicFactor": 0.0,
+            "roughnessFactor": 0.419999986886978
+          }
+        }
+      ],
+      "mesh_count": 1.0,
+      "nonmanifold_edges": 0.0,
+      "pivot_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_faces": 554.0,
+      "source_normal_max_length_error": 1.4630494504e-07,
+      "source_vertices": 592.0,
+      "surface_count": 3.0,
+      "triangles": 1148.0
+    }
+  },
+  "dimensions_provisional": true,
+  "exporter": "5.2.40",
+  "godot": {
+    "engine": "4.8-dev7 (official)",
+    "existing_prefab_identity_instance": true,
+    "prefabs": {
+      "res://scenes/prefabs/environment/city_barriers_04.tscn": {
+        "bounds_min_m": [
+          -0.159999996423721,
+          0.0,
+          -0.159999996423721
+        ],
+        "bounds_size_m": [
+          0.695000052452087,
+          1.05999994277954,
+          0.319999992847443
+        ],
+        "linked_model_identity": true,
+        "mesh_count": 2,
+        "physics": {
+          "above_rail_ray_clear": true,
+          "actor_capsule_height_m": 1.8,
+          "actor_capsule_radius_m": 0.35,
+          "allowed_precontact_gap_m": 0.03,
+          "authority_replay_equal": true,
+          "bypass_end_m": [
+            2.5,
+            0.00100000004749745,
+            2.00000071525574
+          ],
+          "contact_numeric_tolerance_m": 1e-05,
+          "contact_plane_z_m": -0.509999996423721,
+          "contact_stop_m": [
+            0.200000002980232,
+            0.00100000004749745,
+            -0.511067390441895
+          ],
+          "corner_interior_clear": false,
+          "low_ray_blocked": true,
+          "ticks_per_case_per_mode": 48
+        },
+        "surface_count": 4,
+        "terminal_reach": {
+          "outside_rays_clear": true,
+          "outside_x_m": [
+            -0.17,
+            0.545
+          ],
+          "tip_low_ray_blocked": true,
+          "tip_x_m": 0.52
+        }
+      }
+    },
+    "resource_uids": {
+      "res://art/models/environment/city_quay_furniture_02/city_quay_furniture_02_end.glb": "uid://4153xav1cxam",
+      "res://art/models/environment/city_quay_furniture_02/city_quay_furniture_02_post_landward.glb": "uid://cevurnf20065n",
+      "res://scenes/prefabs/environment/city_barriers_04.tscn": "uid://brjd2dyti13dq",
+      "res://scenes/prefabs/environment/city_quay_furniture_02_end_landward.tscn": "uid://cbktc63oclumc",
+      "res://scripts/actors/actor_motion.gd": "uid://jthmfio4c27p",
+      "res://tools/asset_production/city_barriers_04/check_scene.tscn": "uid://b6wkfmmd48o63",
+      "res://tools/asset_production/city_quay_furniture_02/check_scene.tscn": "uid://bup76jwv1e50d"
+    },
+    "save_reload_byte_stable": true
+  },
+  "new_meshes": 0.0,
+  "output_type": "Assembly reference",
+  "source": "art/source/models/environment/city_quay_furniture_02/city_quay_furniture_02.blend",
+  "source_sha256": "c382d0c0b4ee311f4d9bdc91e6d011488c6bf8cf8e0139f6914d760a5b4282ae",
+  "source_unchanged": true,
+  "production_checks": {
+    "ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "python_tests": 17,
+    "gut_tests": 149,
+    "gut_assertions": 6768
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 365285
+    },
+    {
+      "file": "side.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 344003
+    },
+    {
+      "file": "detail.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 361514
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 377048
+    }
+  ],
+  "render_settings": {
+    "renderer": "Blender Cycles CPU",
+    "samples": 32,
+    "view_transform": "AgX",
+    "encoding": "RGB, seven significant bits/channel, maximum PNG compression",
+    "overhead": {
+      "height_m": 47,
+      "vertical_fov_degrees": 42,
+      "orientation": "vertical-down, Blender +Y image-up",
+      "projection": "perspective"
+    },
+    "self_review": "All four views inspected; consistent landward family, smooth closed return, tiny quiet overhead footprint. Not engine visibility acceptance."
+  },
+  "diagnostics": [
+    "Initial gdstyle reported two line-length warnings; final owned script has none.",
+    "Imported source-checker bytecode initially wrote an ignored cache; removed it and disabled bytecode writes before final validation. No dependency source or payload changed.",
+    "Final project import reports existing MCP toolkit 4.8-versus-tested-4.7 warning. Final asset and Blender logs have no errors/warnings. No known-failure exemption or diagnostic suppression."
+  ],
+  "pending": [
+    "Independent technical/art review",
+    "Approval of provisional dimensions, hardstanding mount and rail joins",
+    "Actual world routes and populated engine visibility",
+    "Actual vehicle collision/turns",
+    "Separate-process multiplayer transport/admission/prediction",
+    "Packaged builds, repeated-placement performance and Deck profiling"
+  ],
+  "dependencies": {
+    "scenes/prefabs/environment/city_quay_furniture_02_end_landward.tscn": "e143bd63e590ae572a2d83d4f7ab3974a5a0e68e98369bfaa190588fa5907515",
+    "art/models/environment/city_quay_furniture_02/city_quay_furniture_02_end.glb": "ff19fd285ee2682ab39a6e5ae8eff00452e358a60b58db4e06c6b0609fc97a46",
+    "art/models/environment/city_quay_furniture_02/city_quay_furniture_02_end.glb.import": "85b092fdc4b31d9c0603328bd230c0b42a51a5d135155e89a29a936ef8b4ddcc",
+    "art/models/environment/city_quay_furniture_02/city_quay_furniture_02_post_landward.glb": "a1e5578caa904f7880b3c021f0b4b9f5798ce70e09c6878e652548269814ac09",
+    "art/models/environment/city_quay_furniture_02/city_quay_furniture_02_post_landward.glb.import": "7577deb60dc39da1060533e6b8108eb1dd926e3341ac31be488890c1256b1cb6"
+  }
+}

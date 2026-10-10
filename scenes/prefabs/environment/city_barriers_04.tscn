@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://brjd2dyti13dq"]
+
+[ext_resource type="PackedScene" path="res://scenes/prefabs/environment/city_quay_furniture_02_end_landward.tscn" id="1_terminal"]
+
+[node name="CityBarriers04" type="Node3D" unique_id=1066355462]
+
+[node name="RailTerminal" parent="." unique_id=76195959 instance=ExtResource("1_terminal")]
