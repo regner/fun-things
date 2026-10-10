@@ -27,7 +27,7 @@ not measured.
 | --- | --- |
 | World composition | `scenes/world/brackett_greybox/city.tscn` has one `Sectors` node. Under it are 12 ground tiles (`sectors/ground_XX_YY.tscn`) and 9 districts (`sectors/district_0N.tscn`). Each ground tile has one Blender GLB (land, coast, road strokes, walk strokes, field, flat bridge deck) and one concave terrain collider. Each district has a `Geometry` node with `building_NNNN` instances (290 in total) carrying `placement.gd` identity. |
 | Match | `scenes/match/match.tscn` instances `city.tscn` as `World`. It owns `CityData`, the authored `Anchors` (4 player spawns and 3 parked cars, all in district 06), the runtime nodes and `LocalRig`. **It has no `WorldEnvironment` or `DirectionalLight3D`.** Only the review scene `preview.tscn` has lighting, plus a preview-only `water.glb`. `match.tscn` is on the saved-identity allowlist because its nodes lack `unique_id`. |
-| Content identity | `CityData` hashes the dependency closure of `city.tscn` into `scenes/match/brackett_content_manifest.json` (110 rows, keyed by `res://` path). It also hashes the anchor descriptors. The cap is now 2048 rows. `tools/world/regenerate_brackett_content.gd` **writes the manifest and prints the signature**. It does not edit `match.tscn`: the `content_signature` line is copied in by hand, and the tool prints `BRACKETT_CONTENT_SAVED_SIGNATURE_MATCHES true` only when the saved value is current. **Any path change in the closure changes the signature.** |
+| Content identity | `CityData` hashes the dependency closure of `city.tscn` into `scenes/match/brackett_content_manifest.json` (110 rows, keyed by `res://` path). It also hashes the anchor descriptors. The cap is now 2048 rows. `tools/world/regenerate_brackett_content.gd` **writes the manifest and prints the signature**. Its opt-in `--write-signature` mode updates the sole `content_signature` line in `match.tscn` and verifies the saved value; default mode leaves Match unchanged. **Any path change in the closure changes the signature.** |
 | Roads | RT-01 vendored Road Generator 0.9.4. RT-02 landed the source catalog, presets, stable IDs and `RoadNetworkAdapter.validate_network()`. **No road scene exists yet.** Procedural intersections only connect inside one `RoadContainer` (decision 67). RT-02 requires district boundaries to use colocated `road_interface_point` pairs. Prefab intersections (decision 44) are themselves containers joined by container edges. |
 | Clearance gate | The C2.2a tooling test (`tests/unit/world/test_brackett_clearance.gd`) reads road/walk triangles from the `grey_road`/`grey_walk` ground materials. It finds districts under `World/Sectors`. It treats every non-`Geometry` district child as dressing. It counts a `Decal` AABB as a low visual part. It resolves prefabs from the flat `res://scenes/prefabs/environment/` directory. |
 | Register | 226 records: 205 `production_prefab_accepted` and 21 queued (all deferred). None is placed in a world scene yet. |
@@ -150,24 +150,20 @@ rarely. Two shared values are never hand-merged:
 - the `content_signature` line in `match.tscn`.
 
 This applies only to lanes that change the world's dependency closure (anything instanced under
-`city.tscn`) or the anchor descriptors (spawn and parked-car markers). Those lanes:
+`city.tscn`) or the anchor descriptors (spawn and parked-car markers). Those lanes run the pinned
+engine with the opt-in write mode:
 
-1. run `tools/world/regenerate_brackett_content.gd`, which rewrites the manifest and prints the
-   new signature;
-2. copy the printed `BRACKETT_CONTENT_SIGNATURE` value into the `content_signature` line of
-   `match.tscn` by hand;
-3. rerun the tool until it prints `BRACKETT_CONTENT_SAVED_SIGNATURE_MATCHES true`.
+```sh
+timeout 180s "$(mise which godot)" --headless --path . \
+  --script res://tools/world/regenerate_brackett_content.gd -- --write-signature
+```
 
-On a rebase conflict in either file, take main's version and repeat the three steps. Lanes that
-do not touch the closure or the markers run the tool once to confirm it prints `true` and leave
-both files alone.
-
-**Small tooling follow-up (T-1, recommended before WA-1).** Extend the tool with an opt-in
-`--write-signature` mode. It replaces exactly one `content_signature = "..."` line in
-`match.tscn`, failing if it finds zero or several. It changes nothing else in the file, then
-recomputes and requires the saved value to match. Add a test that runs it on a temporary copy
-of the scene, covering a stale value, an already-current value and a missing line. This removes
-the manual copy step (decision D2).
+The command rewrites the manifest, replaces exactly one `content_signature = "..."` line, and
+must print `BRACKETT_CONTENT_SAVED_SIGNATURE_MATCHES true`. It fails rather than editing when the
+line is missing or duplicated. On a rebase conflict in either file, take main's version and repeat
+the command. Lanes that do not touch the closure or markers omit `-- --write-signature`, confirm
+the tool prints `true`, and leave `match.tscn` alone. T-1 implemented this owner-approved decision
+D2; temporary-copy tests cover stale, current, missing and duplicated signature lines.
 
 | Work | Writes | Can run in parallel with |
 | --- | --- | --- |
@@ -826,11 +822,9 @@ world scenes and B-1/B-2 for the decal rules.
 final graphic types.
 
 **D2. Writing the content signature.**
-(a) Small follow-up T-1: give the regeneration tool an opt-in mode that safely writes the
-signature line in `match.tscn`, with a test.
-(b) Keep copying the printed signature into `match.tscn` by hand and rerunning until it matches.
-*Recommendation: (a).* The manual step is easy to forget and leaves `match.tscn` stale. Until
-T-1 lands, lanes follow (b) exactly.
+Owner-approved option (a) is implemented by T-1: the regeneration tool's opt-in mode safely writes
+the sole signature line in `match.tscn`, rechecks it, and has temporary-copy regression tests.
+Lanes use the workflow above instead of copying the signature by hand.
 
 ## Sources
 

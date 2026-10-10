@@ -168,6 +168,27 @@ Inspect the resulting header, dependencies, node IDs, and diff. A cold-cache
 `ResourceSaver` run may silently omit dependency UIDs, so it is not an acceptable
 substitute for this sequence.
 
+### Brackett content signature regeneration
+
+A lane that changes the dependency closure below `city.tscn` or the saved Match anchor
+descriptors first updates its owned content revision, then runs the pinned regeneration tool's
+opt-in write mode:
+
+```sh
+GODOT="$(mise which godot)"
+timeout 180s "$GODOT" --headless --path . \
+  --script res://tools/world/regenerate_brackett_content.gd -- --write-signature
+```
+
+The command regenerates the manifest, replaces exactly one `content_signature` property in
+`scenes/match/match.tscn`, reloads the scene, and must print
+`BRACKETT_CONTENT_SAVED_SIGNATURE_MATCHES true`. A missing or duplicated property is a hard
+failure. Without `--write-signature`, the tool retains its check-only behavior for Match: it
+still writes the manifest and prints the calculated and comparison values, but does not edit the
+scene. Lanes that did not change the closure or anchors use that default mode and leave Match
+unchanged. Resolve manifest or signature conflicts by taking `main` and rerunning the applicable
+mode rather than hand-merging generated values.
+
 ## Validation layers
 
 For a requested project-owned GDScript review or focused subsystem audit, use
