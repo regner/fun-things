@@ -1,0 +1,231 @@
+{
+  "applied_transforms": true,
+  "asset": "city_harbour_bridge.01",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "consistent_winding": true,
+  "datum": "structural deck top",
+  "deck_height_m": 0.0,
+  "degenerate_faces": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "dimensions_godot_m": [
+    91.0,
+    1.25,
+    17.0
+  ],
+  "end_joins_godot": [
+    [
+      -45.5,
+      0.0,
+      0.0
+    ],
+    [
+      45.5,
+      0.0,
+      0.0
+    ]
+  ],
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 97056.0,
+  "glb_sha256": "d45d5e0c0f8980b7d0571949a49e33abe2dbcc0cad2655f36f33833ac8c49b0a",
+  "glb_vertices": 2235.0,
+  "godot": {
+    "bounds_min": [
+      -45.5,
+      -1.25,
+      -8.5
+    ],
+    "bounds_size": [
+      91.0,
+      1.25,
+      17.0
+    ],
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "actor_motion_seam_ticks_per_mode": 1128,
+      "authority_replay_equal": true,
+      "car_driving_and_guarded_assembly": "pending sibling integration and gameplay review",
+      "deck_support_rays": 7,
+      "outside_edge_clear_rays": 1,
+      "seam_end_position": [
+        46.9997367858887,
+        0.00100000004749745,
+        0.0
+      ],
+      "underdeck_water_clear_rays": 1,
+      "water_falloff_and_network_transport": "not tested; outside component scope"
+    },
+    "save_reload_byte_stable": true
+  },
+  "godot_aabb": {
+    "max": [
+      45.5,
+      0.0,
+      8.5
+    ],
+    "min": [
+      -45.5,
+      -1.25,
+      -8.5
+    ]
+  },
+  "layout_reference": {
+    "map_endpoints": [
+      [
+        309.0,
+        590.0
+      ],
+      [
+        400.0,
+        590.0
+      ]
+    ],
+    "open_water_gap_m": 0.85,
+    "water_y_m": -2.1
+  },
+  "level_top_area_m2": 1547.0,
+  "materials": [
+    {
+      "name": "bridge_civic_concrete",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.159999996423721,
+          0.230000004172325,
+          0.25,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.649999976158142
+      }
+    },
+    {
+      "name": "bridge_pale_fascia",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.569999992847443,
+          0.629999995231628,
+          0.600000023841858,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.579999983310699
+      }
+    },
+    {
+      "name": "bridge_petrol_steel",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0320000015199184,
+          0.0810000002384186,
+          0.0949999988079071,
+          1.0
+        ],
+        "metallicFactor": 0.649999976158142,
+        "roughnessFactor": 0.430000007152557
+      }
+    },
+    {
+      "name": "bridge_recess",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0450000017881393,
+          0.0710000023245811,
+          0.0769999995827675,
+          1.0
+        ],
+        "metallicFactor": 0.25,
+        "roughnessFactor": 0.600000023841858
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "source_aabb": {
+    "max": [
+      45.5,
+      8.5,
+      0.0
+    ],
+    "min": [
+      -45.5,
+      -8.5,
+      -1.25
+    ]
+  },
+  "status": "PASS source and export",
+  "surfaces": 4.0,
+  "triangles": 3600.0,
+  "unit_normals": true,
+  "vertices": 1840.0,
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": true,
+      "returncode": 0
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 414449
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 194221
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 301773
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 358430
+    }
+  ],
+  "render_encoding": "RGB 7 significant bits per channel, PNG compression 9"
+}

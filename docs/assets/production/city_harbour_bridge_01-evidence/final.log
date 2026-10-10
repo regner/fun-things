@@ -1,0 +1,62 @@
+city_harbour_bridge.01 final production receipt
+Only final concise output retained; raw logs are external scratch.
+
+BLENDER: author/export/reexport/validate/render each exit 0; pin 5.2.2 LTS d13f752e3b9c; exporter 5.2.40.
+Fresh source GLB and reexport byte-identical; no topology/normal failures.
+
+GODOT HEADLESS IMPORT: exit 0, dependency import succeeded. Third-party MCP warning: 4.8 newer than plugin tested 4.7.
+
+NORMALIZE: exit 0, linked model/AABB/dependency/UID and two scene stable-byte assertions passed.
+Editor/plugin shutdown: RID leaks (5 Viewport, 8 Texture, 1 Scenario, 52 ShapedText, 1 Font), 5 Canvas/31 CanvasItem, 168 ObjectDB.
+Subsequent runtime check has no error/warning diagnostics.
+
+RUNTIME PRODUCTION API CHECK:
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+[MCPRuntimeServer] port: scanning 6570-6585 (default)
+[MCPRuntimeServer] listening on 127.0.0.1:6570
+[MCPRegistry] runtime port 6570 registered for c:/gamedev/git/ft-lanes/a-hbridge
+CITY_HARBOUR_BRIDGE_01_CHECK_PASS {"bounds_min":[-45.5,-1.25,-8.5],"bounds_size":[91.0,1.25,17.0],"engine":"4.8-dev7 (official)","linked_model_identity":true,"physics":{"actor_motion_seam_ticks_per_mode":1128,"authority_replay_equal":true,"car_driving_and_guarded_assembly":"pending sibling integration and gameplay review","deck_support_rays":7,"outside_edge_clear_rays":1,"seam_end_position":[46.9997367858887,0.00100000004749745,0.0],"underdeck_water_clear_rays":1,"water_falloff_and_network_transport":"not tested; outside component scope"},"save_reload_byte_stable":true}
+
+GDSTYLE: one asset-owned script checked; no issues.
+
+CORRECTED CANONICAL CHECKS:
+Production check evidence: C:\tmp\ft\assets\city_harbour_bridge_01\checks-pinned
+{
+  "engine": {
+    "ok": true,
+    "version": "4.8.dev7.official.c971f93e7"
+  },
+  "gut_pin": {
+    "ok": true,
+    "version": "9.7.1"
+  },
+  "owned_scripts": {
+    "ok": true,
+    "returncode": 0
+  },
+  "python_tests": {
+    "ok": true,
+    "returncode": 0
+  },
+  "gut_import": {
+    "ok": true,
+    "returncode": 0
+  },
+  "gut_tests": {
+    "ok": true,
+    "returncode": 0
+  },
+  "gut_negative": {
+    "ok": true,
+    "observed_returncode": 1
+  }
+}
+
+Python: 16 tests passed. GUT: 28 scripts, 142 tests passed, 6705 assertions. Negative diagnostic exits 1 as expected.
+
+INITIAL FAILURES: validator evidence directory absent (fixed mkdir); initial production_checks run rejected shim/cp1252 decoding before engine version.
+Correction: PYTHONUTF8=1 plus --godot / --gdstyle with mise-resolved executables; full suite then passed.
+
+VISUAL SELF-REVIEW: four 1280x720 Blender views inspected. Flat end-face shading corrected; flush shoulder strips improve overhead edge continuity.
+No Godot visual, guarded-assembly, car driving, multiplayer transport, placement or device/performance acceptance claimed.
