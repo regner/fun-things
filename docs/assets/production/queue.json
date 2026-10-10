@@ -5116,14 +5116,14 @@
       "input_next_action": "Refine asset design from Crescents v02",
       "brief": "[Brief](../../assets/d02_corner_shop.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "39a31e5c-d012-4693-8543-368d45ed48cd",
+      "source_revision": "863ca2cb",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d02_corner_shop_01/",
@@ -5131,8 +5131,20 @@
         "art/textures/environment/d02_corner_shop_01/",
         "art/materials/environment/d02_corner_shop_01/",
         "docs/assets/production/d02_corner_shop_01.md",
-        "docs/assets/production/d02_corner_shop_01-evidence/"
-      ]
+        "docs/assets/production/d02_corner_shop_01-evidence/",
+        "tools/asset_production/d02_corner_shop_01/",
+        "scenes/prefabs/environment/d02_corner_shop_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-cshop"
+      },
+      "producer_manifest": "docs/assets/production/d02_corner_shop_01-evidence/manifest.json",
+      "report": "docs/assets/production/d02_corner_shop_01.md",
+      "reviewer_id": "f08c7bcf-c2b0-4129-abcf-82d2338ffa84",
+      "integrated_revision": "863ca2cb"
     },
     {
       "id": "d02_corner_shop.02",
@@ -5145,14 +5157,14 @@
       "input_next_action": "Use core buildings unless a distinct design is selected",
       "brief": "[Brief](../../assets/d02_corner_shop.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "329c0927-6ae7-47b7-a5a8-0fbe6db3f4c0",
+      "source_revision": "863ca2cb",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d02_corner_shop_02/",
@@ -5160,8 +5172,20 @@
         "art/textures/environment/d02_corner_shop_02/",
         "art/materials/environment/d02_corner_shop_02/",
         "docs/assets/production/d02_corner_shop_02.md",
-        "docs/assets/production/d02_corner_shop_02-evidence/"
-      ]
+        "docs/assets/production/d02_corner_shop_02-evidence/",
+        "tools/asset_production/d02_corner_shop_02/",
+        "scenes/prefabs/environment/d02_corner_shop_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-cshop"
+      },
+      "producer_manifest": "docs/assets/production/d02_corner_shop_02-evidence/manifest.json",
+      "report": "docs/assets/production/d02_corner_shop_02.md",
+      "reviewer_id": "f08c7bcf-c2b0-4129-abcf-82d2338ffa84",
+      "integrated_revision": "863ca2cb"
     },
     {
       "id": "d02_domestic_details.01",
