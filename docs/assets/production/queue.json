@@ -3131,14 +3131,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_shore_edges.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "fd68cd56-a6cd-45f0-9f6a-e517af0876de",
+      "source_revision": "1108276f",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_shore_edges_01/",
@@ -3146,8 +3146,20 @@
         "art/textures/environment/city_shore_edges_01/",
         "art/materials/environment/city_shore_edges_01/",
         "docs/assets/production/city_shore_edges_01.md",
-        "docs/assets/production/city_shore_edges_01-evidence/"
-      ]
+        "docs/assets/production/city_shore_edges_01-evidence/",
+        "tools/asset_production/city_shore_edges_01/",
+        "scenes/prefabs/environment/city_shore_edges_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-shore"
+      },
+      "producer_manifest": "docs/assets/production/city_shore_edges_01-evidence/manifest.json",
+      "report": "docs/assets/production/city_shore_edges_01.md",
+      "reviewer_id": "af38cde8-18fb-4cc2-a0f9-490c885a3b3a",
+      "integrated_revision": "c7782e5c"
     },
     {
       "id": "city_shore_edges.02",
@@ -3160,14 +3172,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_shore_edges.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "e83f7d05-2a3f-4d54-9a7b-1544d7330fda",
+      "source_revision": "dcfa25da",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_shore_edges_02/",
@@ -3175,8 +3187,20 @@
         "art/textures/environment/city_shore_edges_02/",
         "art/materials/environment/city_shore_edges_02/",
         "docs/assets/production/city_shore_edges_02.md",
-        "docs/assets/production/city_shore_edges_02-evidence/"
-      ]
+        "docs/assets/production/city_shore_edges_02-evidence/",
+        "tools/asset_production/city_shore_edges_02/",
+        "scenes/prefabs/environment/city_shore_edges_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-shore"
+      },
+      "producer_manifest": "docs/assets/production/city_shore_edges_02-evidence/manifest.json",
+      "report": "docs/assets/production/city_shore_edges_02.md",
+      "reviewer_id": "af38cde8-18fb-4cc2-a0f9-490c885a3b3a",
+      "integrated_revision": "c7782e5c"
     },
     {
       "id": "city_shore_edges.03",
@@ -3189,14 +3213,14 @@
       "input_next_action": "Refine shared design for recorded districts",
       "brief": "[Brief](../../assets/city_shore_edges.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "723bcced-6732-40fb-a667-9aac4d492114",
+      "source_revision": "d33ec9f7",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_shore_edges_03/",
@@ -3204,8 +3228,20 @@
         "art/textures/environment/city_shore_edges_03/",
         "art/materials/environment/city_shore_edges_03/",
         "docs/assets/production/city_shore_edges_03.md",
-        "docs/assets/production/city_shore_edges_03-evidence/"
-      ]
+        "docs/assets/production/city_shore_edges_03-evidence/",
+        "tools/asset_production/city_shore_edges_03/",
+        "scenes/prefabs/environment/city_shore_edges_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-shore"
+      },
+      "producer_manifest": "docs/assets/production/city_shore_edges_03-evidence/manifest.json",
+      "report": "docs/assets/production/city_shore_edges_03.md",
+      "reviewer_id": "af38cde8-18fb-4cc2-a0f9-490c885a3b3a",
+      "integrated_revision": "c7782e5c"
     },
     {
       "id": "city_shore_edges.04",
@@ -3218,14 +3254,14 @@
       "input_next_action": "Refine shared corner/end interfaces for coastal edge kit",
       "brief": "[Brief](../../assets/city_shore_edges.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "c7ef68dd-b754-4583-ae01-fbad6a9de17f",
+      "source_revision": "c7782e5c",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/city_shore_edges_04/",
@@ -3233,8 +3269,20 @@
         "art/textures/environment/city_shore_edges_04/",
         "art/materials/environment/city_shore_edges_04/",
         "docs/assets/production/city_shore_edges_04.md",
-        "docs/assets/production/city_shore_edges_04-evidence/"
-      ]
+        "docs/assets/production/city_shore_edges_04-evidence/",
+        "tools/asset_production/city_shore_edges_04/",
+        "scenes/prefabs/environment/city_shore_edges_04.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-shore"
+      },
+      "producer_manifest": "docs/assets/production/city_shore_edges_04-evidence/manifest.json",
+      "report": "docs/assets/production/city_shore_edges_04.md",
+      "reviewer_id": "af38cde8-18fb-4cc2-a0f9-490c885a3b3a",
+      "integrated_revision": "c7782e5c"
     },
     {
       "id": "city_water_look.01",
