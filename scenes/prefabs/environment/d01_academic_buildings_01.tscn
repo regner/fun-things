@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dng05jw2rigmc"]
+
+[ext_resource type="PackedScene" uid="uid://ypb2kumk0pbb" path="res://art/models/environment/d01_academic_buildings_01/d01_academic_buildings_01.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_hall"]
+size = Vector3(44.4, 10.8, 12.5)
+
+[sub_resource type="BoxShape3D" id="Box_wing"]
+size = Vector3(10.4, 10.8, 28.4)
+
+[node name="D01AcademicBuildings01" type="Node3D" unique_id=691378791]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=945842754]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=939824489 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1674005685]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=1468050533]
+collision_mask = 0
+
+[node name="MainHallSolid" type="CollisionShape3D" parent="Collision/Body" unique_id=1510538023]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.4, 13.95)
+shape = SubResource("Box_hall")
+
+[node name="WestWingSolid" type="CollisionShape3D" parent="Collision/Body" unique_id=1098519338]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17, 5.4, -6)
+shape = SubResource("Box_wing")
+
+[node name="EastWingSolid" type="CollisionShape3D" parent="Collision/Body" unique_id=1958790045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 5.4, -6)
+shape = SubResource("Box_wing")

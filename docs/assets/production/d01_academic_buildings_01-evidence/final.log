@@ -1,0 +1,37 @@
+FINAL ASSET RECEIPT: d01_academic_buildings.01
+Blender author and validator: exit 0; 5.2.2 LTS / exporter 5.2.40.
+28,758 triangles, 15,547 source vertices, 21,604 exported vertices, one mesh, nine surfaces.
+Zero degenerate source faces / GLB triangles and zero non-manifold source edges.
+Unit normals, metre scale, identity transforms, independent bounds and byte reexport PASS.
+Four final renders inspected; tower planar shading and detail framing corrected.
+Initial multi-segment micro-bevels reduced without changing silhouette or envelope.
+Author notices: Blender 6.0 future use_nodes deprecation warnings, no failed asset operation.
+Headless editor normalization: exit 0; byte-stable save/reload and original UIDs preserved.
+Editor shutdown RID/ObjectDB leaks remain diagnostics, not a clean-log claim.
+Runtime-only save stripped scene/dependency UIDs after cache refresh; checker now rejects
+runtime normalization. Original generated UIDs restored before editor normalization.
+Initial gdstyle fmt --check requested formatting; corrected, final format/lint pass.
+Final import: exit 0, no ERROR/SCRIPT ERROR lines.
+Two fresh runtime checks: exit 0, clean error logs, byte-identical receipts.
+Linked model, UIDs, bounds, opaque materials and two-save byte stability PASS.
+13 shape expectations, court-to-door ray and six production ActorMotion cases PASS.
+Authority/replay agree; transport, placement, car handling and device acceptance remain pending.
+No production_checks.py run (decision 52).
+
+1 file already formatted.
+
+✓ 1 file checked, no issues found.
+
+Editor normalization shutdown errors (retained):
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+Final runtime receipt:
+Godot Engine v4.8.dev7.official.c971f93e7 - https://godotengine.org
+
+[MCPRuntimeServer] port: scanning 6570-6585 (default)
+[MCPRuntimeServer] listening on 127.0.0.1:6570
+[MCPRegistry] runtime port 6570 registered for c:/gamedev/git/ft-lanes/a-acad
+{"aabb_min":[-22.6000003814697,0.0,-20.7650032043457],"aabb_size":[45.2000007629395,21.0,41.3650016784668],"collision_shape_count":3,"engine":"4.8-dev7 (official)","failures":[],"front_ray_hit":[0.0,1.0,7.70000028610229],"linked_model_identity":true,"materials":["academic_base_stone","academic_brick","academic_pale_stone","academic_field_green","academic_slate_roof","academic_opaque_glass","academic_occupied_amber","academic_wayfinding_mint","academic_clock_ivory"],"mesh_count":1,"model_uid":"uid://ypb2kumk0pbb","ok":true,"physics_shape_queries":[{"case":"main_hall_solid","solid":true},{"case":"closed_arch_solid","solid":true},{"case":"court_centre_clear","solid":false},{"case":"court_mouth_clear","solid":false},{"case":"west_wing_solid","solid":true},{"case":"east_wing_solid","solid":true},{"case":"west_connection_solid","solid":true},{"case":"east_connection_solid","solid":true},{"case":"rear_corner_solid","solid":true},{"case":"wing_corner_solid","solid":true},{"case":"west_bypass_clear","solid":false},{"case":"east_bypass_clear","solid":false},{"case":"tower_cap_visual_only","solid":false}],"prefab_uid":"uid://dng05jw2rigmc","production_actor_motion":[{"bypass_end":[0.0,0.000877875136211514,-7.00000667572021],"entry_end":[0.0,0.00087785127107054,7.33333969116211],"mode":0,"wall_end":[11.4492092132568,0.000877899001352489,0.0]},{"bypass_end":[0.0,0.000877875136211514,-7.00000667572021],"entry_end":[0.0,0.00087785127107054,7.33333969116211],"mode":1,"wall_end":[11.4492092132568,0.000877899001352489,0.0]}]}

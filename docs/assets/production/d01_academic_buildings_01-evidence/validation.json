@@ -1,0 +1,364 @@
+{
+  "status": "PASS: source and GLB; engine/gameplay gates recorded separately",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "glTF_exporter": "5.2.40",
+  "source_vertices": 15547,
+  "source_triangles": 28758,
+  "source_degenerate_faces": 0,
+  "source_nonmanifold_edges": 0,
+  "source_max_normal_length_error": 1.6119008816595226e-07,
+  "glb_vertices_including_surface_splits": 21604,
+  "glb_triangles": 28758,
+  "glb_degenerate_triangles": 0,
+  "glb_max_normal_length_error": 1.1269002508917936e-07,
+  "mesh_count": 1,
+  "surface_count": 9,
+  "aabb_godot": {
+    "min": [
+      -22.600000381469727,
+      0.0,
+      -20.765003204345703
+    ],
+    "max": [
+      22.600000381469727,
+      21.0,
+      20.600000381469727
+    ],
+    "size": [
+      45.20000076293945,
+      21.0,
+      41.36500358581543
+    ]
+  },
+  "expected_aabb_godot": {
+    "min": [
+      -22.6,
+      0,
+      -20.765
+    ],
+    "max": [
+      22.6,
+      21,
+      20.6
+    ]
+  },
+  "envelope_tolerance_m": 0.001,
+  "ground_contact_pivot": [
+    0,
+    0,
+    0
+  ],
+  "materials": [
+    {
+      "name": "academic_base_stone",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.25,
+          0.27000001072883606,
+          0.25,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.699999988079071
+      }
+    },
+    {
+      "name": "academic_brick",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.3199999928474426,
+          0.10499999672174454,
+          0.06499999761581421,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.7200000286102295
+      }
+    },
+    {
+      "name": "academic_pale_stone",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.699999988079071,
+          0.6399999856948853,
+          0.49000000953674316,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.6200000047683716
+      }
+    },
+    {
+      "name": "academic_field_green",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.02800000086426735,
+          0.11500000208616257,
+          0.0949999988079071,
+          1
+        ],
+        "metallicFactor": 0.15000000596046448,
+        "roughnessFactor": 0.47999998927116394
+      }
+    },
+    {
+      "name": "academic_slate_roof",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.06499999761581421,
+          0.10499999672174454,
+          0.1550000011920929,
+          1
+        ],
+        "metallicFactor": 0.11999999731779099,
+        "roughnessFactor": 0.5199999809265137
+      }
+    },
+    {
+      "name": "academic_opaque_glass",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.023000000044703484,
+          0.07100000232458115,
+          0.08500000089406967,
+          1
+        ],
+        "metallicFactor": 0.2199999988079071,
+        "roughnessFactor": 0.30000001192092896
+      }
+    },
+    {
+      "name": "academic_occupied_amber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8500000238418579,
+          0.4300000071525574,
+          0.10999999940395355,
+          1
+        ],
+        "metallicFactor": 0.05999999865889549,
+        "roughnessFactor": 0.41999998688697815
+      }
+    },
+    {
+      "name": "academic_wayfinding_mint",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.23000000417232513,
+          0.699999988079071,
+          0.5199999809265137,
+          1
+        ],
+        "metallicFactor": 0.05000000074505806,
+        "roughnessFactor": 0.41999998688697815
+      }
+    },
+    {
+      "name": "academic_clock_ivory",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8999999761581421,
+          0.8399999737739563,
+          0.6399999856948853,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5
+      }
+    }
+  ],
+  "reexport_byte_identical": true,
+  "glb_sha256": "b6d851edea5418ff0938b84a5bfb664906701881be554fb0d05cfe34a6786522",
+  "glb_bytes": 872500,
+  "engine": {
+    "aabb_min": [
+      -22.6000003814697,
+      0.0,
+      -20.7650032043457
+    ],
+    "aabb_size": [
+      45.2000007629395,
+      21.0,
+      41.3650016784668
+    ],
+    "collision_shape_count": 3,
+    "engine": "4.8-dev7 (official)",
+    "failures": [],
+    "front_ray_hit": [
+      0.0,
+      1.0,
+      7.70000028610229
+    ],
+    "linked_model_identity": true,
+    "materials": [
+      "academic_base_stone",
+      "academic_brick",
+      "academic_pale_stone",
+      "academic_field_green",
+      "academic_slate_roof",
+      "academic_opaque_glass",
+      "academic_occupied_amber",
+      "academic_wayfinding_mint",
+      "academic_clock_ivory"
+    ],
+    "mesh_count": 1,
+    "model_uid": "uid://ypb2kumk0pbb",
+    "ok": true,
+    "physics_shape_queries": [
+      {
+        "case": "main_hall_solid",
+        "solid": true
+      },
+      {
+        "case": "closed_arch_solid",
+        "solid": true
+      },
+      {
+        "case": "court_centre_clear",
+        "solid": false
+      },
+      {
+        "case": "court_mouth_clear",
+        "solid": false
+      },
+      {
+        "case": "west_wing_solid",
+        "solid": true
+      },
+      {
+        "case": "east_wing_solid",
+        "solid": true
+      },
+      {
+        "case": "west_connection_solid",
+        "solid": true
+      },
+      {
+        "case": "east_connection_solid",
+        "solid": true
+      },
+      {
+        "case": "rear_corner_solid",
+        "solid": true
+      },
+      {
+        "case": "wing_corner_solid",
+        "solid": true
+      },
+      {
+        "case": "west_bypass_clear",
+        "solid": false
+      },
+      {
+        "case": "east_bypass_clear",
+        "solid": false
+      },
+      {
+        "case": "tower_cap_visual_only",
+        "solid": false
+      }
+    ],
+    "prefab_uid": "uid://dng05jw2rigmc",
+    "production_actor_motion": [
+      {
+        "bypass_end": [
+          0.0,
+          0.000877875136211514,
+          -7.00000667572021
+        ],
+        "entry_end": [
+          0.0,
+          0.00087785127107054,
+          7.33333969116211
+        ],
+        "mode": 0,
+        "wall_end": [
+          11.4492092132568,
+          0.000877899001352489,
+          0.0
+        ]
+      },
+      {
+        "bypass_end": [
+          0.0,
+          0.000877875136211514,
+          -7.00000667572021
+        ],
+        "entry_end": [
+          0.0,
+          0.00087785127107054,
+          7.33333969116211
+        ],
+        "mode": 1,
+        "wall_end": [
+          11.4492092132568,
+          0.000877899001352489,
+          0.0
+        ]
+      }
+    ],
+    "second_fresh_process_exact_match": true,
+    "save_reload_byte_stable": true,
+    "normalization_shutdown_errors": [
+      "ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.",
+      "ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.",
+      "ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.",
+      "ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.",
+      "ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit."
+    ]
+  },
+  "checks": {
+    "final_headless_import_error_lines": [],
+    "owned_gdscript_format": "PASS",
+    "owned_gdscript_lint": "PASS: zero warnings",
+    "production_checks_run": false,
+    "editor_normalization": "Exit 0, stable bytes/UIDs and valid resource receipt, but editor shutdown RID/ObjectDB leak diagnostics retained. Runtime load/physics and final import logs are clean.",
+    "runtime_save_limitation": "Runtime-only ResourceSaver strips UIDs after cache refresh on this pin; checker now rejects runtime normalization. Original generated UIDs restored and headless editor-normalized; final import and read-only runtime checks pass."
+  },
+  "visual_review": {
+    "renders_inspected": [
+      {
+        "file": "hero.png",
+        "width": 1120,
+        "height": 630,
+        "bytes": 415680
+      },
+      {
+        "file": "side.png",
+        "width": 1120,
+        "height": 630,
+        "bytes": 321240
+      },
+      {
+        "file": "entrance_clock_detail.png",
+        "width": 1120,
+        "height": 630,
+        "bytes": 392308
+      },
+      {
+        "file": "overhead_47m_42deg.png",
+        "width": 1280,
+        "height": 720,
+        "bytes": 317511
+      }
+    ],
+    "observation": "Complete U roof/open-court silhouette reads in hero; ordered windows and closed amber arch read in detail. Planar tower cap corrected before final render. Calibrated overhead is a local court crop, not a whole-building overview.",
+    "renderer": "Blender Cycles CPU, 32 samples, AgX; not engine visual acceptance",
+    "gameplay_camera": {
+      "blender_position_m": [
+        0,
+        -3,
+        47
+      ],
+      "rotation_radians": [
+        0,
+        0,
+        0
+      ],
+      "vertical_fov_degrees": 42,
+      "projection": "perspective"
+    },
+    "png": "RGB8, compression 95, dither disabled, no post-processing"
+  }
+}
