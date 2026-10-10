@@ -37,9 +37,15 @@ Allow about 15 minutes. Do not commit the trial scene.
    first road's open end. In **Add and Connect Mode**, select one open point and click
    the compatible open point on the other road. Confirm the roads connect and remain
    editable.
-9. Create two more branches into that connection. Use add/connect interactions to
-   convert the joined point into a procedural `RoadIntersection`. Move one branch and
-   confirm the intersection and turn lanes refresh.
+9. Make a procedural intersection inside ONE container (the addon cannot connect a
+   procedural intersection directly across containers; see the addon wiki
+   "Creating procedural intersections"). In the first `RoadContainer`, draw a straight
+   three-point road A-B-C so the middle point B is fully connected. In **Add and Connect
+   Mode**, click empty ground to add a lone point D in the same container. With D
+   selected, hover over B until the circular intersection preview appears, then click.
+   B becomes a `RoadIntersection` (round handle). Move D and the round centre handle and
+   confirm the intersection and turn lanes refresh. Optionally, select a fully connected
+   point and hover over empty space to grow a new branch as an intersection.
 10. Drag
     `res://addons/road-generator/custom_containers/4way_1x1.tscn` from the FileSystem
     into the scene as another child of `RoadManager`. Confirm its mesh, collision and
