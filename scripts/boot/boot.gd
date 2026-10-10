@@ -13,6 +13,7 @@ var _smoke_failures: Array[String] = []
 var _last_join_address: String = ""
 var _last_join_port: int = 0
 var _match: Node3D
+var _exported_acceptance: ExportedMultiplayerAcceptance
 
 @onready var _session: SessionService = $Session
 @onready var _enet_transport: ENetTransport = $Session/ENetTransport
@@ -51,8 +52,33 @@ func _ready() -> void:
 	_session_status.present(_session.view())
 	_print_export_boot()
 	var arguments: PackedStringArray = OS.get_cmdline_user_args()
-	if SMOKE_ARGUMENT in arguments or EXPORT_SMOKE_ARGUMENT in arguments:
+	var acceptance_options: Dictionary = (
+		ExportedMultiplayerAcceptance.options_from_arguments(arguments)
+	)
+	if ExportedMultiplayerAcceptance.requested(acceptance_options):
+		_exported_acceptance = ExportedMultiplayerAcceptance.new()
+		if not _exported_acceptance.configure(
+			get_tree(),
+			_session,
+			_enet_transport,
+			_current_match,
+			acceptance_options,
+		):
+			push_error("Invalid M1-A-GATE acceptance arguments")
+			get_tree().quit(2)
+	elif SMOKE_ARGUMENT in arguments or EXPORT_SMOKE_ARGUMENT in arguments:
 		_run_smoke.call_deferred(EXPORT_SMOKE_ARGUMENT in arguments)
+
+
+## Advances the opt-in exported acceptance without changing normal input collection.
+func _physics_process(delta_seconds: float) -> void:
+	if _exported_acceptance != null:
+		_exported_acceptance.physics_process(delta_seconds)
+
+
+## Exposes the current saved Match only to the injected acceptance coordinator.
+func _current_match() -> Node3D:
+	return _match
 
 
 ## Starts the shared no-network session path from the main menu.

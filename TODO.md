@@ -28,9 +28,11 @@ recommendations and do not block P1.
 - [ ] **M1-A1 — Build the session service and menu flow.** A1.1 Boot/session and A1.2 ENet
   host/join (pre-RPC SceneMultiplayer authentication, bounded cleanup, real-process matrix) are
   done. Remaining: carry the S06 whole-UI direction into the authored menus.
-- [ ] **M1-A-GATE — Verify the multiplayer shell in exported builds (P1).** M1-A2 is done
-  (A2.1–A2.5: foot simulation, replication, prediction/smoothing, lifecycle, first playable). Validate two exported ENet processes walking together in Brackett,
-  lifecycle/reset/error flows and the S08 Linux desktop checklist with Steam absent.
+- [ ] **M1-A-GATE — Verify the multiplayer shell in exported builds (P1).** Windows exported
+  host/client acceptance now passes Brackett walking, prediction/smoothing, lifecycle/reset,
+  incompatible protocol, admission timeout, host loss, clean teardown and Steam-absent checks.
+  Exact Windows/Linux exports and PCK inspection pass. Remaining: execute the committed Linux
+  desktop launch checklist on Linux; packaging on Windows does not close that gate.
 
 ### M1-B — Vehicles, combat and destruction
 

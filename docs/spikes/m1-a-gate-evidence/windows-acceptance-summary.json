@@ -1,0 +1,180 @@
+{
+  "ok": true,
+  "executable": "C:/tmp/ft/exports/m1-agate-final/windows-debug/FunThingsDebug.exe",
+  "cases": {
+    "gameplay": {
+      "ok": true,
+      "exits": {
+        "client": 0,
+        "host": 0
+      },
+      "receipts": {
+        "host": {
+          "brackett_loaded": true,
+          "client_moved": true,
+          "dead_observed": true,
+          "detail": "",
+          "event": "finished",
+          "host_moved": true,
+          "match_revision": 2,
+          "ok": true,
+          "peer_seen": true,
+          "prediction_bounded": true,
+          "remote_smoothed": false,
+          "reset_observed": true,
+          "respawn_observed": true,
+          "role": "host",
+          "scenario": "gameplay",
+          "steam_class_absent": true,
+          "steam_singleton_absent": true
+        },
+        "client": {
+          "brackett_loaded": true,
+          "client_moved": true,
+          "dead_observed": true,
+          "detail": "",
+          "event": "finished",
+          "host_moved": false,
+          "match_revision": 2,
+          "ok": true,
+          "peer_seen": false,
+          "prediction_bounded": true,
+          "remote_smoothed": true,
+          "reset_observed": true,
+          "respawn_observed": true,
+          "role": "client",
+          "scenario": "gameplay",
+          "steam_class_absent": true,
+          "steam_singleton_absent": true
+        }
+      },
+      "elapsed_seconds": 12.737
+    },
+    "incompatible": {
+      "ok": true,
+      "exits": {
+        "client": 0,
+        "host": 0
+      },
+      "receipts": {
+        "host": {
+          "brackett_loaded": false,
+          "client_moved": false,
+          "dead_observed": false,
+          "detail": "",
+          "event": "finished",
+          "host_moved": false,
+          "match_revision": 0,
+          "ok": true,
+          "peer_seen": true,
+          "prediction_bounded": true,
+          "remote_smoothed": false,
+          "reset_observed": false,
+          "respawn_observed": false,
+          "role": "host",
+          "scenario": "incompatible",
+          "steam_class_absent": true,
+          "steam_singleton_absent": true
+        },
+        "client": {
+          "brackett_loaded": false,
+          "client_moved": false,
+          "dead_observed": false,
+          "detail": "INCOMPATIBLE",
+          "event": "finished",
+          "host_moved": false,
+          "match_revision": 0,
+          "ok": true,
+          "peer_seen": false,
+          "prediction_bounded": true,
+          "remote_smoothed": false,
+          "reset_observed": false,
+          "respawn_observed": false,
+          "role": "client",
+          "scenario": "incompatible",
+          "steam_class_absent": true,
+          "steam_singleton_absent": true
+        }
+      },
+      "elapsed_seconds": 8.063
+    },
+    "admission_timeout": {
+      "ok": true,
+      "exits": {
+        "client": 0,
+        "host": 0
+      },
+      "receipts": {
+        "host": {
+          "brackett_loaded": false,
+          "client_moved": false,
+          "dead_observed": false,
+          "detail": "",
+          "event": "finished",
+          "host_moved": false,
+          "match_revision": 0,
+          "ok": true,
+          "peer_seen": true,
+          "prediction_bounded": true,
+          "remote_smoothed": false,
+          "reset_observed": false,
+          "respawn_observed": false,
+          "role": "host",
+          "scenario": "admission_timeout",
+          "steam_class_absent": true,
+          "steam_singleton_absent": true
+        },
+        "client": {
+          "brackett_loaded": false,
+          "client_moved": false,
+          "dead_observed": false,
+          "detail": "HANDSHAKE_TIMEOUT",
+          "event": "finished",
+          "host_moved": false,
+          "match_revision": 0,
+          "ok": true,
+          "peer_seen": false,
+          "prediction_bounded": true,
+          "remote_smoothed": false,
+          "reset_observed": false,
+          "respawn_observed": false,
+          "role": "client",
+          "scenario": "admission_timeout",
+          "steam_class_absent": true,
+          "steam_singleton_absent": true
+        }
+      },
+      "elapsed_seconds": 7.955
+    },
+    "host_loss": {
+      "ok": true,
+      "exits": {
+        "client": 0,
+        "host": 0
+      },
+      "receipts": {
+        "client": {
+          "brackett_loaded": false,
+          "client_moved": false,
+          "dead_observed": false,
+          "detail": "HOST_LOST",
+          "event": "finished",
+          "host_moved": false,
+          "match_revision": 0,
+          "ok": true,
+          "peer_seen": true,
+          "prediction_bounded": true,
+          "remote_smoothed": false,
+          "reset_observed": false,
+          "respawn_observed": false,
+          "role": "client",
+          "scenario": "host_loss",
+          "steam_class_absent": true,
+          "steam_singleton_absent": true
+        }
+      },
+      "elapsed_seconds": 7.267
+    }
+  },
+  "timing_context": "contended functional run; not performance evidence"
+}

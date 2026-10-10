@@ -1,0 +1,75 @@
+{
+  "ok": true,
+  "engine_version": "4.8.dev7.official.c971f93e7",
+  "template_version": "4.8.dev7",
+  "template_members": {
+    "linux_debug.x86_64": "8b2871a1e2f8baf482282422f7e64cd7cfcc713eb53d8db671025b041bb23eb9",
+    "linux_release.x86_64": "c436b976ff5ac2e5f3197732ba7d9462267573e5a108782f84928d0606885695",
+    "windows_debug_x86_64.exe": "c3287ae1c7fad6f6f2e0e09b0ebbb1321b49ec2423b74d513f12649e4c03bff6",
+    "windows_release_x86_64.exe": "b538554df997ea699122d5b31f2ea8929301bcf3017e12dba664d85d351f60cd"
+  },
+  "exports": {
+    "Windows Debug": {
+      "ok": true,
+      "exit_code": 0,
+      "duration_seconds": 22.013,
+      "missing_dependency_diagnostics": []
+    },
+    "Windows Release": {
+      "ok": true,
+      "exit_code": 0,
+      "duration_seconds": 17.951,
+      "missing_dependency_diagnostics": []
+    },
+    "Linux Debug": {
+      "ok": true,
+      "exit_code": 0,
+      "duration_seconds": 17.235,
+      "missing_dependency_diagnostics": []
+    },
+    "Linux Release": {
+      "ok": true,
+      "exit_code": 0,
+      "duration_seconds": 19.049,
+      "missing_dependency_diagnostics": []
+    }
+  },
+  "packages": {
+    "windows_debug": {
+      "ok": true,
+      "executable_sha256": "b5827a836746ce342a6678347d587584da1387decd99f47cd541438443346cd0",
+      "pck_sha256": "aca4e197c84cd0156d5672de7bf2e9b99e6b38ed3207a2f263e858029919f1dd",
+      "pck_entry_count": 1206,
+      "missing_required_paths": [],
+      "forbidden_pck_entries": [],
+      "forbidden_output_files": []
+    },
+    "windows_release": {
+      "ok": true,
+      "executable_sha256": "a13b173c265f3759ae67662e655ae2f5d0576b6e24098d838f8e68bde441c35a",
+      "pck_sha256": "aca4e197c84cd0156d5672de7bf2e9b99e6b38ed3207a2f263e858029919f1dd",
+      "pck_entry_count": 1206,
+      "missing_required_paths": [],
+      "forbidden_pck_entries": [],
+      "forbidden_output_files": []
+    },
+    "linux_debug": {
+      "ok": true,
+      "executable_sha256": "8b2871a1e2f8baf482282422f7e64cd7cfcc713eb53d8db671025b041bb23eb9",
+      "pck_sha256": "aca4e197c84cd0156d5672de7bf2e9b99e6b38ed3207a2f263e858029919f1dd",
+      "pck_entry_count": 1206,
+      "missing_required_paths": [],
+      "forbidden_pck_entries": [],
+      "forbidden_output_files": []
+    },
+    "linux_release": {
+      "ok": true,
+      "executable_sha256": "c436b976ff5ac2e5f3197732ba7d9462267573e5a108782f84928d0606885695",
+      "pck_sha256": "aca4e197c84cd0156d5672de7bf2e9b99e6b38ed3207a2f263e858029919f1dd",
+      "pck_entry_count": 1206,
+      "missing_required_paths": [],
+      "forbidden_pck_entries": [],
+      "forbidden_output_files": []
+    }
+  }
+}

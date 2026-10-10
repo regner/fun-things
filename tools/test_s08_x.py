@@ -60,6 +60,7 @@ class S08XExportInspectionTest(unittest.TestCase):
             "res://scenes/dev/foot_motion_harness.gd",
             "tests/unit/tooling/test_gut_smoke.gd",
             "tests/assets/example/check_scene.tscn",
+            "tools/asset_production/example/check_scene.tscn",
         ]
         for path in forbidden:
             with self.subTest(path=path):

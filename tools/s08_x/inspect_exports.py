@@ -22,6 +22,7 @@ FORBIDDEN_PREFIXES = (
     "prototypes/",
     "scenes/dev/",
     "tests/",
+    "tools/",
 )
 FORBIDDEN_NATIVE_NAMES = frozenset({
     "steam_api.dll",

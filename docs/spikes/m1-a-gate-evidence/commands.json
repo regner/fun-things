@@ -1,0 +1,9 @@
+{
+  "platform": "Windows 11",
+  "commands": [
+    "python tools/export_builds.py --output C:/tmp/ft/exports/m1-agate-final",
+    "python tools/m1_a_gate/run_exported_acceptance.py --executable C:/tmp/ft/exports/m1-agate-final/windows-debug/FunThingsDebug.exe --output C:/tmp/ft/lanes/m1-agate/exported-acceptance-final"
+  ],
+  "timing_context": "contended functional run; not performance evidence",
+  "linux_launch": "OPEN: no Linux machine available"
+}
