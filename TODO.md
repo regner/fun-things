@@ -35,7 +35,11 @@ recommendations and do not block P1.
   its Match/Boot wiring is done (admitted ENet players spawn in Match with host-authoritative foot
   movement, a bounded 16-byte input codec, runtime admission deadlines and contract channels). A2.5 (LocalRig 47 m / 42° camera, Coral Courier presentation with
   data-driven stride playback, grounded ActorMotion with gravity/floor snap, standalone Boot -> Match
-  walking) is done, with Coral Courier run/strafe clips re-authored for a natural 5 m/s stride (~1x). Use decision 19's
+  walking) is done, with Coral Courier run/strafe clips re-authored for a natural 5 m/s stride (~1x).
+  A2.4 is done: the saved `Match/PlayerLifecycle` owner (`scripts/match/`) runs host-authoritative
+  death, 180-tick respawn with generation advance, spawn reservations and match reset; admission
+  carries lifecycle revisions, resets restart in-flight joins, and disconnects republish the roster
+  (real-process ENet lifecycle proof in `docs/spikes/m1-a2-4.md`). Remaining: A2.3. Use decision 19's
   ordered, distance-bounded held-input queue and decision 20's tunable short
   extrapolate→hold→smooth remote-motion policy; present the delivered Coral Courier under the
   47 m / 42° camera in the Brackett greybox; include drawable remote-continuity acceptance from
@@ -92,8 +96,8 @@ recommendations and do not block P1.
   graphs. AI traffic yields to marked-crosswalk reservations; player cars do not. C3.1/C3.2
   after: M1-B1, M1-B2, C3.0 and the owner's population-placement answer.
 - [ ] **M1-C4 — Implement the HUD and road minimap.** C4.1's read-only HUD shell is done (`scenes/ui/hud.tscn`;
-  life state and client peer count stay hidden until A2.4's PlayerLifecycle and an authoritative
-  roster are bound); C4.2 minimap
+  life state and client peer count are bound to A2.4's PlayerLifecycle and authoritative roster);
+  C4.2 minimap
   from RT-09 ROAD data (P4). Settle S06's minimap size/look and carry the whole-UI direction
   into the HUD.
 
