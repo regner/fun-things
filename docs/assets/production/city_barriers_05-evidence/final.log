@@ -1,0 +1,45 @@
+city_barriers.05 — concise producer validation receipt, 10 October 2026
+Working tree: C:/GameDev/git/ft-lanes/a-barriers; starting revision 6e62e48
+Exact bounded reproduction commands: ../city_barriers_05.md
+Raw logs/scratch exports: C:/tmp/ft/assets/city_barriers_05/ (not committed)
+
+PASS (exit 0): timeout 900, isolated audio-disabled Blender author.py.
+  Blender 5.2.2 LTS / d13f752e3b9c; exporter 5.2.40.
+  Saved original source, explicit collection export and four 1280x720 CPU renders.
+PASS (exit 0): timeout 180, isolated Blender validate.py.
+  3168 source vertices / 3072 faces / 6240 triangles / 3504 export vertices.
+  One mesh / three surfaces / 31 closed shells; zero degenerate or nonmanifold elements.
+  Finite coordinates, unit normals, measured bounds and identity transforms pass.
+  Independent visual diamond-hole ray clear; frame ray blocked.
+  Saved-source re-export byte-identical, GLB 124276 bytes.
+PASS (exit 0): pinned Godot --version, 4.8.dev7.official.c971f93e7.
+PASS (exit 0): timeout 300, pinned Godot headless editor import.
+PASS (exit 0): timeout 180, standalone headless check.gd -- --normalize.
+  Linked-model identity, actual bounds/materials, four dependency UIDs pass.
+  Prefab and fixture each retain exact bytes across two headless pack/save/reloads.
+  One 3.0 x 2.1 x .063 m layer-1/mask-0 static box.
+  Low ray blocks / above-top ray clears.
+  Production ActorMotion: 48 ticks per contact/bypass per authority/replay mode.
+  Stop Z=-.381510079 m; X=2.1 m bypass ends Z=2.000000715 m; both modes equal.
+PASS (exit 0): timeout 180, pinned Godot --check-only for owned check.gd.
+PASS (exit 0): timeout 30, pinned gdstyle fmt --check for owned check.gd.
+PASS (exit 0): timeout 30, pinned gdstyle --max-line-length 100 --max-warnings 0.
+PASS (exit 0): timeout 1800 mise exec -- python tools/production_checks.py --output
+  C:/tmp/ft/assets/city_barriers_05/checks
+  Owned scripts format/lint/compile; 14/14 Python tests; 119/119 GUT tests,
+  6362 assertions. Required diagnostic-negative check correctly returns 1.
+  Canonical summary ok=true; no failures ignored.
+
+Producer viewed hero, side, detail and calibrated 47 m / 42-degree overhead renders.
+Open woven diamond geometry and quiet galvanised frame read in close views.
+At gameplay height the frame reads as a roughly 63-pixel thin line; individual
+mesh diamonds are not resolvable. This is not a native-engine/placement acceptance.
+
+Diagnostics: Blender emits future-6.0 use_nodes deprecation notices. Godot import
+emits the existing MCP addon warning (4.8 vs latest tested 4.7). Standalone model/
+physics and canonical checks contain no new resource/script errors. No failure
+was suppressed. No live Blender/Godot MCP session was contacted.
+
+Pending: independent technical/art review, .06/.07 full-kit assembly, supporting
+posts/world routes/target occlusion, vehicle checks, real network transport,
+packaged target-device/Deck and sustained repeated-fence GPU/LOD checks.
