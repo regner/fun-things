@@ -1,0 +1,58 @@
+d03_apartment_family.11 final producer checks — 10 October 2026
+Working directory: C:/GameDev/git/ft-lanes/a-apart
+All Blender/Godot calls isolated/headless and bounded; no live editor attachment.
+Exact repeat commands are in ../d03_apartment_family_11.md.
+
+PASS (exit 0): pinned Blender author.py; original source + explicit GLB + four renders.
+  Blender 5.2.2 LTS d13f752e3b9c; glTF exporter 5.2.40; shared export_settings.json.
+  -noaudio --background --factory-startup --threads 4 --python-exit-code 1
+  ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy; timeout 900.
+  Final hero/side framing corrected to include full roof silhouette.
+  All four final 1280x720 PNGs inspected, including junction and overhead.
+
+PASS (exit 0): timeout 300 pinned Godot --headless --path . --import.
+  Godot 4.8.dev7.official.c971f93e7; no ERROR/SCRIPT ERROR lines.
+  No non-owned .import/.uid changes observed.
+
+PASS assertions (exit 0): timeout 180 pinned Godot --headless --editor --path .
+  --script tools/asset_production/d03_apartment_family_11/check_prefab.gd -- --normalize
+  One normalization followed by two byte-stable reload/pack/save cycles.
+  Final wrapper SHA-256 b68972193d24214e1140e8aa5d6fe3b6f1af97cdec33920137443209f432506e.
+  Known tool limitation: headless editor emits RID/ObjectDB shutdown-leak diagnostics
+  after passing saves (same class as earlier sibling records); not a clean-log claim.
+  No sibling prefab rewritten; no imported geometry copied; no editable children.
+
+PASS (exit 0): timeout 180 pinned Godot --headless --path .
+  --script tools/asset_production/d03_apartment_family_11/check_prefab.gd
+  No ERROR/SCRIPT ERROR lines, missing dependency or failed expectation.
+  Identity GLB, unchanged wall/cap links, both palette surfaces and four UIDs verified.
+  New bounds (-.12,3.18,-6.12)..(.5,3.8,6.12); composite top 6.72 m.
+  Three composite meshes/eight surfaces; sole inherited wall collider verified.
+  Six capsule solid/clear queries, one car-sized clear query and upper-wall ray pass.
+  Four production ActorMotion runs (60 ticks each) pass; authority/replay equal.
+
+PASS (exit 0): timeout 180 pinned Blender validate.py with required isolated flags/env.
+  72 triangles; 42 source / 126 exported vertices; one new mesh / two surfaces.
+  Zero non-manifold edges, degenerate source faces or GLB triangles; unit normals.
+  Independent island bounds and actual binary-accessor dimensions pass.
+  Fresh export from final saved source byte-identical to committed GLB.
+  40 seam-mask rays, 5 toe profiles, 5 wall/flashing profiles, 5 upper cap profiles,
+  and 40 reversed-yaw masks pass on actual GLB triangles.
+  Nearest-object checks reject exposed coplanar overlaps at sampled junctions.
+
+PASS (exit 0): mise exec -- gdstyle fmt --check tools/asset_production/d03_apartment_family_11/check_prefab.gd
+PASS (exit 0): mise exec -- gdstyle --max-line-length 100 --max-warnings 0 tools/asset_production/d03_apartment_family_11/check_prefab.gd
+  One file already formatted; one file checked with no issues.
+
+Earlier corrected attempts, not final evidence:
+- Scratch shell-generation SyntaxError: no script written; used direct file write.
+- Initial validator accessed startswith on Collection rather than Collection.name.
+- Initial style pass flagged one 102-character line; split before final checks.
+- Initial hero framed too tightly; rerendered after widening.
+Blender use_nodes deprecation notices concern Blender 6; addon warns pin is untested.
+Raw logs, retries and comparison export remain in C:/tmp/ft/assets/d03_apartment_family_11/.
+No tools/production_checks.py run (owner decision 52).
+
+Scope: bounded source/export/prefab/seam and local production-motion checks only.
+Independent review, city placement, in-engine visual/moving-camera review, vehicle
+handling, authoritative transport, packaged builds and Deck/performance remain pending.
