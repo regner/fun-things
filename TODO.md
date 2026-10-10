@@ -128,9 +128,6 @@ intersections. The world integrator owns CityData and road revisions.
   chain evidence. Record A1.2's residual: the pinned engine has no configurable native ENet
   receive/reassembly ceiling (see the API contract), so revisit it before any public release. Target capped 60 FPS with p95 ≤16.7 ms and p99 ≤20 ms on named desktop hardware
   across the whole island. Final gate after: M1-D1, M1-D2, M1-B4, M1-C3, M1-C4.
-- [ ] **M1-D5 — Add the settings screen and settings persistence.** Audio volumes/mutes first;
-  validate defaults, corrupt-file recovery and live preview. Device settings never mutate shared
-  gameplay. Before: M1-D4.
 - [ ] **M1-D4 — Export and deliver private milestone review builds.** After: M1-D2, M1-D3,
-  M1-D5, RT-11.
+  RT-11 (M1-D5 settings are done).
 - [ ] **M1-GATE — Review the first playable milestone.** After: M1-D4.
