@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c5q08iaitykqb"]
+
+[ext_resource type="Texture2D" uid="uid://etstalmgil5j" path="res://art/textures/environment/city_water_look_02/quiet_basin_albedo.png" id="1_albedo"]
+[ext_resource type="Texture2D" uid="uid://cyyw2vfn6hdnj" path="res://art/textures/environment/city_water_look_02/quiet_basin_normal.png" id="2_normal"]
+
+[resource]
+resource_name = "quiet_basin"
+albedo_texture = ExtResource("1_albedo")
+metallic_specular = 0.25
+roughness = 0.4
+normal_enabled = true
+normal_texture = ExtResource("2_normal")

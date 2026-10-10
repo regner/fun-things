@@ -1,0 +1,51 @@
+city_water_look.02 — final production receipt, 10 October 2026
+Branch: lane/a-water. Previous sibling commit: 3a03d9cf.
+Commands run from repository root; exact arguments and reproduction order in ../city_water_look_02.md.
+B = C:/Program Files/Blender Foundation/Blender 5.2/blender.exe
+G = mise which godot; pinned 4.8.dev7.official.c971f93e7
+T = tools/asset_production/city_water_look_02
+All Blender author/render/validate calls used -noaudio --background --factory-startup --threads 4
+--python-exit-code 1, env ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy, timeout <=600 seconds.
+All Godot calls were isolated/headless with timeout <=300 seconds. No live MCP session touched.
+
+PASS python $T/author_textures.py: two original periodic 512x512 RGB PNGs, 16m tile.
+PASS python $T/test_textures.py -v: 5 tests; deterministic PNG bytes; <=1/255 wrap jump.
+     Basin normal XY RMS 0.0132170729750547; sea 0.09211041008236788; ratio 0.14349163100278892.
+PASS timeout 180 env ... $B ... --python $T/author.py: saved source and exported 1328-byte GLB.
+PASS timeout 600 env ... $B ... --python $T/preview.py: four 1280x720 Cycles CPU renders.
+     Producer inspected hero, side, detail, overhead; compared delivered .01 overhead.
+     Basin is deliberately near-still with smooth broad warm/cool reflection pools, no foam.
+PASS timeout 300 $G --headless --editor --path . --import --quit: initial import.
+PASS timeout 60 $G --headless --editor --path . --script res://$T/check_prefab.gd -- --prepare.
+PASS timeout 300 $G --headless --editor --path . --import --quit: external remap and mipmaps.
+PASS timeout 60 $G --headless --editor --path . --script res://$T/check_prefab.gd -- --normalize.
+     Stable second load/pack/save; linked geometry; material remap; no collision or child overrides.
+PASS timeout 180 env ... $B ... --python $T/validate.py: actual source and GLB accessor checks;
+     4 vertices, 2 triangles, 1 mesh/surface, 0 degenerate faces, 4 intentional perimeter edges;
+     exact 16x0x16m bounds and surface-centred datum; unit normals; byte-identical fresh reexport.
+PASS timeout 60 $G --headless --path . --script res://$T/check_prefab.gd: clean plain load.
+PASS pinned gdstyle fmt --check $T/check_prefab.gd: 1 file already formatted.
+PASS pinned gdstyle --max-line-length 100 --max-warnings 0 $T/check_prefab.gd: no issues.
+
+FAILED (environment/setup): timeout 1800 env PYTHONUTF8=1 python tools/production_checks.py
+ --godot "$G" --gdstyle "$(mise which gdstyle)" --output C:/tmp/ft/assets/city_water_look_02/checks
+ Overall return code 1. script-checks/compiler-import.log ends CHECK DEADLINE EXCEEDED:
+ clean compiler-mirror import exceeded the shared checker's internal 30-second setup deadline.
+ This is not an asset assertion/compile error and was not suppressed or retried unchanged.
+ All 172 individual GDScript compiles PASS; repository formatting PASS, style PASS.
+ 16 repository Python tests PASS; subsequent isolated GUT import PASS (return 0).
+ 142/142 GUT tests PASS, 6705 assertions; intentional GUT negative returned 1 as expected.
+ Full raw logs and compiler mirror retained outside the repository in the named scratch output.
+
+PASS final timeout 300 $G --headless --path . --import: engine-normalized import UIDs retained.
+PASS final timeout 60 $G --headless --path . --script res://$T/check_prefab.gd: no diagnostics.
+PASS git diff --check; scoped path inspection shows only .02-owned outputs before staging.
+
+Diagnostics: Blender Material/World.use_nodes forward deprecation warnings. Headless editor imports
+emit existing MCP untested-4.8 warning. Editor-script preparation/normalization exits 0 but emits
+RID/ObjectDB shutdown-leak errors; not called a diagnostic-clean editor run. Plain loads are clean.
+No shared scripts/settings or sibling files changed to suppress errors. No asset assertion failures.
+
+Open: independent technical/art disposition; Godot raster lighting/street/actor contrast; Old Quay
+placement, UV phase, coastline and sea/basin transition; moving-camera aliasing; packaged/Deck costs.
+No water physics, simulation, shader, containment, gameplay collision or world placement is delivered.
