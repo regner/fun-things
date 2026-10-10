@@ -107,7 +107,9 @@ This implements the standing instruction to reuse existing hardware through face
 saved overrides. Imported geometry is not copied or made local, and no runtime appearance
 writer is added. The inherited support remains a serialized dependency; parent-ID paths,
 mesh identity and all other materials/transforms survive two load/pack/save roundtrips.
-This is a narrow saved-override use, not a new general appearance API. Future shared
+This is a narrow saved-override use, not a new general appearance API. It is the
+reuse-carrier face-slot exception recorded in `docs/assets.md` (Prefabs and authored
+placement), first approved for `d06_commercial_graphics`. Future shared
 hardware hierarchy changes must revalidate the saved path and IDs.
 
 Inherited `Collision/PoleBody/Shape` is still **one cylinder**, radius **0.140 m**, height
