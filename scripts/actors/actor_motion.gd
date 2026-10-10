@@ -12,9 +12,11 @@ const GRAVITY_MPS_SQUARED: float = 9.8
 const FLOOR_SNAP_LENGTH_M: float = 0.25
 const FLOOR_MAX_ANGLE_DEGREES: float = 45.0
 
-@onready var _presentation: PlayerMotionPresentation = get_node_or_null(
-	"PresentationAnchor"
-) as PlayerMotionPresentation
+var _replay_grounded_hint: int = -1
+
+@onready var _presentation: PlayerMotionPresentation = (
+	get_node_or_null("PresentationAnchor") as PlayerMotionPresentation
+)
 
 
 ## Configures the shared grounded-body slope and downward-following contract.
@@ -39,7 +41,11 @@ func step(command: FootCommand, delta_seconds: float, mode: StepMode) -> bool:
 
 	velocity.x = command.move.x * SPEED_MPS
 	velocity.z = command.move.y * SPEED_MPS
-	velocity.y = 0.0 if is_on_floor() else velocity.y - GRAVITY_MPS_SQUARED * delta_seconds
+	var grounded: bool = is_on_floor()
+	if mode == StepMode.REPLAY and _replay_grounded_hint >= 0:
+		grounded = _replay_grounded_hint == 1
+		_replay_grounded_hint = -1
+	velocity.y = 0.0 if grounded else velocity.y - GRAVITY_MPS_SQUARED * delta_seconds
 	rotation.y = command.aim_yaw
 	move_and_slide()
 	_update_presentation()
@@ -58,7 +64,39 @@ func motion_state() -> Dictionary:
 		"position": global_position,
 		"velocity": velocity,
 		"aim_yaw": rotation.y,
+		"grounded": is_on_floor(),
 	}
+
+
+## Restores motion-owned state before permitted local replay without emitting gameplay effects.
+func restore_motion_state(state: Dictionary) -> bool:
+	if not _is_valid_motion_state(state):
+		return false
+
+	global_position = state.position
+	velocity = state.velocity
+	rotation.y = state.aim_yaw
+	_replay_grounded_hint = 1 if state.grounded else 0
+	_update_presentation()
+	return true
+
+
+## Validates the complete local restore shape before changing the collision body.
+func _is_valid_motion_state(state: Dictionary) -> bool:
+	return (
+		state.size() == 4
+		and state.has("position")
+		and state.position is Vector3
+		and (state.position as Vector3).is_finite()
+		and state.has("velocity")
+		and state.velocity is Vector3
+		and (state.velocity as Vector3).is_finite()
+		and state.has("aim_yaw")
+		and (state.aim_yaw is float or state.aim_yaw is int)
+		and is_finite(float(state.aim_yaw))
+		and state.has("grounded")
+		and state.grounded is bool
+	)
 
 
 ## Calls the optional authored presentation child without moving gameplay collision.

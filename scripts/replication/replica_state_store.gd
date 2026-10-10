@@ -86,15 +86,18 @@ func apply_movement(
 
 	var applied_count: int = 0
 	var rejected_count: int = 0
+	var applied_ids: Array[int] = []
 	for row: Dictionary in decoded.rows:
 		if _apply_movement_row(row, int(decoded.tick)):
 			applied_count += 1
+			applied_ids.append(int(row.id))
 		else:
 			rejected_count += 1
 
 	return {
 		"ok": true,
 		"applied": applied_count,
+		"applied_ids": applied_ids,
 		"rejected": rejected_count,
 		"resync_required": _resync_required,
 	}
@@ -295,11 +298,14 @@ func _valid_event_phase(event: Dictionary) -> bool:
 
 ## Checks the sideband session and match fence associated with the fixed measured packet.
 func _current_envelope(session_id: Variant, match_revision: Variant) -> bool:
-	return ReplicationIdentity.is_current_envelope(
-		session_id,
-		match_revision,
-		_session_id,
-		_match_revision,
+	return (
+		ReplicationIdentity
+		. is_current_envelope(
+			session_id,
+			match_revision,
+			_session_id,
+			_match_revision,
+		)
 	)
 
 

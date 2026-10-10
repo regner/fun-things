@@ -48,6 +48,29 @@ func test_standalone_authority_and_replay_are_equivalent() -> void:
 	assert_eq(authority.motion_state(), replay.motion_state())
 
 
+## Restores complete authority motion and uses its grounded bit on the first replay step.
+func test_restore_motion_state_supplies_grounded_replay_context() -> void:
+	var actor: ActorMotion = _add_actor()
+	await get_tree().physics_frame
+	var authority: Dictionary = {
+		"position": Vector3(2.0, 3.0, 4.0),
+		"velocity": Vector3(1.0, -3.0, 2.0),
+		"aim_yaw": 0.5,
+		"grounded": true,
+	}
+
+	assert_true(actor.restore_motion_state(authority))
+	assert_true(
+		actor.step(
+			FootCommand.new(1, 1, Vector2.ZERO, 0.5, false, false),
+			FIXED_DELTA,
+			ActorMotion.StepMode.REPLAY,
+		)
+	)
+	assert_almost_eq(actor.global_position.y, 3.0, 0.001)
+	assert_eq(actor.velocity.y, 0.0)
+
+
 ## Snaps facing to canonical command yaw even while the actor is stationary.
 func test_aim_yaw_is_independent_of_movement() -> void:
 	var actor: ActorMotion = _add_actor()
