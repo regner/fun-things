@@ -3833,11 +3833,11 @@
       "input_next_action": "Reuse city_quay_furniture.02 with landward mounting",
       "brief": "[Brief](../../assets/city_barriers.md)",
       "priority": 2,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "9e2a0e68-31dd-4cf2-89c3-a3f9eec048b8",
+      "source_revision": "10ed1e69",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "attempts": 1,
       "initial_time_cap_minutes": 90,
@@ -3847,8 +3847,20 @@
         "art/textures/environment/city_barriers_02/",
         "art/materials/environment/city_barriers_02/",
         "docs/assets/production/city_barriers_02.md",
-        "docs/assets/production/city_barriers_02-evidence/"
-      ]
+        "docs/assets/production/city_barriers_02-evidence/",
+        "tools/asset_production/city_barriers_02/",
+        "scenes/prefabs/environment/city_barriers_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-barr2"
+      },
+      "producer_manifest": "docs/assets/production/city_barriers_02-evidence/manifest.json",
+      "report": "docs/assets/production/city_barriers_02.md",
+      "reviewer_id": "273263ae-4716-4ece-9a7e-a8e6130cd4a4",
+      "integrated_revision": "8ed2f0f3"
     },
     {
       "id": "city_barriers.03",
@@ -3902,11 +3914,11 @@
       "input_next_action": "Reuse city_quay_furniture.02 terminal/return parts",
       "brief": "[Brief](../../assets/city_barriers.md)",
       "priority": 2,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "5591738a-eb59-469a-97fa-44cd3eceefa0",
+      "source_revision": "8ed2f0f3",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "attempts": 1,
       "initial_time_cap_minutes": 90,
@@ -3916,8 +3928,20 @@
         "art/textures/environment/city_barriers_04/",
         "art/materials/environment/city_barriers_04/",
         "docs/assets/production/city_barriers_04.md",
-        "docs/assets/production/city_barriers_04-evidence/"
-      ]
+        "docs/assets/production/city_barriers_04-evidence/",
+        "tools/asset_production/city_barriers_04/",
+        "scenes/prefabs/environment/city_barriers_04.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-barr2"
+      },
+      "producer_manifest": "docs/assets/production/city_barriers_04-evidence/manifest.json",
+      "report": "docs/assets/production/city_barriers_04.md",
+      "reviewer_id": "273263ae-4716-4ece-9a7e-a8e6130cd4a4",
+      "integrated_revision": "8ed2f0f3"
     },
     {
       "id": "city_barriers.05",
