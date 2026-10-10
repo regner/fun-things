@@ -1,0 +1,21 @@
+d09_storage.01 — final bounded validation receipt
+Blender 5.2.2 LTS / d13f752e3b9c; glTF exporter 5.2.40.
+Godot 4.8.dev7.official.c971f93e7; gdstyle 0.3.0.
+Exact reproduction command lines are in ../d09_storage_01.md.
+Observed exit 0: author.py (timeout 900), validate.py (timeout 180),
+final headless import (timeout 300), prefab normalize and fresh read-only
+check.gd processes (timeout 180 each), gdstyle format check and zero-warning lint.
+No ERROR / SCRIPT ERROR / traceback in those final logs.
+Initial cap triangulation, corner overlap and GDScript lint findings were fixed;
+unchanged failed steps were not repeated. Raw retries remain in scratch only.
+Blender use_nodes deprecation notices and known MCP 4.8/4.7 import warning remain.
+GLB: 479048 bytes; SHA-256 f3140a621c96f5ab2ecc17ec91dafa53b589d5e9ad5a9a151eba242c5d091876
+Fresh export byte-identical: True
+Format output: 1 file already formatted.
+Lint output: ✓ 1 file checked, no issues found.
+Final runtime result:
+PHYSICS_OBSERVATIONS contact=[(0.0, 0.000023, -6.350257), (0.0, 0.000023, -6.350257)] bypass=[(2.0, 0.001, 8.000012), (2.0, 0.001, 8.000012)]
+D09_STORAGE_01_CHECK_PASS {"bounds_min_m":[-1.25,0.0,-6.0],"bounds_size_m":[2.5,2.59999990463257,12.0],"engine":"4.8-dev7 (official)","linked_model_identity":true,"physics":{"above_roof_ray_clear":true,"actor_capsule_height_m":1.8,"actor_capsule_radius_m":0.35,"authority_replay_equal":true,"bypass_end_m":[2.0,0.00100000004749745,8.00001239776611],"car_box_dimensions_m":[1.8,1.5,4.4],"car_bypass_safe_fraction":1.0,"car_front_cast_safe_fraction":0.0899658203125,"contact_stop_m":[0.0,0.0000234375474974513,-6.350257396698],"three_front_rays_blocked":true,"ticks_per_case_per_mode":192,"vehicle_driving_network_transport_and_placement":"not tested"},"resource_uids":{"res://art/models/environment/d09_storage_01/d09_storage_01.glb":"uid://bv4lwewpy085p","res://scenes/prefabs/environment/d09_storage_01.tscn":"uid://bqm0xefctop4r","res://scripts/actors/actor_motion.gd":"uid://jthmfio4c27p","res://tools/asset_production/d09_storage_01/check_scene.tscn":"uid://41ah7sa6j38c"},"save_reload_byte_stable":true,"stable_roundtrips":2.0,"static_collision":{"bodies":1,"boxes":1,"layer":1,"mask":0}}
+Producer visually inspected hero, side, detail and calibrated overhead after final compression.
+All four PNGs 1280x720, 243800–319474 bytes. Runtime material colors unchanged.
+No production_checks.py, windowed editor, live MCP session, placement or device tests run.
