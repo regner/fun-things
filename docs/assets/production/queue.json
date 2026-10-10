@@ -6373,14 +6373,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d05_harbour_hall.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "754855f9-0f98-46dc-af40-38ca18e46c4c",
+      "source_revision": "d85fa94a",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d05_harbour_hall_01/",
@@ -6388,8 +6388,20 @@
         "art/textures/environment/d05_harbour_hall_01/",
         "art/materials/environment/d05_harbour_hall_01/",
         "docs/assets/production/d05_harbour_hall_01.md",
-        "docs/assets/production/d05_harbour_hall_01-evidence/"
-      ]
+        "docs/assets/production/d05_harbour_hall_01-evidence/",
+        "tools/asset_production/d05_harbour_hall_01/",
+        "scenes/prefabs/environment/d05_harbour_hall_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-hhall"
+      },
+      "producer_manifest": "docs/assets/production/d05_harbour_hall_01-evidence/manifest.json",
+      "report": "docs/assets/production/d05_harbour_hall_01.md",
+      "reviewer_id": "a2bc9559-e7a4-4bfa-bbab-4594020653a4",
+      "integrated_revision": "d85fa94a"
     },
     {
       "id": "d05_harbour_hall.02",
@@ -6402,14 +6414,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d05_harbour_hall.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "68ca83ab-2e7b-4529-84b7-274c5393cc2c",
+      "source_revision": "5a2f036a",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d05_harbour_hall_02/",
@@ -6417,8 +6429,20 @@
         "art/textures/environment/d05_harbour_hall_02/",
         "art/materials/environment/d05_harbour_hall_02/",
         "docs/assets/production/d05_harbour_hall_02.md",
-        "docs/assets/production/d05_harbour_hall_02-evidence/"
-      ]
+        "docs/assets/production/d05_harbour_hall_02-evidence/",
+        "tools/asset_production/d05_harbour_hall_02/",
+        "scenes/prefabs/environment/d05_harbour_hall_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-hhall"
+      },
+      "producer_manifest": "docs/assets/production/d05_harbour_hall_02-evidence/manifest.json",
+      "report": "docs/assets/production/d05_harbour_hall_02.md",
+      "reviewer_id": "a2bc9559-e7a4-4bfa-bbab-4594020653a4",
+      "integrated_revision": "d85fa94a"
     },
     {
       "id": "d05_civic_graphics.01",
