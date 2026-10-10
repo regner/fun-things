@@ -1,0 +1,28 @@
+d07_sign_island.01 final targeted checks; raw logs remain in C:\tmp\ft\assets\d07_sign_island_01
+author-final: exit 0; 0 errors; 0 warnings
+validate: exit 0; 0 errors; 0 warnings
+import-final: exit 0; 0 errors; 1 warnings
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+prefab-normalize-final: exit 0; 5 errors; 4 warnings
+ERROR: 5 RID allocations of type 'N16RendererViewport8ViewportE' were leaked at exit.
+ERROR: 8 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N17RendererSceneCull8ScenarioE' were leaked at exit.
+ERROR: 52 RID allocations of type 'PN18TextServerAdvanced22ShapedTextDataAdvancedE' were leaked at exit.
+ERROR: 1 RID allocations of type 'PN18TextServerAdvanced12FontAdvancedE' were leaked at exit.
+WARNING: [MCP] Godot 4.8 detected - latest tested version is 4.7.0. The plugin will run normally but some features may behave unexpectedly. Please report issues at https://github.com/NPGameDev/godot-mcp-toolkit/issues
+WARNING: 5 RIDs of type "Canvas" were leaked.
+WARNING: 31 RIDs of type "CanvasItem" were leaked.
+WARNING: 168 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+compile: exit 0; 0 errors; 0 warnings
+prefab-fresh: exit 0; 0 errors; 0 warnings
+gdstyle-lint: exit 0; 0 errors; 0 warnings
+gdstyle-format: exit 0; 0 errors; 0 warnings
+Source: 1916 triangles; zero nonmanifold edges and degenerate faces/triangles.
+GLB: byte-identical fresh export; actual bounds, normals and three surfaces pass.
+Prefab: stable editor pack/save/reload/resave, inline/dependency UIDs retained.
+Physics: ten shape queries, three top rays, capsule edge/bypass/support pass.
+Initial corrections: studio side-camera ray origins moved above ground; actor contact
+tolerance separated from dimensional tolerance (5 mm contact vs 1 mm geometry).
+Non-editor scene saving dropped inline UID in an uncommitted trial; normalization now
+requires --editor and asserts saved UID and stable bytes. Final import/fresh checks clean.
+Production ActorMotion, cars, network, world placement, Godot visuals and device cost pending.

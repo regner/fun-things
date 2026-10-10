@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bm1c3kh0lgf2t"]
+
+[ext_resource type="PackedScene" uid="uid://t4nehl2wo150" path="res://art/models/environment/d07_sign_island_01/d07_sign_island_01.glb" id="1_model"]
+
+[sub_resource type="CylinderShape3D" id="Cylinder_base"]
+height = 0.28
+radius = 3.0
+
+[node name="d07_sign_island_01" type="Node3D" unique_id=1947874054]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1180277340]
+
+[node name="Model" type="Node3D" parent="Visuals" unique_id=238495238 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=652299226]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=1854295958]
+collision_mask = 0
+
+[node name="Base" type="CollisionShape3D" parent="Collision/Body" unique_id=1507402645]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14, 0)
+shape = SubResource("Cylinder_base")
