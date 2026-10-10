@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bb6smyd8smtf3"]
+
+[ext_resource type="PackedScene" uid="uid://32cu87rlur2k" path="res://scenes/prefabs/environment/city_small_shop_shells_02_fitted.tscn" id="1_wide"]
+[ext_resource type="PackedScene" uid="uid://cyp6d2gcl54ni" path="res://scenes/prefabs/environment/city_small_shop_shells_04_fitted.tscn" id="2_compact"]
+
+[node name="d06_shopfront_blocks_01" type="Node3D" unique_id=1093822763]
+
+[node name="Shops" type="Node3D" parent="." unique_id=1926509375]
+
+[node name="WestWide" parent="Shops" unique_id=647325103 instance=ExtResource("1_wide")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7, 0, -1.25)
+
+[node name="RecessedCompact" parent="Shops" unique_id=603369549 instance=ExtResource("2_compact")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 2.55)
+
+[node name="EastWide" parent="Shops" unique_id=2008384259 instance=ExtResource("1_wide")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7, 0, 0.75)
+
+[node name="Interfaces" type="Node3D" parent="." unique_id=1577641505]
+
+[node name="WestPassageFront" type="Marker3D" parent="Interfaces" unique_id=280269313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, -8)
+
+[node name="WestPassageRear" type="Marker3D" parent="Interfaces" unique_id=1158299373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0, 8)
+
+[node name="EastPassageFront" type="Marker3D" parent="Interfaces" unique_id=2057767381]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -8)
+
+[node name="EastPassageRear" type="Marker3D" parent="Interfaces" unique_id=96003773]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 8)

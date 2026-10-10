@@ -1,0 +1,224 @@
+{
+  "asset_id": "d06_shopfront_blocks.01",
+  "producer": "commissioned implementation worker",
+  "self_exclusion": "manifest excludes itself to avoid recursive hashing",
+  "files": [
+    {
+      "path": "docs/assets/production/d06_shopfront_blocks_01-evidence/detail.png",
+      "bytes": 423910,
+      "sha256": "d892cd6549df49c41d253110eb41d714b2278951aa0ade3147ab06fdb87df52d"
+    },
+    {
+      "path": "docs/assets/production/d06_shopfront_blocks_01-evidence/final.log",
+      "bytes": 2304,
+      "sha256": "36817f500ee275b79b47cb14780dbe10ec2f3b35396ed13e20fd6c31cfa36445"
+    },
+    {
+      "path": "docs/assets/production/d06_shopfront_blocks_01-evidence/hero.png",
+      "bytes": 409344,
+      "sha256": "7bb587eeb48815d91f4c177b78f91b8dd7b58d84ba5998f4785cf6ab5a38bc73"
+    },
+    {
+      "path": "docs/assets/production/d06_shopfront_blocks_01-evidence/overhead_47m_42deg.png",
+      "bytes": 259245,
+      "sha256": "164ffc01622a0bc69c47aa25e23d92e3925c749e660e7cee1ef4bc2d794c50da"
+    },
+    {
+      "path": "docs/assets/production/d06_shopfront_blocks_01-evidence/side.png",
+      "bytes": 349696,
+      "sha256": "c693f48f57cbb8c50227f57e0a4988e4e67b04a38c2555827c2d3f33d978ee6c"
+    },
+    {
+      "path": "docs/assets/production/d06_shopfront_blocks_01-evidence/validation.json",
+      "bytes": 13404,
+      "sha256": "67adc86e90c4de1e7242c81a472f64debbdec5489c51bc9baf5f9d4c190ab08a"
+    },
+    {
+      "path": "docs/assets/production/d06_shopfront_blocks_01.md",
+      "bytes": 12770,
+      "sha256": "51302bc91c1909a58df17f6de0060a74a9e6db0383180b8637061bf9af666912"
+    },
+    {
+      "path": "scenes/prefabs/environment/d06_shopfront_blocks_01.tscn",
+      "bytes": 1642,
+      "sha256": "555c32009bdca87098a9d5a24b379e12b4eb740130da70cf8a5fce5f1c3e07b9"
+    },
+    {
+      "path": "tools/asset_production/d06_shopfront_blocks_01/check.gd",
+      "bytes": 10108,
+      "sha256": "c0fa0f31b3728de2663e30b5287d946f3ea4bd3df8b5003d83f89e81ca59da45"
+    },
+    {
+      "path": "tools/asset_production/d06_shopfront_blocks_01/check.gd.uid",
+      "bytes": 20,
+      "sha256": "eaf0234786c7d0ccd3b328d44aa12390f77713dab3bd26773fcf66aabe0927ce"
+    },
+    {
+      "path": "tools/asset_production/d06_shopfront_blocks_01/manifest.py",
+      "bytes": 1967,
+      "sha256": "12f61aa2c925035ce8a1e8d90d0e10b6997f95b71a9f37ea40e41661b5af0c43"
+    },
+    {
+      "path": "tools/asset_production/d06_shopfront_blocks_01/render.py",
+      "bytes": 4349,
+      "sha256": "08ee1c9acb86fde1a16427b2e54955bf55558965a6febad1381e13f41f0c71b1"
+    },
+    {
+      "path": "tools/asset_production/d06_shopfront_blocks_01/validate.py",
+      "bytes": 4323,
+      "sha256": "2d26030ff8b481f7e5721785b4847ebd2bd9a14a918b0bd90958fc3b359bb4eb"
+    }
+  ],
+  "read_only_dependencies": [
+    {
+      "path": "art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+      "bytes": 25620,
+      "sha256": "80fb54cbcf4667f9da4b417b5a2a2ebf5db0cf2641520ab9c78de3ed5a38de69"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb.import",
+      "bytes": 1275,
+      "sha256": "c477891e553386770ac3d13fd82a6630c2b6d0dee540c84348fa9810a129a59d"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+      "bytes": 45616,
+      "sha256": "4fd2106f09ef4a35edafbcf3a3a68ea94983e721fd84d852a406e2d26de6552f"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb.import",
+      "bytes": 1275,
+      "sha256": "7f9b932ce569523280a8a300efc1b5948ab508d686f15beec209669122357ef3"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb",
+      "bytes": 41872,
+      "sha256": "29af0c8b3652b7b400598c75f6f99329cb21e510452547e2e28f3c1115d215b9"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb.import",
+      "bytes": 1296,
+      "sha256": "1c5437c685e3ace325083a40d042b2d8c3a7b82d1f785b41e99953ff7629b7bd"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb",
+      "bytes": 29560,
+      "sha256": "a641d067621301435f5a725803290f74dc7c235bac8bdc5d24c1d2170776faed"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb.import",
+      "bytes": 1274,
+      "sha256": "2407ccf1aec7d05e8a4a003c84cddb2f7bd0719a72ed82cae9c8a0ab130df694"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
+      "bytes": 38928,
+      "sha256": "37e9ce1667105cc66120edf4d114b3a4228972000ac89c14ed1a2608e9b309c6"
+    },
+    {
+      "path": "art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb.import",
+      "bytes": 1296,
+      "sha256": "407187c18017c08bc5c3f6243a2193b001247384cd5291bd38232dc70919f37a"
+    },
+    {
+      "path": "art/models/environment/city_small_shop_shells_02/city_small_shop_shells_02.glb",
+      "bytes": 73616,
+      "sha256": "2f186c94fbf395538caf9770355c6b6d8c25a67ef4451a9aca3456047c9360c2"
+    },
+    {
+      "path": "art/models/environment/city_small_shop_shells_02/city_small_shop_shells_02.glb.import",
+      "bytes": 1291,
+      "sha256": "fe5bc3ad0474436921b5624eb8f6004d0f9981c231fbe9bb3167792f2c1c26ef"
+    },
+    {
+      "path": "art/models/environment/city_small_shop_shells_04/city_small_shop_shells_04.glb",
+      "bytes": 62392,
+      "sha256": "88058a9d3ecd5c086f9b1f1cae3e25fdf8754bb394641c69a0e0bb0fe59513dc"
+    },
+    {
+      "path": "art/models/environment/city_small_shop_shells_04/city_small_shop_shells_04.glb.import",
+      "bytes": 1291,
+      "sha256": "90a3a2c63c078087ff6e6dc35e6087cf08676d52f151004f546db20ffa2752e9"
+    },
+    {
+      "path": "art/source/models/environment/city_shop_fittings_01/city_shop_fittings_01.blend",
+      "bytes": 122025,
+      "sha256": "db572713536c2e73dd0b4f3dcc8a8275c62d218f1d6515b80061b0c4f0ed73bd"
+    },
+    {
+      "path": "art/source/models/environment/city_shop_fittings_02/city_shop_fittings_02.blend",
+      "bytes": 116378,
+      "sha256": "44b3165d4d6d9cf4b0f3ef577e0c70fc80dae72726b04ebbe53272581e4454db"
+    },
+    {
+      "path": "art/source/models/environment/city_shop_fittings_03/city_shop_fittings_03.blend",
+      "bytes": 141027,
+      "sha256": "4192fd80abafb270afe64e92b1fbbf897649ca3302aa696e3f45a7e1c4d954d6"
+    },
+    {
+      "path": "art/source/models/environment/city_shop_fittings_05/city_shop_fittings_05.blend",
+      "bytes": 118153,
+      "sha256": "e9d5aa510aafb55fa4edf69928ff566599c1e0eb4ea6defadc68f58ba55e52fd"
+    },
+    {
+      "path": "art/source/models/environment/city_shop_fittings_06/city_shop_fittings_06.blend",
+      "bytes": 146546,
+      "sha256": "40122b4ab26a6a348fc914e936421e75453a33f77cee88c16bd86df2a87e4fe7"
+    },
+    {
+      "path": "art/source/models/environment/city_small_shop_shells_02/city_small_shop_shells_02.blend",
+      "bytes": 131748,
+      "sha256": "47f4f9260f7307cfca6d073374508c2230a43a513a201c809c269e4f0add9430"
+    },
+    {
+      "path": "art/source/models/environment/city_small_shop_shells_04/city_small_shop_shells_04.blend",
+      "bytes": 127023,
+      "sha256": "7dc750c5e8cc78bf4b54430d5bd576a9d4c53972738c55e138b132dded158be4"
+    },
+    {
+      "path": "scenes/prefabs/environment/city_shop_fittings_01.tscn",
+      "bytes": 435,
+      "sha256": "0ea42e1eb851a6c10658bb8ab65243a2d6e7d985860131a0ea1653820bcb26fa"
+    },
+    {
+      "path": "scenes/prefabs/environment/city_shop_fittings_02.tscn",
+      "bytes": 433,
+      "sha256": "926b2695667c997f9fc22223be80e7a342bf8633e28b0f21aa36496beef6a599"
+    },
+    {
+      "path": "scenes/prefabs/environment/city_shop_fittings_03_single.tscn",
+      "bytes": 449,
+      "sha256": "7e799e1fca6533508f96c6b6ceb7e4c7b9a74cd6f4045acac8c52fd73f92a8ca"
+    },
+    {
+      "path": "scenes/prefabs/environment/city_shop_fittings_05.tscn",
+      "bytes": 1183,
+      "sha256": "3a7a285cdf8c05246383126289063da9e428ec33458cf7e13a778bc8dfcf7915"
+    },
+    {
+      "path": "scenes/prefabs/environment/city_shop_fittings_06_single.tscn",
+      "bytes": 909,
+      "sha256": "91d603d75387ee22bac343b3b2a398fbc947a839e5bd58337f410d449d8fee7c"
+    },
+    {
+      "path": "scenes/prefabs/environment/city_small_shop_shells_02.tscn",
+      "bytes": 896,
+      "sha256": "00d50b13640d94a3c8163c39d2027ea28724aed31a63e1a8db9ef82bcc9c1fcb"
+    },
+    {
+      "path": "scenes/prefabs/environment/city_small_shop_shells_02_fitted.tscn",
+      "bytes": 4343,
+      "sha256": "2a3c10a1bd6ff5544cd0aea17324b6ef1bac52be75a1a3967607870796f2b697"
+    },
+    {
+      "path": "scenes/prefabs/environment/city_small_shop_shells_04.tscn",
+      "bytes": 899,
+      "sha256": "67eceaf69b0f4ed17b35991315f6b6019b095027e2e57ed4178264402abffc7d"
+    },
+    {
+      "path": "scenes/prefabs/environment/city_small_shop_shells_04_fitted.tscn",
+      "bytes": 2719,
+      "sha256": "d6f3a74f2193bf89d6bf5e27e989f7e07ab88e438782ee49f49cc739ffa68b0b"
+    }
+  ]
+}

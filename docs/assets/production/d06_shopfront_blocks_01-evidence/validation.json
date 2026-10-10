@@ -1,0 +1,481 @@
+{
+	"dependencies": [
+		"res://scenes/prefabs/environment/d06_shopfront_blocks_01.tscn",
+		"res://scenes/prefabs/environment/city_small_shop_shells_02_fitted.tscn",
+		"res://scenes/prefabs/environment/city_small_shop_shells_02.tscn",
+		"res://art/models/environment/city_small_shop_shells_02/city_small_shop_shells_02.glb",
+		"res://scenes/prefabs/environment/city_shop_fittings_03_single.tscn",
+		"res://art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb",
+		"res://scenes/prefabs/environment/city_shop_fittings_06_single.tscn",
+		"res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
+		"res://scenes/prefabs/environment/city_shop_fittings_05.tscn",
+		"res://art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb",
+		"res://scenes/prefabs/environment/city_shop_fittings_01.tscn",
+		"res://art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+		"res://scenes/prefabs/environment/city_shop_fittings_02.tscn",
+		"res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+		"res://scenes/prefabs/environment/city_small_shop_shells_04_fitted.tscn",
+		"res://scenes/prefabs/environment/city_small_shop_shells_04.tscn",
+		"res://art/models/environment/city_small_shop_shells_04/city_small_shop_shells_04.glb"
+	],
+	"enabled_static_boxes": 3,
+	"engine": {
+		"build": "official",
+		"hash": "c971f93e7e76b0ef919bf6009e7b868bea04db7f",
+		"hex": 264192,
+		"major": 4,
+		"minor": 8,
+		"patch": 0,
+		"status": "dev7",
+		"string": "4.8-dev7 (official)",
+		"timestamp": 0
+	},
+	"geometry": {
+		"blender": "5.2.2 LTS",
+		"build": "d13f752e3b9c",
+		"fresh_reexport": "not applicable: assembly has no new or modified GLB; shared sources untouched",
+		"instance_weighted": {
+			"degenerate_faces": 0.0,
+			"exported_split_vertices": 29300.0,
+			"meshes": 202.0,
+			"nonmanifold_edges": 0.0,
+			"source_vertices": 27632.0,
+			"surfaces": 207.0,
+			"triangles": 54616.0
+		},
+		"models": [
+			{
+				"collection": "export_city_shop_fittings_01",
+				"degenerate_faces": 0.0,
+				"exported_split_vertices": 616.0,
+				"glb": {
+					"bytes": 25620.0,
+					"path": "art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+					"sha256": "80fb54cbcf4667f9da4b417b5a2a2ebf5db0cf2641520ab9c78de3ed5a38de69"
+				},
+				"instances": 5.0,
+				"meshes": 4.0,
+				"nonmanifold_edges": 0.0,
+				"source": {
+					"bytes": 122025.0,
+					"path": "art/source/models/environment/city_shop_fittings_01/city_shop_fittings_01.blend",
+					"sha256": "db572713536c2e73dd0b4f3dcc8a8275c62d218f1d6515b80061b0c4f0ed73bd"
+				},
+				"source_vertices": 616.0,
+				"surfaces": 4.0,
+				"triangles": 1212.0,
+				"unit_corner_normals": true
+			},
+			{
+				"collection": "export_city_shop_fittings_02",
+				"degenerate_faces": 0.0,
+				"exported_split_vertices": 1072.0,
+				"glb": {
+					"bytes": 45616.0,
+					"path": "art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+					"sha256": "4fd2106f09ef4a35edafbcf3a3a68ea94983e721fd84d852a406e2d26de6552f"
+				},
+				"instances": 5.0,
+				"meshes": 7.0,
+				"nonmanifold_edges": 0.0,
+				"source": {
+					"bytes": 116378.0,
+					"path": "art/source/models/environment/city_shop_fittings_02/city_shop_fittings_02.blend",
+					"sha256": "44b3165d4d6d9cf4b0f3ef577e0c70fc80dae72726b04ebbe53272581e4454db"
+				},
+				"source_vertices": 836.0,
+				"surfaces": 8.0,
+				"triangles": 1656.0,
+				"unit_corner_normals": true
+			},
+			{
+				"collection": "variant_single",
+				"degenerate_faces": 0.0,
+				"exported_split_vertices": 1164.0,
+				"glb": {
+					"bytes": 41872.0,
+					"path": "art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb",
+					"sha256": "29af0c8b3652b7b400598c75f6f99329cb21e510452547e2e28f3c1115d215b9"
+				},
+				"instances": 5.0,
+				"meshes": 4.0,
+				"nonmanifold_edges": 0.0,
+				"source": {
+					"bytes": 141027.0,
+					"path": "art/source/models/environment/city_shop_fittings_03/city_shop_fittings_03.blend",
+					"sha256": "4192fd80abafb270afe64e92b1fbbf897649ca3302aa696e3f45a7e1c4d954d6"
+				},
+				"source_vertices": 1164.0,
+				"surfaces": 4.0,
+				"triangles": 2312.0,
+				"unit_corner_normals": true
+			},
+			{
+				"collection": "export_city_shop_fittings_05",
+				"degenerate_faces": 0.0,
+				"exported_split_vertices": 692.0,
+				"glb": {
+					"bytes": 29560.0,
+					"path": "art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb",
+					"sha256": "a641d067621301435f5a725803290f74dc7c235bac8bdc5d24c1d2170776faed"
+				},
+				"instances": 5.0,
+				"meshes": 8.0,
+				"nonmanifold_edges": 0.0,
+				"source": {
+					"bytes": 118153.0,
+					"path": "art/source/models/environment/city_shop_fittings_05/city_shop_fittings_05.blend",
+					"sha256": "e9d5aa510aafb55fa4edf69928ff566599c1e0eb4ea6defadc68f58ba55e52fd"
+				},
+				"source_vertices": 692.0,
+				"surfaces": 8.0,
+				"triangles": 1368.0,
+				"unit_corner_normals": true
+			},
+			{
+				"collection": "variant_single",
+				"degenerate_faces": 0.0,
+				"exported_split_vertices": 1000.0,
+				"glb": {
+					"bytes": 38928.0,
+					"path": "art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
+					"sha256": "37e9ce1667105cc66120edf4d114b3a4228972000ac89c14ed1a2608e9b309c6"
+				},
+				"instances": 5.0,
+				"meshes": 3.0,
+				"nonmanifold_edges": 0.0,
+				"source": {
+					"bytes": 146546.0,
+					"path": "art/source/models/environment/city_shop_fittings_06/city_shop_fittings_06.blend",
+					"sha256": "40122b4ab26a6a348fc914e936421e75453a33f77cee88c16bd86df2a87e4fe7"
+				},
+				"source_vertices": 1000.0,
+				"surfaces": 3.0,
+				"triangles": 1992.0,
+				"unit_corner_normals": true
+			},
+			{
+				"collection": "export_city_small_shop_shells_02",
+				"degenerate_faces": 0.0,
+				"exported_split_vertices": 2320.0,
+				"glb": {
+					"bytes": 73616.0,
+					"path": "art/models/environment/city_small_shop_shells_02/city_small_shop_shells_02.glb",
+					"sha256": "2f186c94fbf395538caf9770355c6b6d8c25a67ef4451a9aca3456047c9360c2"
+				},
+				"instances": 2.0,
+				"meshes": 25.0,
+				"nonmanifold_edges": 0.0,
+				"source": {
+					"bytes": 131748.0,
+					"path": "art/source/models/environment/city_small_shop_shells_02/city_small_shop_shells_02.blend",
+					"sha256": "47f4f9260f7307cfca6d073374508c2230a43a513a201c809c269e4f0add9430"
+				},
+				"source_vertices": 2140.0,
+				"surfaces": 25.0,
+				"triangles": 4188.0,
+				"unit_corner_normals": true
+			},
+			{
+				"collection": "export_city_small_shop_shells_04",
+				"degenerate_faces": 0.0,
+				"exported_split_vertices": 1940.0,
+				"glb": {
+					"bytes": 62392.0,
+					"path": "art/models/environment/city_small_shop_shells_04/city_small_shop_shells_04.glb",
+					"sha256": "88058a9d3ecd5c086f9b1f1cae3e25fdf8754bb394641c69a0e0bb0fe59513dc"
+				},
+				"instances": 1.0,
+				"meshes": 22.0,
+				"nonmanifold_edges": 0.0,
+				"source": {
+					"bytes": 127023.0,
+					"path": "art/source/models/environment/city_small_shop_shells_04/city_small_shop_shells_04.blend",
+					"sha256": "7dc750c5e8cc78bf4b54430d5bd576a9d4c53972738c55e138b132dded158be4"
+				},
+				"source_vertices": 1812.0,
+				"surfaces": 22.0,
+				"triangles": 3540.0,
+				"unit_corner_normals": true
+			}
+		],
+		"new_meshes": 0.0,
+		"scope": "fresh read-only audit of reused Blender sources and raw GLB accessor counts"
+	},
+	"godot_aabb_max": [
+		20.1800003051758,
+		5.05000019073486,
+		5.83000040054321
+	],
+	"godot_aabb_min": [
+		-20.1800003051758,
+		0.0,
+		-6.84999990463257
+	],
+	"material_surfaces": 207,
+	"mesh_instances": 202,
+	"model_instances": [
+		{
+			"path": "res://art/models/environment/city_small_shop_shells_02/city_small_shop_shells_02.glb",
+			"position": [
+				-13.6999998092651,
+				0.0,
+				-1.25
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb",
+			"position": [
+				-14.9499998092651,
+				0.0,
+				-5.75
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
+			"position": [
+				-14.9499998092651,
+				0.0,
+				-5.75
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb",
+			"position": [
+				-17.8500003814697,
+				0.479999989271164,
+				-5.75
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+			"position": [
+				-17.8500003814697,
+				3.0,
+				-5.75
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+			"position": [
+				-17.8500003814697,
+				3.79999995231628,
+				-5.75
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb",
+			"position": [
+				-8.54999923706055,
+				0.0,
+				-5.75
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
+			"position": [
+				-8.54999923706055,
+				0.0,
+				-5.75
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb",
+			"position": [
+				-11.4499998092651,
+				0.479999989271164,
+				-5.75
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+			"position": [
+				-11.4499998092651,
+				3.0,
+				-5.75
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+			"position": [
+				-11.4499998092651,
+				3.79999995231628,
+				-5.75
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_small_shop_shells_04/city_small_shop_shells_04.glb",
+			"position": [
+				-0.5,
+				0.0,
+				2.54999995231628
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb",
+			"position": [
+				1.45000004768372,
+				0.0,
+				-0.650000095367432
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
+			"position": [
+				1.45000004768372,
+				0.0,
+				-0.650000095367432
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb",
+			"position": [
+				-1.45000004768372,
+				0.479999989271164,
+				-0.650000095367432
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+			"position": [
+				-1.45000004768372,
+				3.0,
+				-0.650000095367432
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+			"position": [
+				-1.45000004768372,
+				3.79999995231628,
+				-0.650000095367432
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_small_shop_shells_02/city_small_shop_shells_02.glb",
+			"position": [
+				13.6999998092651,
+				0.0,
+				0.75
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb",
+			"position": [
+				12.4499998092651,
+				0.0,
+				-3.75
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
+			"position": [
+				12.4499998092651,
+				0.0,
+				-3.75
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb",
+			"position": [
+				9.54999923706055,
+				0.479999989271164,
+				-3.75
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+			"position": [
+				9.54999923706055,
+				3.0,
+				-3.75
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+			"position": [
+				9.54999923706055,
+				3.79999995231628,
+				-3.75
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_03/city_shop_fittings_03_single.glb",
+			"position": [
+				18.8500003814697,
+				0.0,
+				-3.75
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_06/city_shop_fittings_06_single.glb",
+			"position": [
+				18.8500003814697,
+				0.0,
+				-3.75
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_05/city_shop_fittings_05.glb",
+			"position": [
+				15.9499998092651,
+				0.479999989271164,
+				-3.75
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_01/city_shop_fittings_01.glb",
+			"position": [
+				15.9499998092651,
+				3.0,
+				-3.75
+			]
+		},
+		{
+			"path": "res://art/models/environment/city_shop_fittings_02/city_shop_fittings_02.glb",
+			"position": [
+				15.9499998092651,
+				3.79999995231628,
+				-3.75
+			]
+		}
+	],
+	"physics": {
+		"capsule_height_m": 1.8,
+		"capsule_radius_m": 0.35,
+		"clear_bidirectional_sweeps": 14,
+		"passage_structural_widths_m": [
+			3.6,
+			4.6
+		],
+		"passage_visual_widths_m": [
+			3.44,
+			4.44
+		],
+		"scope": "native shape queries only; no floor, actor simulation, traffic or network test",
+		"solid_overlap_cases": 3
+	},
+	"renders": {
+		"dimensions": [
+			1280.0,
+			720.0
+		],
+		"dither_intensity": 0.0,
+		"engine": "Blender Cycles CPU",
+		"overhead": {
+			"height_m": 47.0,
+			"north_up": true,
+			"vertical_down": true,
+			"vertical_fov_degrees": 42.0
+		},
+		"placement_source": "model_instances measured from saved Godot scene",
+		"png_compression": 95.0,
+		"samples": 24.0,
+		"scope": "isolated evidence, not a Godot gameplay capture",
+		"view_transform": "AgX"
+	},
+	"scene_bytes": 1642,
+	"scene_sha256": "555c32009bdca87098a9d5a24b379e12b4eb740130da70cf8a5fce5f1c3e07b9",
+	"status": "passed",
+	"two_roundtrips_byte_stable": true
+}
