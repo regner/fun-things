@@ -1,0 +1,36 @@
+city_harbour_bridge.02 — concise producer validation receipt
+
+Blender 5.2.2 LTS d13f752e3b9c / glTF exporter 5.2.40
+- Isolated author/export: exit 0; source saved and collection exported.
+- Fresh-process reexport: exit 0; GLB byte-identical to production output.
+- Source + binary GLB validation: exit 0.
+- 8648 triangles, 4416 source vertices, 5330 GLB vertices, 1 mesh, 5 surfaces.
+- 0 degenerate faces, 0 nonmanifold edges; unit normals; consistent winding.
+- Bounds Godot (-45.5,0,-8.5) to (45.5,1.1,8.5), tolerance 0.001 m.
+- Four 1280x720 renders: exit 0, visually inspected; marker and edge readability retained.
+- Render material setup emits Blender Material.use_nodes deprecation notice only.
+
+Godot 4.8.dev7.official.c971f93e7
+- Headless import: exit 0; existing MCP plugin version-support warning.
+- Headless editor normalization: exit 0, all assertions passed, both scenes byte-stable.
+  Editor/plugin shutdown emitted RID/ObjectDB leak errors/warnings as on sibling .01.
+  This run is evidence of save assertions, not a diagnostic-clean editor shutdown.
+- Subsequent headless runtime check: exit 0, no ERROR/WARNING diagnostics.
+- Linked GLB, dependency UIDs, model identity/AABB, five surfaces and two guard boxes pass.
+- 14 guard rays hit; water/above-guard/roadway rays clear.
+- Production ActorMotion/F​​ootCommand: 1440 total physics ticks across both sides/modes.
+  Guard contacts Z=-7.799480438 and +7.799480438; sidewalk end X=9.999997139.
+  AUTHORITY and REPLAY results equal; no car/network-transport claim.
+
+Canonical production_checks.py: PASS with pinned binary directories first in PATH,
+PYTHONUTF8=1, timeout 1800, output C:/tmp/ft/assets/city_harbour_bridge_02/checks.
+- Formatting/style/all-script compilation: pass.
+- Python: 16/16 tests pass.
+- GUT: 142/142 tests, 6705 assertions pass.
+- Negative diagnostic test: expected nonzero exit 1 observed; pass.
+- No known-error exclusions required.
+
+Initial owned gdstyle warnings were fixed before the full production run.
+Raw diagnostics/reexports remain in external scratch; manifest hashes retained payloads.
+Independent review, complete bank/world integration, cars, multiplayer transport,
+final in-engine camera and packaged/Deck performance remain pending.

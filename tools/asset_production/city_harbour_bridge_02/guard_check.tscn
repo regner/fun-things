@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dfl0dch5nyeva"]
+
+[ext_resource type="PackedScene" uid="uid://dltifcevojr46" path="res://scenes/prefabs/environment/city_harbour_bridge_01.tscn" id="1_deck"]
+[ext_resource type="PackedScene" uid="uid://dguytr5yvt7v7" path="res://scenes/prefabs/environment/city_harbour_bridge_02.tscn" id="2_guards"]
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="3_motion"]
+
+[sub_resource type="CapsuleShape3D" id="Capsule_actor"]
+radius = 0.35
+height = 1.8
+
+[node name="BridgeGuardCheck" type="Node3D" unique_id=169291625]
+
+[node name="Deck" parent="." unique_id=468702847 instance=ExtResource("1_deck")]
+
+[node name="Parapets" parent="." unique_id=1457808003 instance=ExtResource("2_guards")]
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=308971475]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 7)
+collision_layer = 2
+script = ExtResource("3_motion")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=1426119186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_actor")

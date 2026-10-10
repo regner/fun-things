@@ -1,0 +1,234 @@
+{
+  "applied_transforms": true,
+  "asset": "city_harbour_bridge.02",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "clear_between_guards_m": 16.3,
+  "consistent_winding": true,
+  "datum": "structural deck top / centred pair",
+  "degenerate_faces": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "dimensions_godot_m": [
+    91.0,
+    1.1,
+    17.0
+  ],
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 227444.0,
+  "glb_sha256": "fe72883f19e2e0b1035536e9255a7363e34c0c59d4e3cb96400644b42ba53dc1",
+  "glb_vertices": 5330.0,
+  "godot": {
+    "bounds_min": [
+      -45.5,
+      0.0,
+      -8.5
+    ],
+    "bounds_size": [
+      91.0,
+      1.10000002384186,
+      17.0
+    ],
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "above_guard_clear_rays": 1,
+      "actor_block_ticks_per_side_per_mode": 120,
+      "actor_contact_z": [
+        -7.79948043823242,
+        7.79948043823242,
+        -7.79948043823242,
+        7.79948043823242
+      ],
+      "actor_walk_ticks_per_side_per_mode": 240,
+      "authority_replay_equal": true,
+      "car_driving_and_network_transport": "pending downstream gameplay integration",
+      "guard_rays": 14,
+      "roadway_clear_rays": 1,
+      "sidewalk_walk_end_x": 9.99999713897705,
+      "water_clear_rays": 1
+    },
+    "save_reload_byte_stable": true
+  },
+  "godot_aabb": {
+    "max": [
+      45.5,
+      1.10000002384186,
+      8.49999904632568
+    ],
+    "min": [
+      -45.5,
+      0.0,
+      -8.5
+    ]
+  },
+  "guard_centres_z_m": [
+    -8.325,
+    8.325
+  ],
+  "guard_height_provisional_m": 1.1,
+  "guard_width_m": 0.35,
+  "layout_reference": "city_harbour_bridge.01 preserved 91 x 17 m footprint",
+  "marker_count": 6.0,
+  "materials": [
+    {
+      "name": "bridge_civic_concrete",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.159999996423721,
+          0.230000004172325,
+          0.25,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.649999976158142
+      }
+    },
+    {
+      "name": "bridge_pale_fascia",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.569999992847443,
+          0.629999995231628,
+          0.600000023841858,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.579999983310699
+      }
+    },
+    {
+      "name": "bridge_petrol_steel",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0320000015199184,
+          0.0810000002384186,
+          0.0949999988079071,
+          1.0
+        ],
+        "metallicFactor": 0.649999976158142,
+        "roughnessFactor": 0.430000007152557
+      }
+    },
+    {
+      "name": "bridge_recess",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0450000017881393,
+          0.0710000023245811,
+          0.0769999995827675,
+          1.0
+        ],
+        "metallicFactor": 0.25,
+        "roughnessFactor": 0.600000023841858
+      }
+    },
+    {
+      "emissiveFactor": [
+        0.237499997019768,
+        0.172499999403954,
+        0.0799999982118607
+      ],
+      "name": "bridge_warm_marker",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.949999988079071,
+          0.689999997615814,
+          0.319999992847443,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.319999992847443
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "sidewalk_clear_width_m": 3.65,
+  "source_aabb": {
+    "max": [
+      45.5,
+      8.5,
+      1.10000002384186
+    ],
+    "min": [
+      -45.5,
+      -8.49999904632568,
+      0.0
+    ]
+  },
+  "status": "PASS source and export",
+  "surfaces": 5.0,
+  "triangles": 8648.0,
+  "unit_normals": true,
+  "vertices": 4416.0,
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": true,
+      "returncode": 0
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 388243
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 221866
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 403465
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 360210
+    }
+  ],
+  "render_encoding": "RGB 7 significant bits per channel, PNG compression 9"
+}
