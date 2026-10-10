@@ -1,0 +1,367 @@
+{
+  "applied_transforms": true,
+  "asset": "city_shore_edges.01",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "consistent_winding": true,
+  "datum": "land-contact",
+  "degenerate_faces": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "dimensions_godot_m": [
+    4.0,
+    1.0,
+    0.72
+  ],
+  "end_joins_godot": [
+    [
+      -2.0,
+      0.0,
+      0.0
+    ],
+    [
+      2.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "end_profile_blender_yz": [
+    [
+      -0.36,
+      0.855
+    ],
+    [
+      -0.36,
+      0.975
+    ],
+    [
+      -0.335,
+      1.0
+    ],
+    [
+      -0.32,
+      0.0
+    ],
+    [
+      -0.32,
+      0.13
+    ],
+    [
+      -0.32,
+      0.82
+    ],
+    [
+      -0.3,
+      0.16
+    ],
+    [
+      -0.3,
+      0.16
+    ],
+    [
+      -0.255,
+      0.79
+    ],
+    [
+      -0.255,
+      0.82
+    ],
+    [
+      -0.25,
+      0.77
+    ],
+    [
+      -0.24,
+      0.79
+    ],
+    [
+      0.24,
+      0.79
+    ],
+    [
+      0.25,
+      0.77
+    ],
+    [
+      0.255,
+      0.79
+    ],
+    [
+      0.255,
+      0.82
+    ],
+    [
+      0.3,
+      0.16
+    ],
+    [
+      0.3,
+      0.16
+    ],
+    [
+      0.32,
+      0.0
+    ],
+    [
+      0.32,
+      0.13
+    ],
+    [
+      0.32,
+      0.82
+    ],
+    [
+      0.335,
+      1.0
+    ],
+    [
+      0.36,
+      0.855
+    ],
+    [
+      0.36,
+      0.975
+    ]
+  ],
+  "end_profiles_identical": true,
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 9600.0,
+  "glb_sha256": "788860d09a0da89238d6f6350706899435a5e5e2e6c513137aeda1f48aa2ad44",
+  "glb_vertices": 240.0,
+  "godot": {
+    "bounds_min": [
+      -2.0,
+      0.0,
+      -0.360000014305115
+    ],
+    "bounds_size": [
+      4.0,
+      1.0,
+      0.720000028610229
+    ],
+    "box_shape_count": 1,
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "actor_height_m": 1.8,
+      "actor_radius_m": 0.35,
+      "authority_replay_within_tolerance": true,
+      "bypass_end_z_m": 2.99999976158142,
+      "front_stop_z_m": -0.710937142372131,
+      "max_authority_replay_error_m": 0.000129433057736605,
+      "movement_cases": 8,
+      "network_transport_and_world_placement": "not tested",
+      "position_tolerance_m": 0.001,
+      "ray_cases": 12,
+      "rear_stop_z_m": 0.710937142372131,
+      "seam_stop_z_m": -0.709635078907013,
+      "walk_ticks_per_case": 60
+    },
+    "save_reload_byte_stable": true,
+    "static_body_count": 1
+  },
+  "godot_aabb": {
+    "max": [
+      2.0,
+      1.0,
+      0.360000014305115
+    ],
+    "min": [
+      -2.0,
+      0.0,
+      -0.360000014305115
+    ]
+  },
+  "materials": [
+    {
+      "name": "shore_body_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.200000002980232,
+          0.264999985694885,
+          0.28999999165535,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.720000028610229
+      }
+    },
+    {
+      "name": "shore_foot_dark_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0949999988079071,
+          0.144999995827675,
+          0.159999996423721,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.779999971389771
+      }
+    },
+    {
+      "name": "shore_joint_recess",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0450000017881393,
+          0.0750000029802322,
+          0.0850000008940697,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.819999992847443
+      }
+    },
+    {
+      "name": "shore_coping_pale_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.46000000834465,
+          0.519999980926514,
+          0.529999971389771,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.620000004768372
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "source_aabb": {
+    "max": [
+      2.0,
+      0.360000014305115,
+      1.0
+    ],
+    "min": [
+      -2.0,
+      -0.360000014305115,
+      0.0
+    ]
+  },
+  "status": "PASS source and export",
+  "surfaces": 4.0,
+  "top_height_m": 1.0,
+  "triangles": 128.0,
+  "unit_normals": true,
+  "vertices": 72.0,
+  "production_checks": {
+    "ok": false,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": false,
+        "returncode": 1
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    },
+    "owned_script": {
+      "script": "tools/asset_production/city_shore_edges_01/check.gd",
+      "ok": true
+    },
+    "compilation_failures": [
+      {
+        "script": "tools/assets/vehicles/city_cars/editor_author.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/weapons/dock_thumper/capture_check.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/weapons/pistol_coral_stub/editor_bridge.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/weapons/smg_wedgewire/check_asset.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/weapons/smg_wedgewire/editor_author.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/world/brackett_greybox/author_editor.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/world/brackett_greybox/capture.gd",
+        "ok": false
+      },
+      {
+        "script": "tools/assets/world/brackett_greybox/check_scene.gd",
+        "ok": false
+      }
+    ],
+    "note": "Preserves canonical result; see final.log for separately observed follow-up checks"
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 400848
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 352837
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 314073
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 379858
+    }
+  ],
+  "render_encoding": "RGB 7 significant bits per channel, PNG compression 9",
+  "overhead_camera": {
+    "projection": "perspective",
+    "height_m": 47,
+    "vertical_fov_deg": 42,
+    "direction": "vertical down, Blender +Y at image top",
+    "engine_capture": false
+  }
+}

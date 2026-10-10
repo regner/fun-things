@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d37bl666in874"]
+
+[ext_resource type="PackedScene" uid="uid://ci16gu0nxikl3" path="res://art/models/environment/city_shore_edges_01/city_shore_edges_01.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_wall"]
+size = Vector3(4, 1, 0.72)
+
+[node name="city_shore_edges_01" type="Node3D" unique_id=895994399]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=131231480]
+
+[node name="Model" parent="Visuals" unique_id=1772529540 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=693928765]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=497694883]
+collision_mask = 0
+
+[node name="Wall" type="CollisionShape3D" parent="Collision/Body" unique_id=664770439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("Box_wall")

@@ -1,0 +1,75 @@
+city_shore_edges.01 final production receipt
+Scope: original straight low seawall; no shared/other asset writes.
+Exact runnable commands are in ../city_shore_edges_01.md.
+Raw logs and scratch exports: C:/tmp/ft/assets/city_shore_edges_01/
+
+Pinned tools
+Blender 5.2.2 LTS, build d13f752e3b9c; glTF exporter 5.2.40.
+Godot 4.8.dev7.official.c971f93e7 from mise; gdstyle 0.3.0.
+Blender author/export/render/reexport/validate all used -noaudio --background
+--factory-startup --threads 4 --python-exit-code 1, audio-null environment,
+and timeout 900. No live Blender or Godot session accessed.
+
+Source/export
+PASS author.py, export.py, render.py (final commands exit 0).
+PASS fresh separate-process export.py to scratch (exit 0).
+PASS validate.py (exit 0): 128 triangles; 72 source vertices; 240 GLB vertices;
+1 mesh / 4 surfaces; zero degenerate faces/triangles and non-manifold edges;
+unit normals, consistent winding, identity transforms, matching planar end profiles.
+AABB Godot (-2,0,-.36) to (2,1,.36); land-contact origin at zero.
+Fresh reexport byte-identical: 9600 bytes.
+GLB SHA256 788860d09a0da89238d6f6350706899435a5e5e2e6c513137aeda1f48aa2ad44
+
+Visual inspection
+Four 1280x720 Blender-only renders inspected: hero, side, detail, overhead_47m_42deg.
+Initial end-face overlap strips removed by non-overlapping component height intervals.
+Final pale coping reads clearly at true 47m / vertical 42deg FOV; no noisy fine detail.
+Compression: PNG95 then RGB7-bit/PNG9; no palette indexing or visual paintover.
+
+Godot
+PASS --headless --editor --import, timeout 300, exit 0.
+PASS check.gd --normalize, timeout 180, exit 0:
+  wrapper and saved 2-wall fixture saved/reloaded twice, stable bytes/UIDs/node IDs;
+  linked imported ancestry, bounds/materials, dependency paths/UIDs all resolve;
+  one static-world layer1/mask0 body, one 4x1x.72 box at (0,.5,0).
+PASS check.gd standalone twice, each timeout 180 and exit 0:
+  12 rays: body/join solid below 1m; clear above 1m.
+  8 production ActorMotion cases, capsule r=.35/h=1.8, 60 ticks per case.
+  Front Z=-.710937142; rear Z=.710937142; seam Z=-.709635079;
+  bypass X=-2.5, Z=2.999999762.
+  Authority/replay error .000129433m < .001m explicit measurement tolerance.
+  Independent second process reproduced the same values.
+PASS owned check.gd gdstyle --max-warnings 0, exit 0, no issues.
+
+Canonical production checks
+Command: timeout 1800 mise exec -- python tools/production_checks.py
+         --output C:/tmp/ft/assets/city_shore_edges_01/checks
+EXIT 1, not relabelled as a pass.
+PASS engine pin, GUT pin, repository formatting/style, asset explicit compilation,
+14 Python tests, GUT import, 137/137 GUT tests with 6523 asserts, negative control.
+Compilation exceeded script_checks.py's total 120-second deadline at final 8 scripts;
+155 scripts, including tools/asset_production/city_shore_edges_01/check.gd, passed.
+No compile diagnostic errors in those 155 logs. Timed-out files:
+  tools/assets/vehicles/city_cars/editor_author.gd
+  tools/assets/weapons/dock_thumper/capture_check.gd
+  tools/assets/weapons/pistol_coral_stub/editor_bridge.gd
+  tools/assets/weapons/smg_wedgewire/check_asset.gd
+  tools/assets/weapons/smg_wedgewire/editor_author.gd
+  tools/assets/world/brackett_greybox/author_editor.gd
+  tools/assets/world/brackett_greybox/capture.gd
+  tools/assets/world/brackett_greybox/check_scene.gd
+PASS supplemental compilation of all eight, each via timeout 180 pinned Godot
+--headless --path C:/tmp/ft/assets/city_shore_edges_01/checks/script-checks/compiler-project
+--check-only --script res://<path above>; exit 0 each, no diagnostics.
+This changes the per-script evidence, not the canonical failed-run status.
+
+Diagnostics / limitations
+Blender use_nodes deprecation notices; final processes exit normally.
+Headless editor addon version warning and shutdown RID/ObjectDB leaks occur after
+successful normalization; retained as environment/editor diagnostics, not silenced.
+Final standalone asset checks emit no error/warning diagnostics.
+Initial exact-float movement comparison failed on a .129mm vertical floor-settling
+difference; final test records error and uses the documented 1mm tolerance.
+No changes to shared test budgets/tooling, no known fixture failures waived.
+Independent review, world/coast/corner placement, actual engine imagery, vehicle
+contacts, multiplayer transport, sustained performance/Deck/build checks pending.
