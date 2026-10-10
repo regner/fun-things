@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c3r06nekjndcf"]
+
+[ext_resource type="PackedScene" uid="uid://64d2osnmp04f" path="res://scenes/prefabs/environment/d02_corner_shop_01.tscn" id="1_shutter"]
+[ext_resource type="Script" uid="uid://jthmfio4c27p" path="res://scripts/actors/actor_motion.gd" id="2_motion"]
+[ext_resource type="PackedScene" uid="uid://bngypubf538ba" path="res://scenes/prefabs/environment/d02_corner_shop_02.tscn" id="3_annex"]
+
+[sub_resource type="BoxShape3D" id="Box_floor"]
+size = Vector3(40, 0.1, 40)
+
+[sub_resource type="CapsuleShape3D" id="Capsule_actor"]
+radius = 0.35
+height = 1.8
+
+[node name="AnnexCollisionCheck" type="Node3D" unique_id=741975323]
+
+[node name="Shop" parent="." unique_id=986155632 instance=ExtResource("1_shutter")]
+
+[node name="Annex" parent="." unique_id=848845300 instance=ExtResource("3_annex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.3)
+
+[node name="Standalone" parent="." unique_id=1946102947 instance=ExtResource("3_annex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1865619093]
+collision_mask = 0
+
+[node name="Shape" type="CollisionShape3D" parent="Floor" unique_id=289110204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+shape = SubResource("Box_floor")
+
+[node name="Actor" type="CharacterBody3D" parent="." unique_id=1121138458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+collision_layer = 2
+script = ExtResource("2_motion")
+
+[node name="Capsule" type="CollisionShape3D" parent="Actor" unique_id=16953965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("Capsule_actor")

@@ -222,8 +222,9 @@ source/export/import/prefab/tool/doc/evidence file, excluding itself only.
 ## Remaining acceptance
 
 - Independent art/source/prefab review; no blanket READY or register/TODO closure.
-- Optional rear annex `d02_corner_shop.02` remains pending its own delivery; use the
-  rear interface above, then update this current handoff link without altering history.
+- Optional rear annex [d02_corner_shop.02](d02_corner_shop_02.md) delivered its own
+  source/export/prefab candidate on 10 October 2026. Its root at `(0,0,6.3)` mates
+  with the rear interface above; independent review and district placement remain pending.
 - Neighbourhood fascia artwork remains separate; blank shared fascia is intentional.
 - World placement at the proposed triangular junction, road/garden relationship,
   real actor corner circulation, car impacts/turning, populated blue-hour gameplay

@@ -1,0 +1,57 @@
+d02_corner_shop.02 — final producer validation receipt, 2026-10-10
+Candidate source/export/prefab; independent acceptance remains pending.
+
+TOOLS AND SCOPE
+Blender 5.2.2 LTS d13f752e3b9c; glTF exporter 5.2.40.
+Godot 4.8.dev7.official.c971f93e7; gdstyle 0.3.0.
+Isolated Blender CLI and pinned headless Godot only. No live-session API calls.
+Exact commands: ../d02_corner_shop_02.md.
+Raw command logs: C:/tmp/ft/assets/d02_corner_shop_02/ (not committed).
+
+FINAL OUTCOMES
+Author/save/export: pass, exit 0.
+Saved-source fresh-process reexport: pass, byte-identical 55228-byte GLB.
+SHA256 6b120db4113f4542350569fa9a2f0a7ce9f29adbdf791523d869f36d025f7d69
+Source/binary audit: pass; 3132 triangles, 1600 source/GLB vertices, 1 mesh,
+6 surfaces; 0 degenerate faces/triangles, 0 non-manifold source edges.
+Finite unit normals, consistent winding, positive volume, identity transforms pass.
+Visual Godot AABB (-2.35,0,-1.8) to (2.35,3.39,2.015) within 1 mm.
+Ground footprint 4.4 x 3.6 m; one static box 4.4 x 2.8 x 3.6 at (0,1.4,0).
+Roof/trim visual-only. Closed exterior; no interior or operable entrance.
+Four final isolated renders inspected: 1280x720; hero/detail/overhead/attachment side.
+Pinned headless import and recursive dependency/UID load: pass.
+Prefab/fixture normalized load-pack-save-reload: pass, second-save bytes stable.
+Annex root (0,0,6.3) fits unchanged shop rear Z=4.5; one collider per structure.
+ActorMotion / FootCommand: 6 cases per AUTHORITY and REPLAY, 60 ticks each, pass.
+Attached side contacts X=+/-2.550781, rear Z=8.450530.
+Standalone front contact Z=-2.166668; independent front-plane ray Z=-1.8.
+Clear joint bypasses X=+/-2.8, final Z=9.500001; no snag/invisible corner blocker.
+Ten joint/side rays hit expected closed walls; overhead ray clears.
+Authority/replay positions differ by at most .878 mm, vertical only (<2 mm gate).
+Owned gdstyle formatting/lint: pass, zero findings.
+Canonical production checks: all layers pass, no exclusions.
+219 script compile records; 17 Python tests; 165 GUT tests / 6918 assertions.
+Intentional GUT negative test exits 1, as expected.
+Sibling current handoff delivery link and only its manifest doc hash refreshed;
+sibling producer manifest independently verifies 19 payloads. Historical receipts unchanged.
+
+CORRECTIONS AND DIAGNOSTICS
+Initial hero clipped its roof tip; final orthographic framing enlarged and inspected.
+Initial physics assertion required front capsule tangency within 3 mm; the pinned
+box contact conservatively stops 16.7 mm short. Final assertion requires no penetration
+and <=20 mm conservative skin; independent ray retains exact 1 mm wall-plane check.
+Other contacts retain 3 mm tolerances; authority/replay comparison remains 2 mm.
+Initial GDScript ray helper exceeded function length/local count/nesting limits;
+ray checks split into focused named helpers. Final style and compilation pass.
+Blender emits use_nodes deprecation warnings; successful author/render exits retained.
+Pinned editor import/normalization emits existing MCP Godot 4.8-versus-4.7 warning.
+Editor-normalization shutdown emits renderer/text/Canvas/ObjectDB allocation leaks
+AFTER successful resource and byte-stability assertions. These are not suppressed.
+Final non-editor runtime check contains no ERROR, SCRIPT ERROR or WARNING diagnostics.
+Project plugins initialize within owned CLI processes; no endpoints were called.
+
+LIMITS
+Dimensions provisional. Studio views are not engine gameplay captures.
+Independent art/technical review, optional world placement, actor/car circulation,
+real multiplayer transport/admission/prediction, packaging, populated blue-hour
+camera/occlusion and sustained repeated-placement/Deck performance remain pending.

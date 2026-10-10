@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bngypubf538ba"]
+
+[ext_resource type="PackedScene" uid="uid://b5yobea3kc7dy" path="res://art/models/environment/d02_corner_shop_02/d02_corner_shop_02.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_annex"]
+size = Vector3(4.4, 2.8, 3.6)
+
+[node name="D02CornerShop02" type="Node3D" unique_id=449011906]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=667415919]
+
+[node name="Model" parent="Visuals" unique_id=592442343 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=355094190]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=64169114]
+collision_mask = 0
+
+[node name="Envelope" type="CollisionShape3D" parent="Collision/Body" unique_id=638126948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0)
+shape = SubResource("Box_annex")

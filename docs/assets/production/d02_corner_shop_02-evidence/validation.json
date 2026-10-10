@@ -1,0 +1,323 @@
+{
+  "applied_transforms": true,
+  "asset": "d02_corner_shop.02",
+  "attachment_plane_godot_z_m": 4.5,
+  "attachment_root_godot_m": [
+    0.0,
+    0.0,
+    6.3
+  ],
+  "attachment_width_margin_per_side_m": 0.2,
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "consistent_winding": true,
+  "datum": "ground-centred bounding wall footprint",
+  "degenerate_faces": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "dimensions_godot_m": [
+    4.7,
+    3.39,
+    3.815
+  ],
+  "dimensions_status": "provisional",
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 55228.0,
+  "glb_sha256": "6b120db4113f4542350569fa9a2f0a7ce9f29adbdf791523d869f36d025f7d69",
+  "glb_vertices": 1600.0,
+  "godot": {
+    "bounds_min": [
+      -2.34999990463257,
+      0.0,
+      -1.79999995231628
+    ],
+    "bounds_size": [
+      4.69999980926514,
+      3.39000010490417,
+      3.81500005722046
+    ],
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "actor_capsule_height_m": 1.8,
+      "actor_capsule_radius_m": 0.35,
+      "all_case_positions": [
+        [
+          2.55078101158142,
+          0.000877851387485862,
+          6.30000019073486
+        ],
+        [
+          -2.55078101158142,
+          0.0,
+          6.30000019073486
+        ],
+        [
+          12.0,
+          0.0,
+          -2.16666841506958
+        ],
+        [
+          0.0,
+          0.0,
+          8.45053005218506
+        ],
+        [
+          2.79999995231628,
+          0.0,
+          9.50000095367432
+        ],
+        [
+          -2.79999995231628,
+          0.0,
+          9.50000095367432
+        ],
+        [
+          2.55078101158142,
+          0.0,
+          6.30000019073486
+        ],
+        [
+          -2.55078101158142,
+          0.0,
+          6.30000019073486
+        ],
+        [
+          12.0,
+          0.0,
+          -2.16666841506958
+        ],
+        [
+          0.0,
+          0.0,
+          8.45053005218506
+        ],
+        [
+          2.79999995231628,
+          0.0,
+          9.50000095367432
+        ],
+        [
+          -2.79999995231628,
+          0.0,
+          9.50000095367432
+        ]
+      ],
+      "attachment_root_godot_m": [
+        0,
+        0,
+        6.3
+      ],
+      "authority_replay_within_2mm": true,
+      "car_and_network_transport": "pending downstream; not exercised by these actor checks",
+      "case_order": [
+        "attached_right",
+        "attached_left",
+        "standalone_front",
+        "attached_rear",
+        "right_joint_bypass",
+        "left_joint_bypass"
+      ],
+      "joint_and_side_rays_hit": true,
+      "movement_ticks_per_case_per_mode": 60,
+      "roof_ray_clear": true
+    },
+    "save_reload_byte_stable": true
+  },
+  "godot_aabb": {
+    "max": [
+      2.34999990463257,
+      3.39000010490417,
+      2.01500010490417
+    ],
+    "min": [
+      -2.34999990463257,
+      0.0,
+      -1.79999995231628
+    ]
+  },
+  "materials": [
+    {
+      "name": "shop_warm_stucco",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.485149949789047,
+          0.473531484603882,
+          0.371237695217133,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.600000023841858
+      }
+    },
+    {
+      "name": "shop_petrol_plinth",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.051269456744194,
+          0.104616485536098,
+          0.13843160867691,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.600000023841858
+      }
+    },
+    {
+      "name": "shop_ivory_trim",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.672443151473999,
+          0.623960375785828,
+          0.473531484603882,
+          1.0
+        ],
+        "metallicFactor": 0.119999997317791,
+        "roughnessFactor": 0.479999989271164
+      }
+    },
+    {
+      "name": "shop_upper_opaque_glazing",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0185002200305462,
+          0.0666259378194809,
+          0.095307469367981,
+          1.0
+        ],
+        "metallicFactor": 0.219999998807907,
+        "roughnessFactor": 0.280000001192093
+      }
+    },
+    {
+      "name": "shop_slate_blue_roof",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0343398079276085,
+          0.0742135718464851,
+          0.149959787726402,
+          1.0
+        ],
+        "metallicFactor": 0.180000007152557,
+        "roughnessFactor": 0.5
+      }
+    },
+    {
+      "name": "shop_cobalt_accent",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0168073754757643,
+          0.114435374736786,
+          0.603827357292175,
+          1.0
+        ],
+        "metallicFactor": 0.150000005960464,
+        "roughnessFactor": 0.419999986886978
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "source_aabb": {
+    "max": [
+      2.34999990463257,
+      1.79999995231628,
+      3.39000010490417
+    ],
+    "min": [
+      -2.34999990463257,
+      -2.01500010490417,
+      0.0
+    ]
+  },
+  "status": "PASS source and export",
+  "surfaces": 6.0,
+  "triangles": 3132.0,
+  "unit_normals": true,
+  "vertices": 1600.0,
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": true,
+      "returncode": 0
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 417556
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 410347
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 428013
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 383812
+    }
+  ],
+  "render_encoding": "RGB 7 significant bits per channel; PNG compression 9",
+  "gameplay_camera": {
+    "renderer": "Blender Cycles CPU / AgX; not an engine gameplay capture",
+    "position_blender_m": [
+      0,
+      0,
+      47
+    ],
+    "rotation_radians": [
+      0,
+      0,
+      0
+    ],
+    "vertical_fov_degrees": 42,
+    "projection": "perspective",
+    "note": "Centred annex; camera remains vertical-down and fixed yaw"
+  }
+}
