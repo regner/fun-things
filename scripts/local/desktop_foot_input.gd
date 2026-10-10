@@ -94,6 +94,12 @@ func set_focused(focused: bool) -> void:
 	clear()
 
 
+## Restarts held sequence numbering only after a host-authorized input rebind.
+func reset_sequence() -> void:
+	_sequence = 0
+	clear()
+
+
 ## Clears every physical alias so focus regain cannot resume a stale held control.
 func clear() -> void:
 	_held.clear()

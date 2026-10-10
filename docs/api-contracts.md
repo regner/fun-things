@@ -420,15 +420,25 @@ The codec reserves at least 50 m between every current saved Brackett node origi
 saturation. A production test traverses the saved city and fails if authored growth enters
 that margin. Runtime values outside the representable domain saturate and increment a
 counter; they never wrap. Full-precision authoritative state remains unchanged, and the
-maximum planar quantization error is 1 cm. The measured row has no Y field, so it makes no
-vertical clamp claim; a later vertical-pose field requires its own measured codec decision
-rather than silently consuming flags or changing this row.
+maximum planar quantization error is 1 cm. The A2.2 row has no Y field and makes no vertical clamp claim.
 
-M1-A2.2 foot intent uses one fixed 16-byte big-endian packet: unsigned 32-bit command
-sequence and client tick, signed 16-bit normalized move X/Y, signed 16-bit yaw over
-`[-PI, PI]`, one fire/alternate-held bitfield byte, and one zero reserved byte. Receivers
-reject any size other than 16 before field decoding, reject nonzero reserved bits, then apply
-sender-derived admission, per-participant rate and sequence checks. The larger 1,200-byte
+M1-A2.3 movement version 2 extends that measured shape to a complete 20-byte row and
+uses the header's version byte to reject old or unknown layouts before row application.
+It adds signed 16-bit Y in two-centimetre units around zero and signed 16-bit vertical
+velocity in centimetres per second. The same 1,200-byte packet ceiling now admits 59
+complete rows per chunk. Authoritative X/Y/Z position, velocity, grounded state, and yaw
+are installed before permitted replay or remote presentation smoothing.
+
+M1-A2.3 foot intent retains one fixed 16-byte big-endian packet. It carries unsigned
+32-bit command sequence, a packed eight-bit host-authorized input epoch plus 24-bit client
+tick, signed 16-bit normalized move X/Y, signed 16-bit yaw over `[-PI, PI]`, one
+fire/alternate-held bitfield byte, and the controlled EntityRef's eight-bit generation.
+Receivers reject any size other than 16 before field decoding, reject unknown flag bits,
+then apply sender-derived admission, entity-generation/input-epoch, per-participant rate,
+and sequence checks. Bounded client replay exhaustion requests one reliable, idempotent,
+participant-local input-epoch advance; host queue, client collector sequence, and prediction
+history reset together, so
+sequence one resumes without accepting delayed input from the prior epoch. The larger 1,200-byte
 held-input ceiling remains available only for a future explicitly measured bounded batch;
 it does not permit Variant dictionaries or another unbounded remotely callable shape.
 

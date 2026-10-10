@@ -28,6 +28,8 @@ func test_subset_recovery_does_not_use_global_packet_watermark() -> void:
 	assert_eq(_apply_rows(104, [_row(1, 1, 1, 1, 14.0)]).applied, 1)
 
 	assert_almost_eq(float(_store.entity_state(1).x), 14.00435, 0.011)
+	assert_almost_eq(float(_store.entity_state(1).y), 3.5, 0.011)
+	assert_almost_eq(float(_store.entity_state(1).vy), -2.0, 0.001)
 	assert_almost_eq(float(_store.entity_state(2).x), 20.00435, 0.011)
 	assert_eq(_apply_rows(99, [_row(1, 1, 1, 1, 99.0)]).rejected, 1)
 	assert_almost_eq(float(_store.entity_state(1).x), 14.00435, 0.011)
@@ -181,8 +183,10 @@ func _row(
 		"phase": phase,
 		"flags": 0,
 		"x": x,
+		"y": 3.5,
 		"z": 200.0,
 		"vx": 1.0,
+		"vy": -2.0,
 		"vz": 0.0,
 		"yaw": 0.0,
 	}

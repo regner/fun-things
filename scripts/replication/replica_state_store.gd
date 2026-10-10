@@ -163,8 +163,10 @@ func _baseline_entity(row: Dictionary, tick: int) -> Dictionary:
 		"phase": row.phase,
 		"flags": row.flags,
 		"x": row.x,
+		"y": row.y,
 		"z": row.z,
 		"vx": row.vx,
+		"vy": row.vy,
 		"vz": row.vz,
 		"yaw": row.yaw,
 		"movement_tick": tick,
@@ -192,6 +194,7 @@ func _apply_durable_event(event: Dictionary) -> Dictionary:
 		if event_kind == 2:
 			current.flags = 0
 			current.vx = 0.0
+			current.vy = 0.0
 			current.vz = 0.0
 	if event_kind == 2:
 		_pending_movement.erase(_pending_key(entity_id, generation))
@@ -244,8 +247,10 @@ func _apply_movement_row(row: Dictionary, tick: int) -> bool:
 
 	current.flags = row.flags
 	current.x = row.x
+	current.y = row.y
 	current.z = row.z
 	current.vx = row.vx
+	current.vy = row.vy
 	current.vz = row.vz
 	current.yaw = row.yaw
 	current.movement_tick = tick

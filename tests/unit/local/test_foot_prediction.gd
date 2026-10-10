@@ -27,6 +27,7 @@ func test_reconciliation_replays_unacknowledged_commands() -> void:
 	assert_eq(prediction.history_size(), 2)
 	assert_almost_eq(predicted.global_position.x, float(before.position.x), 0.001)
 	assert_eq(prediction.acknowledgement(), 1)
+	assert_eq(prediction.last_authority_position(), authority.global_position)
 
 
 ## Tolerates the measured wire quantization without introducing a visual offset.

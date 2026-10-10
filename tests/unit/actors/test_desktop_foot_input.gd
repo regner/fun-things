@@ -44,6 +44,20 @@ func test_focus_loss_stays_neutral_after_focus_regain() -> void:
 	assert_lt(collector.sample(4).move.y, 0.0)
 
 
+## Restarts sequence one only through the host-authorized rebind seam.
+func test_reset_sequence_restarts_numbering_and_clears_held_input() -> void:
+	var collector: DesktopFootInput = _add_collector()
+	collector.set_focused(true)
+	collector._unhandled_input(_key(KEY_W, true))
+	assert_eq(collector.sample(1).sequence, 1)
+	assert_eq(collector.sample(2).sequence, 2)
+
+	collector.reset_sequence()
+	var rebound: FootCommand = collector.sample(3)
+	assert_eq(rebound.sequence, 1)
+	assert_eq(rebound.move, Vector2.ZERO)
+
+
 ## Projects the viewport mouse ray onto the controlled actor's horizontal plane.
 func test_mouse_right_of_actor_faces_world_positive_x() -> void:
 	var collector: DesktopFootInput = _add_collector()

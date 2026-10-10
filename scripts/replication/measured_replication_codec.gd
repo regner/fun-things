@@ -1,17 +1,19 @@
 class_name MeasuredReplicationCodec
 extends RefCounted
-## Encodes only S11's measured 12-byte header, 16-byte row, and 16-byte durable shape.
+## Encodes bounded versioned movement rows and S11's fixed durable lifecycle shape.
 
 const MAGIC: int = 0x5311
 const HEADER_BYTES: int = 12
-const ROW_BYTES: int = 16
+const ROW_BYTES: int = 20
 const DURABLE_BYTES: int = 16
+const MOVEMENT_VERSION: int = 2
 const MAX_PACKET_BYTES: int = 1200
 const MAX_ROWS_PER_PACKET: int = (MAX_PACKET_BYTES - HEADER_BYTES) / ROW_BYTES
 const MAX_CHUNKS: int = 255
 const POSITION_STEP_METRES: float = 0.02
 const POSITION_ORIGIN_X: float = -0.51565
 const POSITION_ORIGIN_Z: float = 199.42865
+const POSITION_ORIGIN_Y: float = 0.0
 const POSITION_QUANTIZED_MIN: int = -32_768
 const POSITION_QUANTIZED_MAX: int = 32_767
 const POSITION_MARGIN_METRES: float = 50.0
@@ -24,8 +26,10 @@ const MOVEMENT_FIELDS: Array[String] = [
 	"phase",
 	"flags",
 	"x",
+	"y",
 	"z",
 	"vx",
+	"vy",
 	"vz",
 	"yaw",
 ]
@@ -71,7 +75,7 @@ func encode_movement(sequence: int, tick: int, rows: Array[Dictionary]) -> Dicti
 		stream.put_u8(chunk_index)
 		stream.put_u8(chunk_count)
 		stream.put_u8(row_count)
-		stream.put_u8(0)
+		stream.put_u8(MOVEMENT_VERSION)
 		for row_index: int in range(first, first + row_count):
 			_put_movement_row(stream, rows[row_index])
 
@@ -100,12 +104,12 @@ func decode_movement(packet: PackedByteArray) -> Dictionary:
 	var chunk_index: int = stream.get_u8()
 	var chunk_count: int = stream.get_u8()
 	var row_count: int = stream.get_u8()
-	var reserved: int = stream.get_u8()
+	var version: int = stream.get_u8()
 	if (
 		chunk_count < 1
 		or chunk_index >= chunk_count
 		or row_count > MAX_ROWS_PER_PACKET
-		or reserved != 0
+		or version != MOVEMENT_VERSION
 		or packet.size() != HEADER_BYTES + row_count * ROW_BYTES
 	):
 		return _failure(&"MALFORMED_PACKET")
@@ -201,6 +205,8 @@ func _put_movement_row(stream: StreamPeerBuffer, row: Dictionary) -> void:
 	stream.put_u16(_signed_to_u16(roundi(float(row.vx) * VELOCITY_SCALE)))
 	stream.put_u16(_signed_to_u16(roundi(float(row.vz) * VELOCITY_SCALE)))
 	stream.put_u16(posmod(roundi(float(row.yaw) * YAW_SCALE), 65_536))
+	stream.put_u16(_signed_to_u16(_quantize_position(float(row.y), POSITION_ORIGIN_Y)))
+	stream.put_u16(_signed_to_u16(roundi(float(row.vy) * VELOCITY_SCALE)))
 
 
 ## Reads one measured row without granting its phase field durable-writer authority.
@@ -216,6 +222,8 @@ func _get_movement_row(stream: StreamPeerBuffer) -> Dictionary:
 		"vx": float(_u16_to_signed(stream.get_u16())) / VELOCITY_SCALE,
 		"vz": float(_u16_to_signed(stream.get_u16())) / VELOCITY_SCALE,
 		"yaw": float(stream.get_u16()) / YAW_SCALE,
+		"y": POSITION_ORIGIN_Y + float(_u16_to_signed(stream.get_u16())) * POSITION_STEP_METRES,
+		"vy": float(_u16_to_signed(stream.get_u16())) / VELOCITY_SCALE,
 	}
 
 
@@ -238,11 +246,15 @@ func _valid_movement_row(row: Dictionary) -> bool:
 	):
 		return false
 
-	for field: String in ["x", "z", "vx", "vz", "yaw"]:
+	for field: String in ["x", "y", "z", "vx", "vy", "vz", "yaw"]:
 		var value: Variant = row[field]
 		if (value is not float and value is not int) or not is_finite(float(value)):
 			return false
-	if absf(float(row.vx)) > 327.67 or absf(float(row.vz)) > 327.67:
+	if (
+		absf(float(row.vx)) > 327.67
+		or absf(float(row.vy)) > 327.67
+		or absf(float(row.vz)) > 327.67
+	):
 		return false
 
 	return true

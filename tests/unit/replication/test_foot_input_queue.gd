@@ -62,6 +62,20 @@ func test_numbering_and_freshness_window_are_bounded() -> void:
 	assert_false(queue.offer(_command(FootInputQueue.SEQUENCE_FRESHNESS_WINDOW + 1, 161), 0))
 
 
+## Recovers sequence one after an authorized epoch reset clears an exceeded window.
+func test_clear_recovers_after_sequence_freshness_window_is_exceeded() -> void:
+	var queue := FootInputQueue.new()
+	var outside: int = FootInputQueue.SEQUENCE_FRESHNESS_WINDOW + 1
+	assert_true(queue.sequence_exceeds_freshness_window(outside))
+	assert_false(queue.offer(_command(outside, outside), 0))
+
+	queue.clear()
+	assert_true(queue.offer(_command(1, 1, Vector2.RIGHT), 1))
+	var recovered: Dictionary = queue.consume(1)
+	assert_eq((recovered.command as FootCommand).sequence, 1)
+	assert_eq(recovered.acknowledgement, 1)
+
+
 ## Creates one complete immutable command for queue contract cases.
 func _command(
 	sequence: int,

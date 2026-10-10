@@ -130,6 +130,16 @@ func bind_lifecycle(source: Node) -> bool:
 	return _hud.bind_lifecycle(source)
 
 
+## Centres the camera on a predicted presentation without enabling standalone simulation.
+func follow_actor_display(actor: ActorMotion) -> void:
+	if actor == null:
+		return
+	var presentation: Node3D = actor.get_node_or_null("PresentationAnchor") as Node3D
+	_camera_anchor.global_position = (
+		presentation.global_position if presentation != null else actor.global_position
+	)
+
+
 ## Returns the current binding for enclosing coordinators and contract tests.
 func controlled_actor() -> ActorMotion:
 	return _controlled_actor

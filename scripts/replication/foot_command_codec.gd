@@ -3,6 +3,8 @@ extends RefCounted
 ## Encodes held foot intent into one fixed packet before the remotely callable boundary.
 
 const PACKET_BYTES: int = 16
+const MAX_CLIENT_TICK: int = 0x00ff_ffff
+const MAX_INPUT_EPOCH: int = 0xff
 const MOVE_ENCODE_SCALE: float = 32_766.0
 const MOVE_DECODE_SCALE: float = 32_767.0
 const YAW_SCALE: float = 32_767.0 / PI
@@ -11,17 +13,24 @@ const FLAG_ALT: int = 2
 const VALID_FLAGS: int = FLAG_FIRE | FLAG_ALT
 
 
-## Encodes one valid command into the exact bounded wire shape.
-static func encode(command: FootCommand) -> Dictionary:
+## Encodes one valid command with its entity generation and recoverable input epoch.
+static func encode(command: FootCommand, generation: int, input_epoch: int) -> Dictionary:
 	if command == null or not command.is_valid():
 		return _failure(&"MALFORMED_COMMAND")
-	if command.sequence > 0xffff_ffff or command.client_tick > 0xffff_ffff:
+	if (
+		command.sequence > 0xffff_ffff
+		or command.client_tick > MAX_CLIENT_TICK
+		or generation <= 0
+		or generation > ReplicationIdentity.MAX_WIRE_GENERATION
+		or input_epoch <= 0
+		or input_epoch > MAX_INPUT_EPOCH
+	):
 		return _failure(&"COMMAND_OUT_OF_RANGE")
 
 	var stream := StreamPeerBuffer.new()
 	stream.big_endian = true
 	stream.put_u32(command.sequence)
-	stream.put_u32(command.client_tick)
+	stream.put_u32((input_epoch << 24) | command.client_tick)
 	stream.put_u16(_signed_to_u16(roundi(command.move.x * MOVE_ENCODE_SCALE)))
 	stream.put_u16(_signed_to_u16(roundi(command.move.y * MOVE_ENCODE_SCALE)))
 	stream.put_u16(_signed_to_u16(roundi(command.aim_yaw * YAW_SCALE)))
@@ -31,7 +40,7 @@ static func encode(command: FootCommand) -> Dictionary:
 	if command.alt_held:
 		flags |= FLAG_ALT
 	stream.put_u8(flags)
-	stream.put_u8(0)
+	stream.put_u8(generation)
 	return { "ok": true, "packet": stream.data_array }
 
 
@@ -44,15 +53,17 @@ static func decode(packet: PackedByteArray) -> Dictionary:
 	stream.big_endian = true
 	stream.data_array = packet
 	var sequence: int = stream.get_u32()
-	var client_tick: int = stream.get_u32()
+	var packed_tick: int = stream.get_u32()
+	var input_epoch: int = packed_tick >> 24
+	var client_tick: int = packed_tick & MAX_CLIENT_TICK
 	var move := Vector2(
 		float(_u16_to_signed(stream.get_u16())) / MOVE_DECODE_SCALE,
 		float(_u16_to_signed(stream.get_u16())) / MOVE_DECODE_SCALE,
 	)
 	var aim_yaw: float = float(_u16_to_signed(stream.get_u16())) / YAW_SCALE
 	var flags: int = stream.get_u8()
-	var reserved: int = stream.get_u8()
-	if reserved != 0 or flags & ~VALID_FLAGS != 0:
+	var generation: int = stream.get_u8()
+	if generation == 0 or input_epoch == 0 or flags & ~VALID_FLAGS != 0:
 		return _failure(&"MALFORMED_COMMAND")
 
 	var command := FootCommand.new(
@@ -65,7 +76,12 @@ static func decode(packet: PackedByteArray) -> Dictionary:
 	)
 	if not command.is_valid():
 		return _failure(&"COMMAND_OUT_OF_RANGE")
-	return { "ok": true, "command": command }
+	return {
+		"ok": true,
+		"command": command,
+		"generation": generation,
+		"input_epoch": input_epoch,
+	}
 
 
 ## Preserves one signed quantized value in an unsigned wire field.

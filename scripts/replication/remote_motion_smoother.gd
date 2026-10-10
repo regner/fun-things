@@ -17,6 +17,37 @@ func _init(extrapolation_msec: int = 125, blend_msec: int = 100) -> void:
 	_blend_msec = maxi(1, blend_msec)
 
 
+## Returns or creates one participant smoother with current identity dependencies.
+static func resolve(
+	smoothers: Dictionary,
+	participant_id: int,
+	binding: Dictionary,
+	extrapolation_msec: int,
+	blend_msec: int,
+) -> RemoteMotionSmoother:
+	var smoother: RemoteMotionSmoother = smoothers.get(participant_id)
+	if smoother == null:
+		smoother = RemoteMotionSmoother.new(extrapolation_msec, blend_msec)
+		if not binding.is_empty():
+			smoother.update_context(int(binding.id), int(binding.generation), 1, 1, 1)
+		smoothers[participant_id] = smoother
+	return smoother
+
+
+## Applies one sampled pose to presentation without changing the passive physics root.
+static func apply_display(actor: ActorMotion, display: Dictionary) -> void:
+	if actor == null or display.is_empty():
+		return
+	var presentation: PlayerMotionPresentation = (
+		actor.get_node_or_null("PresentationAnchor") as PlayerMotionPresentation
+	)
+	if presentation == null:
+		return
+	presentation.global_position = display.position
+	presentation.global_rotation = Vector3(0.0, float(display.aim_yaw), 0.0)
+	presentation.apply_motion(display.velocity, float(display.aim_yaw))
+
+
 ## Installs one newer authority sample and starts a continuous blend from current display.
 func push(state: Dictionary, receipt_msec: int) -> bool:
 	if not _valid_state(state) or receipt_msec < 0:

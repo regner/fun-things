@@ -17,6 +17,7 @@ var _context: Dictionary = {}
 var _max_correction_metres: float = 0.0
 var _last_correction_metres: float = 0.0
 var _correction_samples: Array[float] = []
+var _last_authority_position: Vector3 = Vector3.INF
 
 
 ## Binds one owned collision body while retaining no state from an earlier actor.
@@ -49,6 +50,25 @@ func predict(command: FootCommand, delta_seconds: float) -> bool:
 	return true
 
 
+## Reconciles one complete decoded authoritative movement sample.
+func reconcile_motion(
+	position: Vector3,
+	velocity: Vector3,
+	aim_yaw: float,
+	grounded: bool,
+	acknowledgement: int,
+) -> Dictionary:
+	return reconcile(
+		{
+			"position": position,
+			"velocity": velocity,
+			"aim_yaw": aim_yaw,
+			"grounded": grounded,
+		},
+		acknowledgement,
+	)
+
+
 ## Restores host motion, drops acknowledged frames, and replays only permitted motion.
 func reconcile(authority_state: Dictionary, acknowledgement: int) -> Dictionary:
 	if not is_instance_valid(_actor) or acknowledgement < _acknowledgement:
@@ -66,6 +86,7 @@ func reconcile(authority_state: Dictionary, acknowledgement: int) -> Dictionary:
 		return _install_exhausted(authority_state, before_body_position)
 	if not _actor.restore_motion_state(authority_state):
 		return _failure(&"MALFORMED_AUTHORITY")
+	_last_authority_position = authority_state.position
 
 	var replayed: int = _replay_history()
 	if replayed < 0:
@@ -106,6 +127,7 @@ func _drop_acknowledged(acknowledgement: int) -> bool:
 func _install_exhausted(authority_state: Dictionary, before_body_position: Vector3) -> Dictionary:
 	if not _actor.restore_motion_state(authority_state):
 		return _failure(&"MALFORMED_AUTHORITY")
+	_last_authority_position = authority_state.position
 	_record_correction(before_body_position.distance_to(_actor.global_position))
 	_snap_presentation()
 	return {
@@ -209,8 +231,24 @@ func invalidate() -> void:
 	_max_correction_metres = 0.0
 	_last_correction_metres = 0.0
 	_correction_samples.clear()
+	_last_authority_position = Vector3.INF
 	_context.clear()
 	_snap_presentation()
+
+
+## Reports bounded replay and correction measurements for integration diagnostics.
+func diagnostics() -> Dictionary:
+	return {
+		"acknowledgement": acknowledgement(),
+		"history_size": history_size(),
+		"max_correction_metres": max_correction_metres(),
+		"p95_correction_metres": correction_p95_metres(),
+	}
+
+
+## Reports the latest complete host position before local replay advances it.
+func last_authority_position() -> Vector3:
+	return _last_authority_position
 
 
 ## Reports the bounded number of commands eligible for replay.

@@ -198,6 +198,9 @@ func test_baseline_assembler_exposes_only_complete_validated_rows() -> void:
 	assert_true(
 		assembler.receive(_session_id, 1, BASELINE_ID, transfer.packets[0]).ok,
 	)
+	assert_true(
+		assembler.receive(_session_id, 1, BASELINE_ID, transfer.packets[2]).ok,
+	)
 
 	var finished: Dictionary = assembler.finish()
 	assert_true(started.ok)
@@ -267,8 +270,10 @@ func _row(entity_id: int) -> Dictionary:
 		"phase": 1,
 		"flags": 0,
 		"x": float(entity_id),
+		"y": 0.0,
 		"z": 200.0,
 		"vx": 0.0,
+		"vy": 0.0,
 		"vz": 0.0,
 		"yaw": 0.0,
 	}

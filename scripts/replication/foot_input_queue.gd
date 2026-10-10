@@ -105,6 +105,11 @@ func size() -> int:
 	return _frames.size()
 
 
+## Reports when only an authorized epoch reset can make this sequence admissible.
+func sequence_exceeds_freshness_window(sequence: int) -> bool:
+	return sequence > _acknowledgement + SEQUENCE_FRESHNESS_WINDOW
+
+
 ## Advances both ordered fields together after authoritative work is selected.
 func _advance_acknowledgement(command: FootCommand) -> void:
 	_acknowledgement = command.sequence
