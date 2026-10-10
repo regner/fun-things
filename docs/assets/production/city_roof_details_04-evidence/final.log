@@ -1,0 +1,36 @@
+city_roof_details.04 — final bounded production receipt, 10 October 2026
+Blender 5.2.2 LTS d13f752e3b9c / glTF exporter 5.2.40.
+Godot 4.8.dev7.official.c971f93e7; gdstyle 0.3.0.
+All direct Blender calls: timeout <=900s, -noaudio --background --factory-startup
+--threads 4 --python-exit-code 1, ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy.
+All direct Godot calls: timeout 300s import / 180s checks, headless only.
+
+PASS author.py: saved original source and explicit collection GLB.
+PASS export.py: fresh saved-source export, byte-identical 59224-byte GLB.
+PASS validate.py: 1224 source vertices, 2428 triangles, 1295 GLB vertices,
+  one mesh, three surfaces, zero degenerate faces/triangles or non-manifold edges,
+  unit normals, consistent winding, independent 30-degree apron and bore-floor rays.
+PASS render.py: four isolated Blender 1280x720 views, all visually inspected.
+PASS check.gd --normalize: linked prefab packed, saved, loaded and saved byte-stably.
+PASS standalone check.gd: dimensions, identity model, materials, dependencies/UIDs,
+  zero collision bodies under the roof-only/above-head placement restriction.
+PASS gdstyle check: one owned GDScript, no issues.
+PASS production_checks.py with PYTHONUTF8=1 and mise-resolved godot/gdstyle:
+  formatting, style, compilation, 17 Python tests, 149 GUT tests / 6768 assertions;
+  intentional failing-test diagnostic detected as expected. No exemptions used.
+PASS final pinned import; generated .import/.uid metadata retained.
+PASS manifest.py: compact four renders below 400 KiB each; payload SHA-256 inventory.
+
+Resolved: initial 4 mm apron bevel exceeded 1 mm dimension tolerance (reduced to 2 mm);
+  hero cropped apron (widened framing); square flue floor corners protruded (round floor);
+  strict style check rejected 101-character line (shortened expected-bound literal).
+Retained pin/environment diagnostics: Material/World.use_nodes deprecation notices;
+  version-only Blender probe one 0.000023 MB unfreed allocation;
+  import MCP plugin Godot 4.8 compatibility warning; headless editor normalization
+  renderer/text RID and ObjectDB shutdown leaks despite passing assertions.
+Standalone asset check and final canonical checks have no unexpected diagnostics.
+
+Not tested: actual district roof fitting/clearances, engine visual camera, accessible
+rooftop collision, movement/car/network behavior, packaged build, sustained GPU or Deck.
+No runtime geometry, gameplay logic, world placement, shared docs or sibling edits.
+Full logs/intermediate exports are scratch-only: C:/tmp/ft/assets/city_roof_details_04/.
