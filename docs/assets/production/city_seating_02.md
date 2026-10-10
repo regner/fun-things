@@ -1,0 +1,184 @@
+# city_seating.02 — Short low plaza seat
+
+10 October 2026. **Source/export and bounded headless prefab checks delivered;
+independent review and world/gameplay acceptance pending.** Commissioned production
+specialist: `worker` on `lane/a-seating`. The active asset-production common brief
+supersedes the historical concept-only and lead-only integration/Git restrictions in
+[commission](commission.md) and [family brief](../city_seating.md). Only this record's
+owned delivery paths changed; no shared register, progress, project or world edits.
+
+## Design and dimensions
+
+An original compact backless civic seat: continuous ivory slab, a recessed petrol
+rim and one broad slate ground plinth. Three-segment roundovers and weighted normals
+retain the smooth manufactured finish of [the straight bench](city_seating_01.md).
+It shares that member's exact named material values, .46 m seat height and .09 m
+seat thickness, but its shorter body, single solid plinth and absent back distinguish
+it without a recolour. No slats, fasteners, logos, texture noise or emissive trim.
+All visible asset geometry is original construction in the pinned Blender CLI;
+no downloads, purchased meshes, generated-image geometry or external art.
+
+The [Signal Row concept](../../concepts/districts-v1/signal-row.md) and its
+[breakdown](../../concepts/districts-v1/signal-row-assets.md) identify this as a
+supporting prop to confirm, not a reliably measurable object in the illustration.
+The production commission requests the distinct member; placement/necessity beside
+the hall is still unconfirmed. The low, quiet silhouette follows the
+[approved district identity](../../concepts/world-v1/stage-03-district-identities/README.md)
+and [street hierarchy](../../concepts/world-v1/stage-04-streets/README.md): keep passage
+mouths, intersection corners and car exits clear. No arrangement or quantities chosen.
+
+Dimensions are **provisional authored values**, not inferred from imagery:
+
+| Measurement | Metres |
+| --- | --- |
+| Godot width X / height Y / depth Z | 1.50 / .46 / .72 |
+| Whole visual AABB minimum | (-.75, 0, -.36) |
+| Whole visual AABB maximum | (.75, .46, .36) |
+| Seat top / slab thickness | .46 / .09 |
+| Petrol rim X / Y / Z | 1.42 / .045 / .64 |
+| Rim bottom / top | .33 / .375 |
+| Ground plinth X / Y / Z | 1.26 / .34 / .50 |
+| Plinth inset from seat ends / sides | .12 / .11 |
+| Footprint area | 1.08 square metres |
+
+Acceptance tolerance: .001 m for bounds, datum and pivot. Root and mesh origin
+(0,0,0) is ground-centred beneath the plinth; plinth bottom contacts Y=0. Applied
+transforms, metre units, unit scale. Blender +Z maps to Godot +Y and +Y to -Z;
+this backless piece is symmetric front/rear, with no corrective prefab transform.
+The three closed components have small hidden overlaps at their joints rather
+than coplanar visible seams. No rigs, sockets, animation, destruction, interiors
+or sitting interaction requested or implemented.
+
+## Source, export and materials
+
+- Source: `art/source/models/environment/city_seating_02/city_seating_02.blend`.
+- Named collection `export_city_seating_02`; root `CitySeating02`, mesh
+  `CitySeating02_Mesh`. Three closed components joined into one mesh. No studio
+  geometry, cameras or lights saved in source/export.
+- Export: `art/models/environment/city_seating_02/city_seating_02.glb` and retained
+  `.glb.import` identity; one linked output, no additional variants.
+- Tools: `tools/asset_production/city_seating_02/`: parametric `author.py`, explicit
+  `export.py`, source/binary `validate.py`, isolated `render.py`, engine `check.gd`,
+  saved `physics_check.tscn` and producer `manifest.py`. These follow the seating
+  sibling's conventions and reuse the shared export contract and production checks.
+
+Three opaque, backface-culled Principled surfaces, actual export slot order:
+
+| Slot | Name | Linear base RGB | Metallic | Roughness |
+| --- | --- | --- | --- | --- |
+| 0 | `seating_ivory` | (.82, .80, .67) | 0 | .48 |
+| 1 | `seating_petrol_trim` | (.045, .10, .115) | .35 | .40 |
+| 2 | `seating_slate` | (.23, .30, .34) | .15 | .48 |
+
+No textures, embedded images, material remaps or overrides needed. Blender
+**5.2.2 LTS**, build `d13f752e3b9c`, glTF exporter **5.2.40**; export loads
+`tools/assets/blender/export_settings.json`, filters the named collection and disables
+skins/animation. All modifiers baked before saving; glTF triangulates. Godot
+**4.8.dev7.official.c971f93e7** imports at scale 1, with default generated LODs and
+shadow meshes. No manual LOD needed for this 564-triangle prop; repeat-placement
+performance is unmeasured, not budget-approved.
+
+## Prefab and collision
+
+`scenes/prefabs/environment/city_seating_02.tscn` retains an identity-transform
+imported instance at `Visuals/Model`, without embedded mesh data or runtime composition.
+Prefab UID `uid://dwmt264tt77r6`; import UID `uid://b6f5cxnel7n1t`. New saved node
+identities and dependency UIDs were generated by pinned headless normalization;
+scene UIDs are in scene headers, with the generated GDScript `.uid` retained.
+
+One static-world body at `Collision/Body`, layer 1 / mask 0, contains one box
+`Seat`, size (1.50, .46, .72), centred at (0, .23, 0). This deliberately blocks the
+whole ground-to-seat envelope, filling the shallow decorative plinth recesses;
+actors do not crawl beneath furniture. The flat seat top is continuously solid.
+Bevels and rim do not introduce snaggy collision; air above .46 m remains clear.
+No collision or gameplay code is imported from Blender. The saved physics fixture
+has a test-only collision floor and a .35 m-radius / 1.8 m-high capsule exercising
+the actual production `ActorMotion.step` API.
+
+## Evidence and validation
+
+[Hero](city_seating_02-evidence/hero.png), [side](city_seating_02-evidence/side.png),
+[slab/rim/plinth detail](city_seating_02-evidence/detail.png),
+[47 m / 42° overhead](city_seating_02-evidence/overhead_47m_42deg.png).
+All four are isolated Blender Cycles CPU renders, 32 samples, denoising, AgX,
+1280×720, 353–371 KiB. PNG compression 9 follows RGB 7-bit-per-channel quantization.
+The overhead is true vertical-down perspective, 47 m high, 42° vertical FOV,
+fixed north-up; the active 1280×720 cleanliness limit supersedes historical
+1280×800 evidence sizing. Studio lighting is not a city-lighting result.
+
+Self-inspection of all four views: the thick pale seat remains separated from its
+slate plinth by the thin dark rim; soft corners and broad surfaces match the sibling.
+The overhead footprint is roughly 30×15 pixels and has no back ridge, distinguishing
+it from the longer bench. Fine trim appropriately recedes; no details were enlarged
+for the camera. Actual populated engine readability, particularly on pale paving,
+remains pending. No detail/render fixes were needed after first inspection.
+
+[validation.json](city_seating_02-evidence/validation.json) records:
+
+- **564 triangles, 288 source vertices, 345 exported vertices, one mesh, three
+  surfaces; GLB 16,248 bytes.** Export splits come from shading/material boundaries.
+- Zero degenerate faces/triangles, zero non-manifold edges, consistent winding,
+  positive source volume, finite source positions and unit-length source/export normals.
+- Source, binary GLB and engine bounds agree within .001 m; ground datum zero.
+- Fresh independent export is **byte-identical**; GLB SHA-256
+  `053334befe5140836226ed9291349e36dc74b9a22fd1b749e4205144e702bd97`.
+- Headless import/load, dependency UID resolution, identity imported transform,
+  opaque/back-culled surfaces and stable prefab/fixture save/reload pass.
+- Three rays: blocked at .20 m height, clear at .70 and 1.10 m. Solid ray contacts
+  the front plane Z=-.36 m.
+- Six 60-tick movement cases: authority and replay each stop at front
+  Z=-.710065 m, stop at rear Z=.710065 m and bypass at X=1.25 m to Z=3 m.
+  Authority/replay results agree. These are local simulation checks, not network
+  transport or vehicle collision acceptance.
+- Full production checks pass: owned-script formatting/style/compilation, 14 Python
+  tests, GUT 86/86 tests with 2,178 assertions, and expected negative-test detection.
+  No pre-existing failures needed exemption.
+
+Diagnostics: pinned Blender warns that Material/World `use_nodes` will be deprecated.
+Headless import reports the MCP plugin's 4.8-version warning. Normalization assertions
+pass but editor shutdown emits RID/ObjectDB leak diagnostics, as in the sibling run.
+Standalone asset checks and canonical production checks pass without new error/warning
+diagnostics. These editor-only findings are disclosed, not a clean-editor-log claim.
+No live owner session was accessed; no windowed synchronization or inherited-scene
+roundtrip is claimed. Raw logs live only under `C:/tmp/ft/assets/city_seating_02/`.
+
+## Exact reproduction
+
+From repository root in Bash; scratch files stay outside the checkout. No windowed
+editor or live MCP connection. Every engine invocation is timeout-bounded.
+
+```sh
+export ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy
+BLENDER='C:/Program Files/Blender Foundation/Blender 5.2/blender.exe'
+ASSET=city_seating_02
+TOOLS=tools/asset_production/$ASSET
+TMP=C:/tmp/ft/assets/$ASSET
+mkdir -p "$TMP"
+timeout 180 "$BLENDER" -noaudio --background --factory-startup --threads 4 --python-exit-code 1 --python "$TOOLS/author.py"
+timeout 180 "$BLENDER" -noaudio --background --factory-startup --threads 4 --python-exit-code 1 --python "$TOOLS/export.py"
+timeout 180 "$BLENDER" -noaudio --background --factory-startup --threads 4 --python-exit-code 1 --python "$TOOLS/export.py" -- "$TMP/reexport"
+timeout 180 "$BLENDER" -noaudio --background --factory-startup --threads 4 --python-exit-code 1 --python "$TOOLS/validate.py" -- "$TMP/reexport/$ASSET.glb"
+timeout 900 "$BLENDER" -noaudio --background --factory-startup --threads 4 --python-exit-code 1 --python "$TOOLS/render.py"
+timeout 300 "$(mise which godot)" --headless --editor --path . --import --quit
+timeout 180 "$(mise which godot)" --headless --editor --path . --script "res://$TOOLS/check.gd" -- --normalize
+timeout 180 "$(mise which godot)" --headless --path . --script "res://$TOOLS/check.gd"
+"$(mise which gdstyle)" fmt --check "$TOOLS/check.gd"
+"$(mise which gdstyle)" --max-line-length 100 --max-warnings 0 "$TOOLS/check.gd"
+# Requires a fresh empty output directory; choose a new suffix for later reviews.
+timeout 1800 mise exec -- python tools/production_checks.py --output "$TMP/checks"
+python "$TOOLS/manifest.py" "$TMP/checks"
+```
+
+The last command compacts renders, attaches check/render receipts to validation.json,
+and hashes every produced payload except the manifest itself. The
+[producer manifest](city_seating_02-evidence/manifest.json) is reproducibility evidence,
+not an independent acceptance verdict. No sibling files were changed.
+
+## Remaining acceptance
+
+Independent technical/art review remains pending. World integration owns final
+placement, need beside the hall, furniture zones, car-exit/passage clearance and aim
+behavior in context. Actual vehicle contact/turning, real-process multiplayer
+collision/transport/prediction, populated engine-camera readability, package/device
+checks and repeated-placement GPU/frame cost remain unperformed. No whole-register
+READY, world placement, Deck/performance or sitting-interaction claim.

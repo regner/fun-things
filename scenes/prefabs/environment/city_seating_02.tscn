@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dwmt264tt77r6"]
+
+[ext_resource type="PackedScene" uid="uid://b6f5cxnel7n1t" path="res://art/models/environment/city_seating_02/city_seating_02.glb" id="1_model"]
+
+[sub_resource type="BoxShape3D" id="Box_seat"]
+size = Vector3(1.5, 0.46, 0.72)
+
+[node name="city_seating_02" type="Node3D" unique_id=666839020]
+
+[node name="Visuals" type="Node3D" parent="." unique_id=1570364645]
+
+[node name="Model" parent="Visuals" unique_id=198947965 instance=ExtResource("1_model")]
+
+[node name="Collision" type="Node3D" parent="." unique_id=1656182628]
+
+[node name="Body" type="StaticBody3D" parent="Collision" unique_id=1223904659]
+collision_mask = 0
+
+[node name="Seat" type="CollisionShape3D" parent="Collision/Body" unique_id=1018274854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23, 0)
+shape = SubResource("Box_seat")

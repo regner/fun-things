@@ -1,0 +1,204 @@
+{
+  "applied_transforms": true,
+  "asset": "city_seating.02",
+  "blender": "5.2.2 LTS",
+  "build_hash": "d13f752e3b9c",
+  "consistent_winding": true,
+  "datum": "ground-contact plinth",
+  "degenerate_faces": 0.0,
+  "dimension_tolerance_m": 0.001,
+  "dimensions_godot_m": [
+    1.5,
+    0.46,
+    0.72
+  ],
+  "fresh_reexport_byte_identical": true,
+  "glb_bytes": 16248.0,
+  "glb_sha256": "053334befe5140836226ed9291349e36dc74b9a22fd1b749e4205144e702bd97",
+  "glb_vertices": 345.0,
+  "godot": {
+    "bounds_min": [
+      -0.75,
+      0.0,
+      -0.360000014305115
+    ],
+    "bounds_size": [
+      1.5,
+      0.459999978542328,
+      0.720000028610229
+    ],
+    "box_shape_count": 1,
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "actor_height_m": 1.8,
+      "actor_radius_m": 0.35,
+      "authority_replay_equal": true,
+      "bypass_end_z_m": 2.99999976158142,
+      "front_stop_z_m": -0.710065007209778,
+      "movement_cases": 6,
+      "network_transport_and_world_placement": "not tested",
+      "ray_cases": 3,
+      "rear_stop_z_m": 0.710065007209778,
+      "walk_ticks_per_case": 60
+    },
+    "save_reload_byte_stable": true,
+    "static_body_count": 1
+  },
+  "godot_aabb": {
+    "max": [
+      0.75,
+      0.459999978542328,
+      0.360000014305115
+    ],
+    "min": [
+      -0.75,
+      0.0,
+      -0.360000014305115
+    ]
+  },
+  "materials": [
+    {
+      "name": "seating_ivory",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.819999992847443,
+          0.800000011920929,
+          0.670000016689301,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.479999989271164
+      }
+    },
+    {
+      "name": "seating_petrol_trim",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0450000017881393,
+          0.100000001490116,
+          0.115000002086163,
+          1.0
+        ],
+        "metallicFactor": 0.349999994039536,
+        "roughnessFactor": 0.400000005960464
+      }
+    },
+    {
+      "name": "seating_slate",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.230000004172325,
+          0.300000011920929,
+          0.340000003576279,
+          1.0
+        ],
+        "metallicFactor": 0.150000005960464,
+        "roughnessFactor": 0.479999989271164
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "seat_top_height_m": 0.46,
+  "source_aabb": {
+    "max": [
+      0.75,
+      0.360000014305115,
+      0.459999978542328
+    ],
+    "min": [
+      -0.75,
+      -0.360000014305115,
+      0.0
+    ]
+  },
+  "status": "PASS source and export",
+  "surfaces": 3.0,
+  "triangles": 564.0,
+  "unit_normals": true,
+  "vertices": 288.0,
+  "production_checks": {
+    "engine": {
+      "ok": true,
+      "version": "4.8.dev7.official.c971f93e7"
+    },
+    "gut_pin": {
+      "ok": true,
+      "version": "9.7.1"
+    },
+    "owned_scripts": {
+      "ok": true,
+      "returncode": 0
+    },
+    "python_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_import": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_tests": {
+      "ok": true,
+      "returncode": 0
+    },
+    "gut_negative": {
+      "ok": true,
+      "observed_returncode": 1
+    }
+  },
+  "renders": [
+    {
+      "file": "hero.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 379397
+    },
+    {
+      "file": "side.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 372341
+    },
+    {
+      "file": "detail.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 360793
+    },
+    {
+      "file": "overhead_47m_42deg.png",
+      "size_px": [
+        1280,
+        720
+      ],
+      "bytes": 376714
+    }
+  ],
+  "render_encoding": "RGB 7 significant bits per channel, PNG compression 9",
+  "overhead_camera": {
+    "projection": "perspective",
+    "height_m": 47,
+    "vertical_fov_deg": 42,
+    "direction": "vertical down, Blender +Y at image top",
+    "engine_capture": false
+  },
+  "diagnostics": {
+    "blender": "Material/World.use_nodes deprecation notices under pinned 5.2.2 LTS",
+    "headless_editor": "Assertions passed; MCP 4.8 warning and shutdown RID/ObjectDB leaks",
+    "standalone_asset_check": "Passed, no error/warning diagnostics",
+    "canonical_production_checks": "All passed; no exemptions"
+  }
+}
