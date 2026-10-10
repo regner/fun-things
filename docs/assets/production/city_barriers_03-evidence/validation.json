@@ -1,0 +1,219 @@
+{
+  "asset": "city_barriers.03",
+  "blender": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "bounds_tolerance_m": 0.001,
+  "closed_volume_m3": 0.593214399321461,
+  "degenerate_faces": 0.0,
+  "degenerate_triangles": 0.0,
+  "export_normal_max_length_error": 9.0658427653878e-08,
+  "export_vertices": 260.0,
+  "exporter": "5.2.40",
+  "fresh_export_byte_identical": true,
+  "glb_bytes": 11216.0,
+  "glb_sha256": "82af7667f295f722f22031ee1b5610c16e36fad984d0c9df4898f80077cf5223",
+  "godot": {
+    "bounds_min_m": [
+      -1.20000004768372,
+      0.0,
+      -0.275000005960464
+    ],
+    "bounds_size_m": [
+      2.40000009536743,
+      0.600000023841858,
+      0.550000011920929
+    ],
+    "engine": "4.8-dev7 (official)",
+    "linked_model_identity": true,
+    "physics": {
+      "above_cap_ray_clear": true,
+      "actor_capsule_height_m": 1.8,
+      "actor_capsule_radius_m": 0.35,
+      "authority_replay_equal": true,
+      "bypass_end_m": [
+        1.79999995231628,
+        0.00100000004749745,
+        2.00000071525574
+      ],
+      "contact_stop_m": [
+        0.0,
+        0.00100000004749745,
+        -0.626301765441895
+      ],
+      "low_ray_blocked": true,
+      "ticks_per_case_per_mode": 48,
+      "vehicle_network_transport_and_placement": "not tested"
+    },
+    "resource_uids": {
+      "res://art/models/environment/city_barriers_03/city_barriers_03.glb": "uid://c4soogv8m6sln",
+      "res://scenes/prefabs/environment/city_barriers_03.tscn": "uid://vmg7hp3beq7w",
+      "res://scripts/actors/actor_motion.gd": "uid://jthmfio4c27p",
+      "res://tools/asset_production/city_barriers_03/check_scene.tscn": "uid://brfag6y7qa8op"
+    },
+    "save_reload_byte_stable": true,
+    "static_box": {
+      "layer": 1,
+      "mask": 0,
+      "size_m": [
+        2.4,
+        0.6,
+        0.55
+      ]
+    }
+  },
+  "godot_bounds_max_m": [
+    1.20000004768372,
+    0.600000023841858,
+    0.275000005960464
+  ],
+  "godot_bounds_min_m": [
+    -1.20000004768372,
+    0.0,
+    -0.275000005960464
+  ],
+  "materials": [
+    {
+      "name": "barrier_pale_concrete",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.479999989271164,
+          0.5,
+          0.46000000834465,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.779999971389771
+      }
+    },
+    {
+      "name": "barrier_dark_metal",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.025000000372529,
+          0.0750000029802322,
+          0.0900000035762787,
+          1.0
+        ],
+        "metallicFactor": 0.449999988079071,
+        "roughnessFactor": 0.46000000834465
+      }
+    },
+    {
+      "name": "barrier_safety_amber",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          0.52700001001358,
+          0.101999998092651,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.419999986886978
+      }
+    }
+  ],
+  "mesh_count": 1.0,
+  "nonmanifold_edges": 0.0,
+  "pivot_m": [
+    0.0,
+    0.0,
+    0.0
+  ],
+  "provisional_dimensions_m": [
+    2.4,
+    0.6,
+    0.55
+  ],
+  "source_export_status": "passed",
+  "source_faces": 178.0,
+  "source_normal_max_length_error": 1.38301411878317e-07,
+  "source_vertices": 192.0,
+  "surface_count": 3.0,
+  "triangles": 380.0,
+  "production_checks": {
+    "ok": true,
+    "results": {
+      "engine": {
+        "ok": true,
+        "version": "4.8.dev7.official.c971f93e7"
+      },
+      "gut_pin": {
+        "ok": true,
+        "version": "9.7.1"
+      },
+      "owned_scripts": {
+        "ok": true,
+        "returncode": 0
+      },
+      "python_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_import": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_tests": {
+        "ok": true,
+        "returncode": 0
+      },
+      "gut_negative": {
+        "ok": true,
+        "observed_returncode": 1
+      }
+    }
+  },
+  "production_check_limitation": "None observed in this run; no failures suppressed.",
+  "visual_review": {
+    "reviewer": "producer self-inspection; independent review pending",
+    "views_inspected": [
+      "hero",
+      "side",
+      "detail",
+      "overhead_47m_42deg"
+    ],
+    "observation": "Low pale separator, dark shoe and two restrained upper amber bands; about 48 x 11 pixels in the calibrated overhead view.",
+    "camera": {
+      "height_m": 47,
+      "vertical_fov_degrees": 42,
+      "projection": "perspective",
+      "direction": "vertical-down, north-up"
+    },
+    "engine_camera_placement_and_target_occlusion": "not tested"
+  },
+  "renders": [
+    {
+      "path": "hero.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 393377
+    },
+    {
+      "path": "side.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 328858
+    },
+    {
+      "path": "detail.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 383177
+    },
+    {
+      "path": "overhead_47m_42deg.png",
+      "pixels": [
+        1280,
+        720
+      ],
+      "bytes": 406572
+    }
+  ],
+  "render_encoding": "RGB 7 significant bits per channel; PNG compression 9"
+}

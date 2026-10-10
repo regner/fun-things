@@ -1,0 +1,49 @@
+city_barriers.03 — final production receipt, 10 October 2026
+Starting revision: a71282e (lane/a-barriers).
+Every Blender/Godot call below was isolated, headless/background, and timeout-bounded.
+No live owner Blender/Godot MCP session was contacted or modified.
+
+PASS (exit 0): timeout 900 env ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy "C:/Program Files/Blender Foundation/Blender 5.2/blender.exe" -noaudio --background --factory-startup --threads 4 --python-exit-code 1 --python tools/asset_production/city_barriers_03/author.py
+PASS (exit 0): timeout 180 env ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy "C:/Program Files/Blender Foundation/Blender 5.2/blender.exe" -noaudio --background --factory-startup --threads 4 --python-exit-code 1 --python tools/asset_production/city_barriers_03/validate.py
+192 source vertices; 178 faces; 380 triangles; 260 export vertices; 1 mesh; 3 surfaces.
+Zero degenerate faces/triangles and zero non-manifold edges; closed volume 0.5932143993 m^3.
+Source normal length error <=1.39e-7; GLB normal length error <=9.1e-8.
+Godot bounds (-1.2,0,-.275) to (1.2,.6,.275) m within .001 m.
+Fresh reexport from saved source is byte-identical, 11,216 bytes.
+GLB SHA-256: 82af7667f295f722f22031ee1b5610c16e36fad984d0c9df4898f80077cf5223
+
+GODOT="$(mise which godot)"; GDSTYLE="$(mise which gdstyle)"
+PASS (exit 0): timeout 300 "$GODOT" --headless --editor --path . --import --quit
+PASS (exit 0): timeout 180 "$GODOT" --headless --path . --script res://tools/asset_production/city_barriers_03/check.gd -- --normalize
+Two scene save/reload pairs retain exact bytes/UIDs. Linked identity Model, bounds,
+three opaque back-culled surfaces, four registered dependency UIDs and separate static
+2.4 x .6 x .55 m box collider pass. Layer 1 / mask 0.
+Low Y=.5 m ray hits actual BarrierBody; Y=.7 m ray passes above.
+Production ActorMotion, capsule r=.35 m h=1.8 m, 48 ticks per case per mode:
+authority/replay contact both stop at (0,.001,-.6263017654) m;
+authority/replay bypass both reach (1.7999999523,.001,2.0000007153) m.
+PASS (exit 0): timeout 180 "$GODOT" --headless --path . --check-only --script res://tools/asset_production/city_barriers_03/check.gd
+PASS (exit 0): timeout 30 "$GDSTYLE" fmt --check tools/asset_production/city_barriers_03/check.gd
+PASS (exit 0): timeout 30 "$GDSTYLE" --max-line-length 100 --max-warnings 0 tools/asset_production/city_barriers_03/check.gd
+PASS: Python ast.parse on all four owned .py files, no compilation artifacts created.
+
+PASS (exit 0): timeout 1800 mise exec -- python tools/production_checks.py --output C:/tmp/ft/assets/city_barriers_03/checks
+Pinned engine 4.8.dev7.official.c971f93e7; GUT 9.7.1; owned scripts pass;
+14/14 Python tests; 119/119 GUT tests, 6,362 assertions; diagnostic negative test
+correctly returns 1. No failures ignored or suppressed in this run.
+
+Producer visually inspected hero, side, detail and calibrated overhead PNGs at
+1280x720. Low pale solid edge and two amber wraps read clearly; overhead fixture
+about 48x11 pixels at true 47 m height/42 degree vertical FOV. No geometry iteration
+was required. Final PNG encoding: RGB seven significant bits/channel, compression 9.
+
+Diagnostic classification: author.py emits Blender future-6.0 use_nodes deprecation
+warnings; headless editor import emits existing MCP addon version warning (4.8 vs
+latest tested 4.7). No source/resource errors, no standalone checker diagnostics.
+Canonical-check logs reviewed; negative-test failures are intentional diagnostic proof.
+Raw logs and reexports: C:/tmp/ft/assets/city_barriers_03/ (not committed).
+
+Pending: independent technical/art review, provisional dimensions/spacing approval,
+world route/entrance placement, actor/target occlusion under actual engine lighting,
+vehicle contact/turning, real network transport/prediction, packaged target-device,
+Deck readability and sustained rendering/load measurements. No world integration.
