@@ -7634,14 +7634,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d08_repair_furniture.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "0259b332-04fe-40d8-9888-08e92dd4ab04",
+      "source_revision": "9015b2cd",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d08_repair_furniture_01/",
@@ -7649,8 +7649,20 @@
         "art/textures/environment/d08_repair_furniture_01/",
         "art/materials/environment/d08_repair_furniture_01/",
         "docs/assets/production/d08_repair_furniture_01.md",
-        "docs/assets/production/d08_repair_furniture_01-evidence/"
-      ]
+        "docs/assets/production/d08_repair_furniture_01-evidence/",
+        "tools/asset_production/d08_repair_furniture_01/",
+        "scenes/prefabs/environment/d08_repair_furniture_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d08"
+      },
+      "producer_manifest": "docs/assets/production/d08_repair_furniture_01-evidence/manifest.json",
+      "report": "docs/assets/production/d08_repair_furniture_01.md",
+      "reviewer_id": "e0900a8d-d003-4939-9827-714e35dab2e3",
+      "integrated_revision": "226c96b8"
     },
     {
       "id": "d08_repair_furniture.02",
@@ -7663,14 +7675,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d08_repair_furniture.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "efea3623-4f11-48b4-91fb-cf305c013a0b",
+      "source_revision": "c1be0519",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d08_repair_furniture_02/",
@@ -7678,8 +7690,20 @@
         "art/textures/environment/d08_repair_furniture_02/",
         "art/materials/environment/d08_repair_furniture_02/",
         "docs/assets/production/d08_repair_furniture_02.md",
-        "docs/assets/production/d08_repair_furniture_02-evidence/"
-      ]
+        "docs/assets/production/d08_repair_furniture_02-evidence/",
+        "tools/asset_production/d08_repair_furniture_02/",
+        "scenes/prefabs/environment/d08_repair_furniture_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d08"
+      },
+      "producer_manifest": "docs/assets/production/d08_repair_furniture_02-evidence/manifest.json",
+      "report": "docs/assets/production/d08_repair_furniture_02.md",
+      "reviewer_id": "e0900a8d-d003-4939-9827-714e35dab2e3",
+      "integrated_revision": "226c96b8"
     },
     {
       "id": "d08_repair_furniture.03",
@@ -7692,14 +7716,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d08_repair_furniture.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "db63cee3-4735-4581-9019-73f806d572fb",
+      "source_revision": "441326ae",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d08_repair_furniture_03/",
@@ -7707,8 +7731,20 @@
         "art/textures/environment/d08_repair_furniture_03/",
         "art/materials/environment/d08_repair_furniture_03/",
         "docs/assets/production/d08_repair_furniture_03.md",
-        "docs/assets/production/d08_repair_furniture_03-evidence/"
-      ]
+        "docs/assets/production/d08_repair_furniture_03-evidence/",
+        "tools/asset_production/d08_repair_furniture_03/",
+        "scenes/prefabs/environment/d08_repair_furniture_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d08"
+      },
+      "producer_manifest": "docs/assets/production/d08_repair_furniture_03-evidence/manifest.json",
+      "report": "docs/assets/production/d08_repair_furniture_03.md",
+      "reviewer_id": "e0900a8d-d003-4939-9827-714e35dab2e3",
+      "integrated_revision": "226c96b8"
     },
     {
       "id": "d08_repair_furniture.04",
@@ -7721,14 +7757,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d08_repair_furniture.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "4cbd7bf3-b140-4b00-8993-4b05045a4b7f",
+      "source_revision": "226c96b8",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 90,
       "owned_paths": [
         "art/source/models/environment/d08_repair_furniture_04/",
@@ -7736,8 +7772,20 @@
         "art/textures/environment/d08_repair_furniture_04/",
         "art/materials/environment/d08_repair_furniture_04/",
         "docs/assets/production/d08_repair_furniture_04.md",
-        "docs/assets/production/d08_repair_furniture_04-evidence/"
-      ]
+        "docs/assets/production/d08_repair_furniture_04-evidence/",
+        "tools/asset_production/d08_repair_furniture_04/",
+        "scenes/prefabs/environment/d08_repair_furniture_04.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-d08"
+      },
+      "producer_manifest": "docs/assets/production/d08_repair_furniture_04-evidence/manifest.json",
+      "report": "docs/assets/production/d08_repair_furniture_04.md",
+      "reviewer_id": "e0900a8d-d003-4939-9827-714e35dab2e3",
+      "integrated_revision": "226c96b8"
     },
     {
       "id": "d08_repair_graphics.01",
