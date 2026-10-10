@@ -45,11 +45,12 @@ recommendations and do not block P1.
   B1.1b is done: host-authoritative vehicle replication (protocol v3), per-assignment input epochs,
   local car prediction with replay and bounded corrections, and remote smoothing; real-process ENet
   correction p95 is 0.019 m direct and 0.305 m normal, but 0.822 m adverse against the 0.5 m target
-  (see `docs/spikes/m1-b1-1.md` for analysis and tuning levers). Its test-only driver assignment is
-  replaced by B1.2. Entry is host-confirmed after a
-  short ~0.3 s presentation; transfer control and camera/HUD ownership only on acceptance, with
-  no rejection snap. Preserve exit below 0.5 m/s at the authored 1.5 m offset and add production
-  clearance.
+  (see `docs/spikes/m1-b1-1.md` for analysis and tuning levers). B1.2 is done: E-key entry/exit
+  through production input (host-confirmed ~0.3 s entry, exit below 0.5 m/s with clearance),
+  same-tick claims, driver death, seated disconnect coast, reset races, foot/vehicle fencing,
+  bounded per-participant actions, and exported walk -> E -> drive -> E -> walk acceptance on host
+  and client. Remaining: the owner's P2 playtest; adverse correction p95 is about 0.79 m against
+  0.5 m (decision 57: judge by feel).
 - [ ] **M1-B2 — Implement weapons, host-current-time hit verdicts, health, damage and
   respawn (P3).** Use the delivered pistol, SMG, launcher and weapon effects with decision 21's
   playtest-tuned starting values; the shooter sees an immediate cosmetic muzzle flash and
