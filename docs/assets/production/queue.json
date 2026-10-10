@@ -7350,14 +7350,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d08_workshop_buildings.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "da203f4a-e2b3-4a26-8a86-ed2666b68f71",
+      "source_revision": "16ac6f65",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d08_workshop_buildings_01/",
@@ -7365,8 +7365,20 @@
         "art/textures/environment/d08_workshop_buildings_01/",
         "art/materials/environment/d08_workshop_buildings_01/",
         "docs/assets/production/d08_workshop_buildings_01.md",
-        "docs/assets/production/d08_workshop_buildings_01-evidence/"
-      ]
+        "docs/assets/production/d08_workshop_buildings_01-evidence/",
+        "tools/asset_production/d08_workshop_buildings_01/",
+        "scenes/prefabs/environment/d08_workshop_buildings_01.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-wshop"
+      },
+      "producer_manifest": "docs/assets/production/d08_workshop_buildings_01-evidence/manifest.json",
+      "report": "docs/assets/production/d08_workshop_buildings_01.md",
+      "reviewer_id": "f27d227e-0a2c-4cd6-ae53-17c22d32cb0b",
+      "integrated_revision": "16ac6f65"
     },
     {
       "id": "d08_workshop_buildings.02",
@@ -7379,14 +7391,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d08_workshop_buildings.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "7df1792e-6f43-46d3-b327-dc8bd8e7f549",
+      "source_revision": "16ac6f65",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d08_workshop_buildings_02/",
@@ -7394,8 +7406,20 @@
         "art/textures/environment/d08_workshop_buildings_02/",
         "art/materials/environment/d08_workshop_buildings_02/",
         "docs/assets/production/d08_workshop_buildings_02.md",
-        "docs/assets/production/d08_workshop_buildings_02-evidence/"
-      ]
+        "docs/assets/production/d08_workshop_buildings_02-evidence/",
+        "tools/asset_production/d08_workshop_buildings_02/",
+        "scenes/prefabs/environment/d08_workshop_buildings_02.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-wshop"
+      },
+      "producer_manifest": "docs/assets/production/d08_workshop_buildings_02-evidence/manifest.json",
+      "report": "docs/assets/production/d08_workshop_buildings_02.md",
+      "reviewer_id": "f27d227e-0a2c-4cd6-ae53-17c22d32cb0b",
+      "integrated_revision": "16ac6f65"
     },
     {
       "id": "d08_workshop_buildings.03",
@@ -7408,14 +7432,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d08_workshop_buildings.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "8c49783d-1796-454e-ba87-3d5ed12b9e94",
+      "source_revision": "16ac6f65",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d08_workshop_buildings_03/",
@@ -7423,8 +7447,20 @@
         "art/textures/environment/d08_workshop_buildings_03/",
         "art/materials/environment/d08_workshop_buildings_03/",
         "docs/assets/production/d08_workshop_buildings_03.md",
-        "docs/assets/production/d08_workshop_buildings_03-evidence/"
-      ]
+        "docs/assets/production/d08_workshop_buildings_03-evidence/",
+        "tools/asset_production/d08_workshop_buildings_03/",
+        "scenes/prefabs/environment/d08_workshop_buildings_03.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-wshop"
+      },
+      "producer_manifest": "docs/assets/production/d08_workshop_buildings_03-evidence/manifest.json",
+      "report": "docs/assets/production/d08_workshop_buildings_03.md",
+      "reviewer_id": "f27d227e-0a2c-4cd6-ae53-17c22d32cb0b",
+      "integrated_revision": "16ac6f65"
     },
     {
       "id": "d08_workshop_buildings.04",
@@ -7437,14 +7473,14 @@
       "input_next_action": "Refine design from district asset breakdown",
       "brief": "[Brief](../../assets/d08_workshop_buildings.md)",
       "priority": 0,
-      "status": "queued",
-      "agent_id": null,
-      "source_revision": null,
-      "review_status": "pending",
-      "integration_status": "pending",
+      "status": "production_prefab_accepted",
+      "agent_id": "2bf02761-be3a-4ab3-84b5-189817ab6ba8",
+      "source_revision": "16ac6f65",
+      "review_status": "accepted source/export/prefab scope (independent Sol review)",
+      "integration_status": "accepted",
       "placement_status": "pending",
       "blocker": null,
-      "attempts": 0,
+      "attempts": 1,
       "initial_time_cap_minutes": 120,
       "owned_paths": [
         "art/source/models/environment/d08_workshop_buildings_04/",
@@ -7452,8 +7488,20 @@
         "art/textures/environment/d08_workshop_buildings_04/",
         "art/materials/environment/d08_workshop_buildings_04/",
         "docs/assets/production/d08_workshop_buildings_04.md",
-        "docs/assets/production/d08_workshop_buildings_04-evidence/"
-      ]
+        "docs/assets/production/d08_workshop_buildings_04-evidence/",
+        "tools/asset_production/d08_workshop_buildings_04/",
+        "scenes/prefabs/environment/d08_workshop_buildings_04.tscn"
+      ],
+      "launch": {
+        "provider": "portkey/gpt-6-astra",
+        "configured_effort": "medium",
+        "mode": "orchestrator asset lane",
+        "lane": "a-wshop"
+      },
+      "producer_manifest": "docs/assets/production/d08_workshop_buildings_04-evidence/manifest.json",
+      "report": "docs/assets/production/d08_workshop_buildings_04.md",
+      "reviewer_id": "f27d227e-0a2c-4cd6-ae53-17c22d32cb0b",
+      "integrated_revision": "16ac6f65"
     },
     {
       "id": "d08_repair_furniture.01",
