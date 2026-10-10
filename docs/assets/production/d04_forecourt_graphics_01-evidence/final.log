@@ -1,0 +1,47 @@
+d04_forecourt_graphics.01 - bounded producer validation
+Worktree: lane/a-d04g. No live owner Blender/Godot session accessed.
+Full commands are in ../d04_forecourt_graphics_01.md; raw process logs are external:
+C:/tmp/ft/assets/d04_forecourt_graphics_01/
+
+Final successful commands (exit 0):
+- Python/Pillow 12.3.0 artwork.py: original 1536x256 RGB atlas.
+- python -m unittest discover: 5/5 broad-band tests; exact PNG byte reproduction.
+- Blender 5.2.2 LTS d13f752e3b9c author.py: source and explicit collection GLB.
+- Blender validate.py: source and decoded GLB checks; fresh saved-source byte identity.
+  4 source/export vertices, 2 triangles, 1 mesh/surface. Zero degenerate faces/triangles.
+  Four justified boundary edges, zero non-boundary nonmanifold edges, unit upward normals.
+  Bounds (-12,.015,-2) to (12,.015,2). GLB 1400 bytes, no embedded images.
+- Blender preview.py: four 1280x720 PNGs, all individually below 210 KB.
+  Cycles CPU 24 samples; 47m/42deg north-up perspective overhead. Visually inspected.
+- Python py_compile: all seven owned Python source/test/receipt files pass.
+- gdstyle 0.3.0 fmt --check: 1 file already formatted.
+- gdstyle --max-line-length 100 --max-warnings 0: 1 file, no issues.
+- Pinned Godot 4.8.dev7.official.c971f93e7 imports: no ERROR/SCRIPT ERROR lines.
+- Headless editor check_prefab.gd --normalize: two byte-stable prefab/material rounds,
+  retained UIDs/node identities; assertions pass. See shutdown limitation below.
+- Final non-editor check_prefab.gd: ok=true, failures=[], no ERROR/SCRIPT ERROR lines.
+  One external material, actual mipmaps, linked identity mesh, no collision or overrides.
+  Imported CPU RGB8 image including mips: 1572870 bytes.
+- Earlier d04_corporate_graphics_01/02/03 record.py: all current manifests verified;
+  no resolved stale sibling pending entry was present.
+
+All Blender calls used timeout <=900, -noaudio --background --factory-startup --threads 4
+--python-exit-code 1 and ALSOFT_DRIVERS=null SDL_AUDIODRIVER=dummy.
+All Godot calls used timeout <=300 for imports or <=180 for checks. No production_checks.py.
+
+Corrected initial owned failures:
+- Audit adaptation replaced 'court' inside the new record/node name: missing-path then
+  node-name assertion failures. Names corrected, erroneous owned export removed, source
+  and GLB rebuilt; final source/export audit passes all original assertions.
+- One GDScript constant exceeded 100 characters; wrapped and format/lint rerun successfully.
+
+Diagnostic limitations (not suppressed):
+- Headless editor normalization exits 0 but emits scan-aborted and RID/ObjectDB leak
+  shutdown diagnostics (168 objects), matching sibling reports. No empty baseline rerun.
+  This is a byte-stability assertion pass, NOT a clean editor-shutdown claim.
+- Ordinary import retains the known toolkit tested-4.7/current-4.8 warning.
+- Blender uses the pinned API and emits future use_nodes deprecation notices.
+
+Independent review, final footprint/world placement, populated Godot visual/moving-camera
+and tower-shadow checks, feet/tyres, repeated-placement/device performance remain pending.
+No new ground collision, actor/car movement, network transport or target-device claim.
